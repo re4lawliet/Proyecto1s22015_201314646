@@ -2,6 +2,7 @@
 
 <xs:element name="Agregar" type="tns:Agregar"/>
 
+<<<<<<< HEAD
 <xs:element name="AgregarAvlAdmin" type="tns:AgregarAvlAdmin"/>
 
 <xs:element name="AgregarAvlAdminResponse" type="tns:AgregarAvlAdminResponse"/>
@@ -52,10 +53,15 @@
 
 <xs:element name="LogearEstacionesResponse" type="tns:LogearEstacionesResponse"/>
 
+=======
+<xs:element name="AgregarResponse" type="tns:AgregarResponse"/>
+
+>>>>>>> origin/master
 <xs:element name="Volumen" type="tns:Volumen"/>
 
 <xs:element name="VolumenResponse" type="tns:VolumenResponse"/>
 
+<<<<<<< HEAD
 <xs:element name="getAdmin" type="tns:getAdmin"/>
 
 <xs:element name="getAdminNombre" type="tns:getAdminNombre"/>
@@ -209,6 +215,8 @@
 <xs:sequence/>
 </xs:complexType>
 
+=======
+>>>>>>> origin/master
 <xs:complexType name="Volumen">
 <xs:sequence>
 <xs:element name="radio" type="xs:int"/>
@@ -230,6 +238,7 @@
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
+<<<<<<< HEAD
 
 <xs:complexType name="LogearChofer">
 <xs:sequence>
@@ -257,4 +266,6 @@
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
+=======
+>>>>>>> origin/master
 </xs:schema>

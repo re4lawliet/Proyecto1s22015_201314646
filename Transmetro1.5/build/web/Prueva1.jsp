@@ -21,9 +21,17 @@
         </form>
           
     
+<<<<<<< HEAD
       <%-- start web service invocation --%><hr/>
     <%
     if (request.getParameter("caja1") != null){ 
+=======
+
+
+
+    <%-- start web service invocation --%><hr/>
+    <%
+>>>>>>> origin/master
     try {
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
@@ -32,6 +40,7 @@
 	// TODO process result here
 	int result = port.volumen(radio);
 	out.println("Result = "+result);
+<<<<<<< HEAD
         response.sendRedirect("CrearUsuarioAdministrador.jsp");
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
@@ -44,6 +53,14 @@
 
 
 
+=======
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+>>>>>>> origin/master
         
     </body>
 </html>

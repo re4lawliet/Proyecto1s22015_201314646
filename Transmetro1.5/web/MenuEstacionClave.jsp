@@ -22,9 +22,16 @@
         
         <div id="menu">
         	<ul>
+<<<<<<< HEAD
             	<<li class="menuitem"><a href="MenuEstacionClave.jsp">MenuEstacionClave</a></li>
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
+=======
+            	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuEstacionClave</a></li>
+                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
+                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
+                
+>>>>>>> origin/master
             </ul>
         </div>
         

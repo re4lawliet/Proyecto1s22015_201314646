@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+<<<<<<< HEAD
     private final static QName _BorrarResponse_QNAME = new QName("http://Servicio/", "BorrarResponse");
     private final static QName _LogearChofer_QNAME = new QName("http://Servicio/", "LogearChofer");
     private final static QName _ExisteAdmin_QNAME = new QName("http://Servicio/", "ExisteAdmin");
@@ -56,6 +57,12 @@ public class ObjectFactory {
     private final static QName _LogearEstacionesResponse_QNAME = new QName("http://Servicio/", "LogearEstacionesResponse");
     private final static QName _GraficarArbolAdministrador_QNAME = new QName("http://Servicio/", "GraficarArbolAdministrador");
     private final static QName _AgregarAvlAdminResponse_QNAME = new QName("http://Servicio/", "AgregarAvlAdminResponse");
+=======
+    private final static QName _Agregar_QNAME = new QName("http://Servicio/", "Agregar");
+    private final static QName _AgregarResponse_QNAME = new QName("http://Servicio/", "AgregarResponse");
+    private final static QName _Volumen_QNAME = new QName("http://Servicio/", "Volumen");
+    private final static QName _VolumenResponse_QNAME = new QName("http://Servicio/", "VolumenResponse");
+>>>>>>> origin/master
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: servicio
@@ -65,6 +72,7 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
      * Create an instance of {@link InsertarAdminResponse }
      * 
      */
@@ -105,6 +113,8 @@ public class ObjectFactory {
     }
 
     /**
+=======
+>>>>>>> origin/master
      * Create an instance of {@link Agregar }
      * 
      */
@@ -113,6 +123,7 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
      * Create an instance of {@link LogearChoferResponse }
      * 
      */
@@ -201,6 +212,8 @@ public class ObjectFactory {
     }
 
     /**
+=======
+>>>>>>> origin/master
      * Create an instance of {@link AgregarResponse }
      * 
      */
@@ -209,6 +222,7 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
      * Create an instance of {@link LogearEstacionesGeneralesResponse }
      * 
      */
@@ -310,6 +324,13 @@ public class ObjectFactory {
      */
     public ImprimirAvlAdmin createImprimirAvlAdmin() {
         return new ImprimirAvlAdmin();
+=======
+     * Create an instance of {@link Volumen }
+     * 
+     */
+    public Volumen createVolumen() {
+        return new Volumen();
+>>>>>>> origin/master
     }
 
     /**
@@ -321,6 +342,7 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
      * Create an instance of {@link NodoAdministrador }
      * 
      */
@@ -473,6 +495,8 @@ public class ObjectFactory {
     }
 
     /**
+=======
+>>>>>>> origin/master
      * Create an instance of {@link JAXBElement }{@code <}{@link Agregar }{@code >}}
      * 
      */
@@ -482,6 +506,7 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
      * Create an instance of {@link JAXBElement }{@code <}{@link LogearChoferResponse }{@code >}}
      * 
      */
@@ -551,6 +576,14 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "LogearAdminResponse")
     public JAXBElement<LogearAdminResponse> createLogearAdminResponse(LogearAdminResponse value) {
         return new JAXBElement<LogearAdminResponse>(_LogearAdminResponse_QNAME, LogearAdminResponse.class, null, value);
+=======
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "AgregarResponse")
+    public JAXBElement<AgregarResponse> createAgregarResponse(AgregarResponse value) {
+        return new JAXBElement<AgregarResponse>(_AgregarResponse_QNAME, AgregarResponse.class, null, value);
+>>>>>>> origin/master
     }
 
     /**
@@ -563,6 +596,7 @@ public class ObjectFactory {
     }
 
     /**
+<<<<<<< HEAD
      * Create an instance of {@link JAXBElement }{@code <}{@link LogearEstaciones }{@code >}}
      * 
      */
@@ -614,6 +648,14 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "AgregarAvlAdminResponse")
     public JAXBElement<AgregarAvlAdminResponse> createAgregarAvlAdminResponse(AgregarAvlAdminResponse value) {
         return new JAXBElement<AgregarAvlAdminResponse>(_AgregarAvlAdminResponse_QNAME, AgregarAvlAdminResponse.class, null, value);
+=======
+     * Create an instance of {@link JAXBElement }{@code <}{@link VolumenResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "VolumenResponse")
+    public JAXBElement<VolumenResponse> createVolumenResponse(VolumenResponse value) {
+        return new JAXBElement<VolumenResponse>(_VolumenResponse_QNAME, VolumenResponse.class, null, value);
+>>>>>>> origin/master
     }
 
 }

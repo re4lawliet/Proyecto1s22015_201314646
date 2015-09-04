@@ -6,7 +6,10 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,7 +18,10 @@
 </head>
 
 <body>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 <div id="container">
 		<div id="header">
         	<h1>Transmetro<span class="off">Guatemala</span></h1>
@@ -34,6 +40,7 @@
         <div id="leftmenu">
 
        
+<<<<<<< HEAD
               <div id="leftmenu_top"></div>
 
 				<div id="leftmenu_main">    
@@ -46,6 +53,9 @@
                     <li><a href="loginChofer.jsp">Login Chofer</a></li>
                 </ul>
 </div>  
+=======
+                
+>>>>>>> origin/master
                 
               <div id="leftmenu_bottom"></div>
         </div>
@@ -64,6 +74,7 @@
        	  <h3>Ingrese Datos:</h3>
           <br>
           <br>
+<<<<<<< HEAD
           <form action="login.jsp" method="POST">
               <h5>Correo:</h5>
               <input type="text" name="usuario" value="usuario" />
@@ -108,6 +119,21 @@
     %>
     <%-- end web service invocation --%><hr/>
               
+=======
+          <form action="index.html" method="POST">
+              <h5>Usuario:</h5>
+              <input type="text" name="usuario" value="" />
+              <br>
+              <br>
+              <h5>Contraseña:</h5>
+              <input type="password" name="contraseña" value="" />
+              <br>
+              <br>    
+              <input type="submit" value="Iniciar Sesion" />
+              
+          </form>
+
+>>>>>>> origin/master
         </div>
         <div id="content_bottom"></div>
             

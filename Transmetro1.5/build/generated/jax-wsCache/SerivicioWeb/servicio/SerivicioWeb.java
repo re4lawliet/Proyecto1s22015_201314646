@@ -1,7 +1,10 @@
 
 package servicio;
 
+<<<<<<< HEAD
 import java.util.List;
+=======
+>>>>>>> origin/master
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -27,6 +30,7 @@ public interface SerivicioWeb {
 
     /**
      * 
+<<<<<<< HEAD
      * @param nombre
      * @return
      *     returns java.lang.String
@@ -129,6 +133,8 @@ public interface SerivicioWeb {
 
     /**
      * 
+=======
+>>>>>>> origin/master
      * @param radio
      * @return
      *     returns int
@@ -144,6 +150,7 @@ public interface SerivicioWeb {
 
     /**
      * 
+<<<<<<< HEAD
      * @param id
      * @param contraseña
      * @return
@@ -267,5 +274,16 @@ public interface SerivicioWeb {
     public String getAdmin(
         @WebParam(name = "iteracion", targetNamespace = "")
         int iteracion);
+=======
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "Agregar")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Agregar", targetNamespace = "http://Servicio/", className = "servicio.Agregar")
+    @ResponseWrapper(localName = "AgregarResponse", targetNamespace = "http://Servicio/", className = "servicio.AgregarResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/AgregarRequest", output = "http://Servicio/SerivicioWeb/AgregarResponse")
+    public String agregar();
+>>>>>>> origin/master
 
 }

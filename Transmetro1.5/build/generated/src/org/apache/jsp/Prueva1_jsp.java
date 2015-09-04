@@ -60,11 +60,21 @@ public final class Prueva1_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </form>\n");
       out.write("          \n");
       out.write("    \n");
+<<<<<<< HEAD
       out.write("      ");
       out.write("<hr/>\n");
       out.write("    ");
 
     if (request.getParameter("caja1") != null){ 
+=======
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("    ");
+      out.write("<hr/>\n");
+      out.write("    ");
+
+>>>>>>> origin/master
     try {
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
@@ -73,20 +83,29 @@ public final class Prueva1_jsp extends org.apache.jasper.runtime.HttpJspBase
 	// TODO process result here
 	int result = port.volumen(radio);
 	out.println("Result = "+result);
+<<<<<<< HEAD
         response.sendRedirect("CrearUsuarioAdministrador.jsp");
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
     }
+=======
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+>>>>>>> origin/master
     
       out.write("\n");
       out.write("    ");
       out.write("<hr/>\n");
       out.write("\n");
+<<<<<<< HEAD
       out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
+=======
+>>>>>>> origin/master
       out.write("        \n");
       out.write("    </body>\n");
       out.write("</html>\n");

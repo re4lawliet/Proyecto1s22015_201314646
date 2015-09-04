@@ -23,8 +23,14 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
+<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
+=======
+                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
+                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
+                
+>>>>>>> origin/master
             </ul>
         </div>
         
@@ -73,11 +79,14 @@
                       <input type="text" name="apellido" value="" />
                       <br>
                       <br>
+<<<<<<< HEAD
                        <h5>Clave: </h5>
                       <br>
                       <input type="text" name="clave" value="" />
                       <br>
                       <br>                          
+=======
+>>>>>>> origin/master
                       <h5>Contraseña: </h5>
                       <br>
                       <input type="text" name="contraseña" value="" />

@@ -23,8 +23,13 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
+<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
+=======
+                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
+                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
+>>>>>>> origin/master
                 
             </ul>
         </div>
@@ -38,7 +43,10 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
+<<<<<<< HEAD
                     <li><a href="MostrarAdministradores.jsp">Tabla De Administradores</a></li>
+=======
+>>>>>>> origin/master
                     <li><a href="CrearUsuarioAdministrador.jsp">Crear Administradores</a></li>
                     <li><a href="ModificarUsuarioAdministrador.jsp">Modificar Administradores</a></li>
                     <li><a href="EliminarUsuarioAdministrador.jsp">Eliminar Administradores</a></li>
@@ -63,7 +71,11 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
+<<<<<<< HEAD
                     <form action="CrearUsuarioAdministrador.jsp" method="POST">
+=======
+                    <form action="lol" method="POST">
+>>>>>>> origin/master
                         <br>
                         
                       <h5>Correo Electronico: </h5>  
@@ -73,17 +85,22 @@
                       <br>
                       <h5>Contraseña: </h5>
                       <br>
+<<<<<<< HEAD
                           <input type="password" name="contraAdmin" value="contraAdmin" />
                       <br>
                       <br>
                       <h5>Clave: </h5>  
                       <br>
                       <input type="text" name="clave" value="" />
+=======
+                      <input type="text" name="contraseña" value="" />
+>>>>>>> origin/master
                       <br>
                       <br>
                       <input type="submit" value="CREAR" />
                       
                     </form>
+<<<<<<< HEAD
                 
                     <%-- start web service invocation --%><hr/>
     <%
@@ -117,6 +134,8 @@
     %>
     <%-- end web service invocation --%><hr/>
 
+=======
+>>>>>>> origin/master
                     
         </div>
         <div id="content_bottom"></div>

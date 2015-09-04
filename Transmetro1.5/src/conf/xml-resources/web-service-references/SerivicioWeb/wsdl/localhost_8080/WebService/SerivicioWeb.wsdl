@@ -4,6 +4,7 @@
 <xsd:import namespace="http://Servicio/" schemaLocation="http://localhost:8080/WebService/SerivicioWeb?xsd=1"/>
 </xsd:schema>
 </types>
+<<<<<<< HEAD
 <message name="Borrar">
 <part name="parameters" element="tns:Borrar"/>
 </message>
@@ -46,12 +47,15 @@
 <message name="LogearAdminResponse">
 <part name="parameters" element="tns:LogearAdminResponse"/>
 </message>
+=======
+>>>>>>> origin/master
 <message name="Volumen">
 <part name="parameters" element="tns:Volumen"/>
 </message>
 <message name="VolumenResponse">
 <part name="parameters" element="tns:VolumenResponse"/>
 </message>
+<<<<<<< HEAD
 <message name="LogearChofer">
 <part name="parameters" element="tns:LogearChofer"/>
 </message>
@@ -129,10 +133,20 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/LogearAdminRequest" message="tns:LogearAdmin"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/LogearAdminResponse" message="tns:LogearAdminResponse"/>
 </operation>
+=======
+<message name="Agregar">
+<part name="parameters" element="tns:Agregar"/>
+</message>
+<message name="AgregarResponse">
+<part name="parameters" element="tns:AgregarResponse"/>
+</message>
+<portType name="SerivicioWeb">
+>>>>>>> origin/master
 <operation name="Volumen">
 <input wsam:Action="http://Servicio/SerivicioWeb/VolumenRequest" message="tns:Volumen"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/VolumenResponse" message="tns:VolumenResponse"/>
 </operation>
+<<<<<<< HEAD
 <operation name="LogearChofer">
 <input wsam:Action="http://Servicio/SerivicioWeb/LogearChoferRequest" message="tns:LogearChofer"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/LogearChoferResponse" message="tns:LogearChoferResponse"/>
@@ -164,10 +178,16 @@
 <operation name="getAdmin">
 <input wsam:Action="http://Servicio/SerivicioWeb/getAdminRequest" message="tns:getAdmin"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/getAdminResponse" message="tns:getAdminResponse"/>
+=======
+<operation name="Agregar">
+<input wsam:Action="http://Servicio/SerivicioWeb/AgregarRequest" message="tns:Agregar"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AgregarResponse" message="tns:AgregarResponse"/>
+>>>>>>> origin/master
 </operation>
 </portType>
 <binding name="SerivicioWebPortBinding" type="tns:SerivicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<<<<<<< HEAD
 <operation name="Borrar">
 <soap:operation soapAction=""/>
 <input>
@@ -231,6 +251,8 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+=======
+>>>>>>> origin/master
 <operation name="Volumen">
 <soap:operation soapAction=""/>
 <input>
@@ -240,6 +262,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<<<<<<< HEAD
 <operation name="LogearChofer">
 <soap:operation soapAction=""/>
 <input>
@@ -304,6 +327,9 @@
 </output>
 </operation>
 <operation name="getAdmin">
+=======
+<operation name="Agregar">
+>>>>>>> origin/master
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

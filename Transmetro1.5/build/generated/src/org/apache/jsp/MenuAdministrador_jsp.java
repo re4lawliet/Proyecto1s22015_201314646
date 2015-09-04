@@ -63,7 +63,11 @@ public final class MenuAdministrador_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("        \t<ul>\n");
       out.write("            \t<<li class=\"menuitem\"><a href=\"MenuAdministrador.jsp\">MenuAdmin</a></li>\n");
       out.write("                <li class=\"menuitem\"><a href=\"/index.jsp\">Acerca de</a></li>\n");
+<<<<<<< HEAD
       out.write("                <li class=\"menuitem\"><a href=\"index.jsp\">Cerrar Sesion</a></li>\n");
+=======
+      out.write("                <li class=\"menuitem\"><a href=\"\">Cerrar Sesion</a></li>\n");
+>>>>>>> origin/master
       out.write("                \n");
       out.write("            </ul>\n");
       out.write("        </div>\n");
@@ -84,8 +88,13 @@ public final class MenuAdministrador_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                    <h3><font color=\"yellow\">AdministrarUsuarios:</font></h3>                   \n");
       out.write("                    <li><a href=\"CrearUsuarioAdministrador.jsp\">Administradores:</a></li>\n");
       out.write("                    <li><a href=\"CrearUsuarioEstacionClave.jsp\">Estaciones Claves:</a></li>\n");
+<<<<<<< HEAD
       out.write("                    <li><a href=\"CrearUsuarioEstacionGeneral.jsp\">Estaciones Generales:</a></li>\n");
       out.write("                    <li><a href=\"CrearUsuarioChofer.jsp\">Choferes:</a></li>\n");
+=======
+      out.write("                    <li><a href=\"#\">Estaciones Generales:</a></li>\n");
+      out.write("                    <li><a href=\"#\">Choferes:</a></li>\n");
+>>>>>>> origin/master
       out.write("                    </br>\n");
       out.write("                    <h3><font color=\"yellow\">Reportes:</font></h3>\n");
       out.write("                    <li><a href=\"#\">Resumen</a></li>\n");
@@ -105,6 +114,7 @@ public final class MenuAdministrador_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("        \n");
       out.write("        <div id=\"content_top\"></div>\n");
       out.write("        <div id=\"content_main\">\n");
+<<<<<<< HEAD
       out.write("             \t<h2> Informacion: Carlos Monterroso Barrios 201314646 </h2>\n");
       out.write("        \t<p>&nbsp;</p>\n");
       out.write("           \t<p>&nbsp;</p>\n");
@@ -118,6 +128,36 @@ public final class MenuAdministrador_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("       \t  <p>&nbsp;</p>\n");
       out.write("        \t<h3>Implementacion</h3>\n");
       out.write("          <p>Se deberá crear una aplicación web con Java, HTML y un Web services en Java que cumpla las descripciones para los sistemas de usuarios, paradas de control, paradas generales. El Web service tiene que tener todas las estructuras específicas a continuación.</p>\n");
+=======
+      out.write("        \t<h2>You may use this template in any manner you like. All I ask is that you leave\n");
+      out.write("                    the link back to my site at the bottom of the page. </h2>\n");
+      out.write("        \t<p>&nbsp;</p>\n");
+      out.write("           \t<p>&nbsp;</p>\n");
+      out.write("       \t  <h3>Template Notes</h3>\n");
+      out.write("       \t  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor \n");
+      out.write("              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud \n");
+      out.write("              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute \n");
+      out.write("              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla \n");
+      out.write("              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia \n");
+      out.write("              deserunt mollit anim id est laborum.</p>\n");
+      out.write("        \t<p>&nbsp;</p>\n");
+      out.write("<h3>More information</h3>\n");
+      out.write("        \t<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor\n");
+      out.write("                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis\n");
+      out.write("                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n");
+      out.write("                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore \n");
+      out.write("                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt \n");
+      out.write("                    in culpa qui officia deserunt mollit anim id est laborum.</p>\n");
+      out.write("       \t  <p>&nbsp;</p>\n");
+      out.write("        \t<h3>Template Notes</h3>\n");
+      out.write("            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor \n");
+      out.write("                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis \n");
+      out.write("                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n");
+      out.write("                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu \n");
+      out.write("                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in \n");
+      out.write("                culpa qui officia deserunt mollit anim id est laborum.</p>\n");
+      out.write("          <p></p>\n");
+>>>>>>> origin/master
       out.write("<p>&nbsp;</p>\n");
       out.write("        </div>\n");
       out.write("        <div id=\"content_bottom\"></div>\n");

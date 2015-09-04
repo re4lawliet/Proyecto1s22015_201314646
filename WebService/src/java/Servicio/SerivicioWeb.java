@@ -5,9 +5,12 @@
  */
 package Servicio;
 
+<<<<<<< HEAD
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+=======
+>>>>>>> origin/master
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -19,6 +22,7 @@ import javax.jws.WebParam;
 @WebService(serviceName = "SerivicioWeb")
 public class SerivicioWeb {
     
+<<<<<<< HEAD
     public ListaBuses Lista = new ListaBuses ();
     public ArbolAvlAdmin Arbol1=new ArbolAvlAdmin ();
     
@@ -32,6 +36,9 @@ public class SerivicioWeb {
     public String impresor="";
     public ArrayList <String> ListaAdmins= new ArrayList <> ();
     public boolean ValidarOperacion=false;//ESta ES PARA VER SI IMPRime solo nombres o imprime todo los datos del nodo
+=======
+    public ListaDobleBuses Lista = new ListaDobleBuses ();
+>>>>>>> origin/master
     
     /**
      * This is a sample web service operation
@@ -57,7 +64,11 @@ public class SerivicioWeb {
   String datos="<-a-s->";
                 if (!Lista.esVacia()){ //si no esta vacia porlomenos tiene un nodo
             
+<<<<<<< HEAD
             NodoBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
+=======
+            NodoDobleBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
+>>>>>>> origin/master
             
             while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
             datos = datos + "["+auxiliar.dato.nombre+"]<-a-s->"; //mostrar de esta forma
@@ -81,13 +92,18 @@ public class SerivicioWeb {
     public String Borrar(@WebParam(name = "nombre") String nombre) {
         //TODO write your implementation code here:
         
+<<<<<<< HEAD
         NodoBuses x =Lista.Busqueda(nombre);
+=======
+        NodoDobleBuses x =Lista.Busqueda(nombre);
+>>>>>>> origin/master
         
         Lista.EliminarBicho(x);
         
         return x.dato.id+"";
     }
 
+<<<<<<< HEAD
     /**
      * Web service operation
      */
@@ -362,6 +378,8 @@ public class SerivicioWeb {
     }
 
     
+=======
+>>>>>>> origin/master
 
     
     
