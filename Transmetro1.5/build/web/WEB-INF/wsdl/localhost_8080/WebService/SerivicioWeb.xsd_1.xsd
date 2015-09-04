@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://Servicio/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://Servicio/">
+
+<xs:element name="Agregar" type="tns:Agregar"/>
+
+<xs:element name="AgregarAvlAdmin" type="tns:AgregarAvlAdmin"/>
+
+<xs:element name="AgregarAvlAdminResponse" type="tns:AgregarAvlAdminResponse"/>
+
+<xs:element name="AgregarResponse" type="tns:AgregarResponse"/>
+
+<xs:element name="Borrar" type="tns:Borrar"/>
+
+<xs:element name="BorrarResponse" type="tns:BorrarResponse"/>
+
+<xs:element name="ExisteAdmin" type="tns:ExisteAdmin"/>
+
+<xs:element name="ExisteAdminResponse" type="tns:ExisteAdminResponse"/>
+
+<xs:element name="GraficarArbolAdministrador" type="tns:GraficarArbolAdministrador"/>
+
+<xs:element name="GraficarArbolAdministradorResponse" type="tns:GraficarArbolAdministradorResponse"/>
+
+<xs:element name="ImprimirAdminRetorno" type="tns:ImprimirAdminRetorno"/>
+
+<xs:element name="ImprimirAdminRetornoResponse" type="tns:ImprimirAdminRetornoResponse"/>
+
+<xs:element name="ImprimirAdmins" type="tns:ImprimirAdmins"/>
+
+<xs:element name="ImprimirAdminsResponse" type="tns:ImprimirAdminsResponse"/>
+
+<xs:element name="ImprimirAvlAdmin" type="tns:ImprimirAvlAdmin"/>
+
+<xs:element name="ImprimirAvlAdminResponse" type="tns:ImprimirAvlAdminResponse"/>
+
+<xs:element name="InsertarAdmin" type="tns:InsertarAdmin"/>
+
+<xs:element name="InsertarAdminResponse" type="tns:InsertarAdminResponse"/>
+
+<xs:element name="LogearAdmin" type="tns:LogearAdmin"/>
+
+<xs:element name="LogearAdminResponse" type="tns:LogearAdminResponse"/>
+
+<xs:element name="LogearChofer" type="tns:LogearChofer"/>
+
+<xs:element name="LogearChoferResponse" type="tns:LogearChoferResponse"/>
+
+<xs:element name="LogearEstaciones" type="tns:LogearEstaciones"/>
+
+<xs:element name="LogearEstacionesGenerales" type="tns:LogearEstacionesGenerales"/>
+
+<xs:element name="LogearEstacionesGeneralesResponse" type="tns:LogearEstacionesGeneralesResponse"/>
+
+<xs:element name="LogearEstacionesResponse" type="tns:LogearEstacionesResponse"/>
+
+<xs:element name="Volumen" type="tns:Volumen"/>
+
+<xs:element name="VolumenResponse" type="tns:VolumenResponse"/>
+
+<xs:element name="getAdmin" type="tns:getAdmin"/>
+
+<xs:element name="getAdminNombre" type="tns:getAdminNombre"/>
+
+<xs:element name="getAdminNombreResponse" type="tns:getAdminNombreResponse"/>
+
+<xs:element name="getAdminResponse" type="tns:getAdminResponse"/>
+
+<xs:complexType name="LogearEstaciones">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombreEstacion" type="xs:string" minOccurs="0"/>
+<xs:element name="contraseña" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearEstacionesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Borrar">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BorrarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ImprimirAdmins">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoAdministrador" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoAdministrador">
+<xs:sequence>
+<xs:element name="ingreso" type="xs:int"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contraseña" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ImprimirAdminsResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getAdminNombre">
+<xs:sequence>
+<xs:element name="iteracion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminNombreResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="GraficarArbolAdministrador">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="GraficarArbolAdministradorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdmin">
+<xs:sequence>
+<xs:element name="iteracion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarAvlAdmin">
+<xs:sequence>
+<xs:element name="parameter" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AgregarAvlAdminResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ImprimirAdminRetorno">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ImprimirAdminRetornoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ExisteAdmin">
+<xs:sequence>
+<xs:element name="clave" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ExisteAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearAdmin">
+<xs:sequence>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contraseña" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearEstacionesGenerales">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="contra" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearEstacionesGeneralesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ImprimirAvlAdmin">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ImprimirAvlAdminResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="Volumen">
+<xs:sequence>
+<xs:element name="radio" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="VolumenResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Agregar">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AgregarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearChofer">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="contraseña" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="LogearChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarAdmin">
+<xs:sequence>
+<xs:element name="clave" type="xs:int"/>
+<xs:element name="correo" type="xs:string" minOccurs="0"/>
+<xs:element name="contraseña" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="InsertarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
