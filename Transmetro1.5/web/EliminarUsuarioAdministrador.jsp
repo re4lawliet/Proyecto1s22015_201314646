@@ -22,17 +22,10 @@
         
         <div id="menu">
         	<ul>
-<<<<<<< HEAD
                 
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-            	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
-                
->>>>>>> origin/master
             </ul>
         </div>
         
@@ -45,10 +38,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
-<<<<<<< HEAD
                     <li><a href="MostrarAdministradores.jsp">Tabla De Administradores</a></li>
-=======
->>>>>>> origin/master
                     <li><a href="CrearUsuarioAdministrador.jsp">Crear Administradores</a></li>
                     <li><a href="ModificarUsuarioAdministrador.jsp">Modificar Administradores</a></li>
                     <li><a href="EliminarUsuarioAdministrador.jsp">Eliminar Administradores</a></li>
@@ -78,7 +68,6 @@
                       <h5>Seleccione El Que desea Eliminar: </h5> 
                       <br>
                       <select name="ListaAdmins">
-<<<<<<< HEAD
                                                       <%-- start web service invocation --%><hr/>
     <%
     try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
@@ -112,10 +101,6 @@
     }
     %>
     <%-- end web service invocation --%><hr/>
-=======
-                          <option>admin1</option>
-                          <option>admin2</option>
->>>>>>> origin/master
                       </select>
                       <br>
                       <br>    
@@ -123,11 +108,8 @@
                       
                     </form>
                     
-<<<<<<< HEAD
                 
                 
-=======
->>>>>>> origin/master
         </div>
         <div id="content_bottom"></div>
             

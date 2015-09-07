@@ -374,8 +374,16 @@ public class ArbolAdministradores {
         
         //--------------------Modificar---------------------------------------------
         //ES una busqueda pero insertando los parametros nuevos al objeto encontrado
-        public void Modificar(NodoAdministrador R){
-            
+        public String ModificarArbol(NodoAdministrador R, String CorreoBusqueda,String CorreoNuevo, String Contra){
+            String text="";
+            if (BuscarPorCorreo(R,CorreoBusqueda).ingreso==-555){
+            text="No SE Modifico Xq No Existe Ese DAto";
+            }else{
+               BuscarPorCorreo(R,CorreoBusqueda).correo=CorreoNuevo;
+               BuscarPorCorreo(R,CorreoBusqueda).contraseña=Contra;
+               text="SE MODIFICO A: "+BuscarPorCorreo(R,CorreoBusqueda).correo+" Contraseña: "+BuscarPorCorreo(R,CorreoBusqueda).contraseña+"";
+            }
+            return text;
         }
         
         //--------------------Fin---------------------------------------------------
@@ -522,5 +530,8 @@ ex.printStackTrace();
     }
         
 //::::::::::::::::::::FIN:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  
+        
+        
         
 }

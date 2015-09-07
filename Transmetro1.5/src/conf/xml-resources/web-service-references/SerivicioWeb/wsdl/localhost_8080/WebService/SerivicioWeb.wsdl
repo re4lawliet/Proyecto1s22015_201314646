@@ -4,24 +4,11 @@
 <xsd:import namespace="http://Servicio/" schemaLocation="http://localhost:8080/WebService/SerivicioWeb?xsd=1"/>
 </xsd:schema>
 </types>
-<<<<<<< HEAD
-<message name="Borrar">
-<part name="parameters" element="tns:Borrar"/>
+<message name="Volumen">
+<part name="parameters" element="tns:Volumen"/>
 </message>
-<message name="BorrarResponse">
-<part name="parameters" element="tns:BorrarResponse"/>
-</message>
-<message name="InsertarAdmin">
-<part name="parameters" element="tns:InsertarAdmin"/>
-</message>
-<message name="InsertarAdminResponse">
-<part name="parameters" element="tns:InsertarAdminResponse"/>
-</message>
-<message name="ExisteAdmin">
-<part name="parameters" element="tns:ExisteAdmin"/>
-</message>
-<message name="ExisteAdminResponse">
-<part name="parameters" element="tns:ExisteAdminResponse"/>
+<message name="VolumenResponse">
+<part name="parameters" element="tns:VolumenResponse"/>
 </message>
 <message name="Agregar">
 <part name="parameters" element="tns:Agregar"/>
@@ -47,20 +34,11 @@
 <message name="LogearAdminResponse">
 <part name="parameters" element="tns:LogearAdminResponse"/>
 </message>
-=======
->>>>>>> origin/master
-<message name="Volumen">
-<part name="parameters" element="tns:Volumen"/>
+<message name="LogearEstaciones">
+<part name="parameters" element="tns:LogearEstaciones"/>
 </message>
-<message name="VolumenResponse">
-<part name="parameters" element="tns:VolumenResponse"/>
-</message>
-<<<<<<< HEAD
-<message name="LogearChofer">
-<part name="parameters" element="tns:LogearChofer"/>
-</message>
-<message name="LogearChoferResponse">
-<part name="parameters" element="tns:LogearChoferResponse"/>
+<message name="LogearEstacionesResponse">
+<part name="parameters" element="tns:LogearEstacionesResponse"/>
 </message>
 <message name="LogearEstacionesGenerales">
 <part name="parameters" element="tns:LogearEstacionesGenerales"/>
@@ -68,11 +46,23 @@
 <message name="LogearEstacionesGeneralesResponse">
 <part name="parameters" element="tns:LogearEstacionesGeneralesResponse"/>
 </message>
-<message name="ImprimirAdminRetorno">
-<part name="parameters" element="tns:ImprimirAdminRetorno"/>
+<message name="LogearChofer">
+<part name="parameters" element="tns:LogearChofer"/>
 </message>
-<message name="ImprimirAdminRetornoResponse">
-<part name="parameters" element="tns:ImprimirAdminRetornoResponse"/>
+<message name="LogearChoferResponse">
+<part name="parameters" element="tns:LogearChoferResponse"/>
+</message>
+<message name="ExisteAdmin">
+<part name="parameters" element="tns:ExisteAdmin"/>
+</message>
+<message name="ExisteAdminResponse">
+<part name="parameters" element="tns:ExisteAdminResponse"/>
+</message>
+<message name="InsertarAdmin">
+<part name="parameters" element="tns:InsertarAdmin"/>
+</message>
+<message name="InsertarAdminResponse">
+<part name="parameters" element="tns:InsertarAdminResponse"/>
 </message>
 <message name="ImprimirAdmins">
 <part name="parameters" element="tns:ImprimirAdmins"/>
@@ -80,11 +70,17 @@
 <message name="ImprimirAdminsResponse">
 <part name="parameters" element="tns:ImprimirAdminsResponse"/>
 </message>
-<message name="LogearEstaciones">
-<part name="parameters" element="tns:LogearEstaciones"/>
+<message name="ImprimirAdminRetorno">
+<part name="parameters" element="tns:ImprimirAdminRetorno"/>
 </message>
-<message name="LogearEstacionesResponse">
-<part name="parameters" element="tns:LogearEstacionesResponse"/>
+<message name="ImprimirAdminRetornoResponse">
+<part name="parameters" element="tns:ImprimirAdminRetornoResponse"/>
+</message>
+<message name="getAdminNombre">
+<part name="parameters" element="tns:getAdminNombre"/>
+</message>
+<message name="getAdminNombreResponse">
+<part name="parameters" element="tns:getAdminNombreResponse"/>
 </message>
 <message name="GraficarArbolAdministrador">
 <part name="parameters" element="tns:GraficarArbolAdministrador"/>
@@ -92,11 +88,287 @@
 <message name="GraficarArbolAdministradorResponse">
 <part name="parameters" element="tns:GraficarArbolAdministradorResponse"/>
 </message>
-<message name="getAdminNombre">
-<part name="parameters" element="tns:getAdminNombre"/>
+<message name="ModificarAdmin">
+<part name="parameters" element="tns:ModificarAdmin"/>
 </message>
-<message name="getAdminNombreResponse">
-<part name="parameters" element="tns:getAdminNombreResponse"/>
+<message name="ModificarAdminResponse">
+<part name="parameters" element="tns:ModificarAdminResponse"/>
+</message>
+<message name="ImprimirEstacionesClave">
+<part name="parameters" element="tns:ImprimirEstacionesClave"/>
+</message>
+<message name="ImprimirEstacionesClaveResponse">
+<part name="parameters" element="tns:ImprimirEstacionesClaveResponse"/>
+</message>
+<message name="ImprimirEstacionesClave2">
+<part name="parameters" element="tns:ImprimirEstacionesClave2"/>
+</message>
+<message name="ImprimirEstacionesClave2Response">
+<part name="parameters" element="tns:ImprimirEstacionesClave2Response"/>
+</message>
+<message name="ImprimirEstacionClaveRetorno">
+<part name="parameters" element="tns:ImprimirEstacionClaveRetorno"/>
+</message>
+<message name="ImprimirEstacionClaveRetornoResponse">
+<part name="parameters" element="tns:ImprimirEstacionClaveRetornoResponse"/>
+</message>
+<message name="ImprimirEstacionClaveRetorno2">
+<part name="parameters" element="tns:ImprimirEstacionClaveRetorno2"/>
+</message>
+<message name="ImprimirEstacionClaveRetorno2Response">
+<part name="parameters" element="tns:ImprimirEstacionClaveRetorno2Response"/>
+</message>
+<message name="getEstacionClave">
+<part name="parameters" element="tns:getEstacionClave"/>
+</message>
+<message name="getEstacionClaveResponse">
+<part name="parameters" element="tns:getEstacionClaveResponse"/>
+</message>
+<message name="getEstacionClave2">
+<part name="parameters" element="tns:getEstacionClave2"/>
+</message>
+<message name="getEstacionClave2Response">
+<part name="parameters" element="tns:getEstacionClave2Response"/>
+</message>
+<message name="getEstacionClaveNombre">
+<part name="parameters" element="tns:getEstacionClaveNombre"/>
+</message>
+<message name="getEstacionClaveNombreResponse">
+<part name="parameters" element="tns:getEstacionClaveNombreResponse"/>
+</message>
+<message name="getEstacionClaveNombre2">
+<part name="parameters" element="tns:getEstacionClaveNombre2"/>
+</message>
+<message name="getEstacionClaveNombre2Response">
+<part name="parameters" element="tns:getEstacionClaveNombre2Response"/>
+</message>
+<message name="GraficarArbolEstacionClave">
+<part name="parameters" element="tns:GraficarArbolEstacionClave"/>
+</message>
+<message name="GraficarArbolEstacionClaveResponse">
+<part name="parameters" element="tns:GraficarArbolEstacionClaveResponse"/>
+</message>
+<message name="ModificarEstacionClave">
+<part name="parameters" element="tns:ModificarEstacionClave"/>
+</message>
+<message name="ModificarEstacionClaveResponse">
+<part name="parameters" element="tns:ModificarEstacionClaveResponse"/>
+</message>
+<message name="ExisteEstacionClave">
+<part name="parameters" element="tns:ExisteEstacionClave"/>
+</message>
+<message name="ExisteEstacionClaveResponse">
+<part name="parameters" element="tns:ExisteEstacionClaveResponse"/>
+</message>
+<message name="InsertarEstacionClave">
+<part name="parameters" element="tns:InsertarEstacionClave"/>
+</message>
+<message name="InsertarEstacionClaveResponse">
+<part name="parameters" element="tns:InsertarEstacionClaveResponse"/>
+</message>
+<message name="ImprimirEstaGeneral">
+<part name="parameters" element="tns:ImprimirEstaGeneral"/>
+</message>
+<message name="ImprimirEstaGeneralResponse">
+<part name="parameters" element="tns:ImprimirEstaGeneralResponse"/>
+</message>
+<message name="ImprimirEstaGeREtorno">
+<part name="parameters" element="tns:ImprimirEstaGeREtorno"/>
+</message>
+<message name="ImprimirEstaGeREtornoResponse">
+<part name="parameters" element="tns:ImprimirEstaGeREtornoResponse"/>
+</message>
+<message name="getEstacionGeneral">
+<part name="parameters" element="tns:getEstacionGeneral"/>
+</message>
+<message name="getEstacionGeneralResponse">
+<part name="parameters" element="tns:getEstacionGeneralResponse"/>
+</message>
+<message name="getEstacionGeneralNombre">
+<part name="parameters" element="tns:getEstacionGeneralNombre"/>
+</message>
+<message name="getEstacionGeneralNombreResponse">
+<part name="parameters" element="tns:getEstacionGeneralNombreResponse"/>
+</message>
+<message name="ImprimirEstaGeneral2">
+<part name="parameters" element="tns:ImprimirEstaGeneral2"/>
+</message>
+<message name="ImprimirEstaGeneral2Response">
+<part name="parameters" element="tns:ImprimirEstaGeneral2Response"/>
+</message>
+<message name="ImprimirEstaGeREtorno2">
+<part name="parameters" element="tns:ImprimirEstaGeREtorno2"/>
+</message>
+<message name="ImprimirEstaGeREtorno2Response">
+<part name="parameters" element="tns:ImprimirEstaGeREtorno2Response"/>
+</message>
+<message name="getEstacionGeneral2">
+<part name="parameters" element="tns:getEstacionGeneral2"/>
+</message>
+<message name="getEstacionGeneral2Response">
+<part name="parameters" element="tns:getEstacionGeneral2Response"/>
+</message>
+<message name="getEstacionGeneralNombre2">
+<part name="parameters" element="tns:getEstacionGeneralNombre2"/>
+</message>
+<message name="getEstacionGeneralNombre2Response">
+<part name="parameters" element="tns:getEstacionGeneralNombre2Response"/>
+</message>
+<message name="GraficarArbolEstacionGeneral">
+<part name="parameters" element="tns:GraficarArbolEstacionGeneral"/>
+</message>
+<message name="GraficarArbolEstacionGeneralResponse">
+<part name="parameters" element="tns:GraficarArbolEstacionGeneralResponse"/>
+</message>
+<message name="ModificarEstacionGeneral">
+<part name="parameters" element="tns:ModificarEstacionGeneral"/>
+</message>
+<message name="ModificarEstacionGeneralResponse">
+<part name="parameters" element="tns:ModificarEstacionGeneralResponse"/>
+</message>
+<message name="ExisteEstacionGeneral">
+<part name="parameters" element="tns:ExisteEstacionGeneral"/>
+</message>
+<message name="ExisteEstacionGeneralResponse">
+<part name="parameters" element="tns:ExisteEstacionGeneralResponse"/>
+</message>
+<message name="InsertarEstacionGeneral">
+<part name="parameters" element="tns:InsertarEstacionGeneral"/>
+</message>
+<message name="InsertarEstacionGeneralResponse">
+<part name="parameters" element="tns:InsertarEstacionGeneralResponse"/>
+</message>
+<message name="ImprimirChofer">
+<part name="parameters" element="tns:ImprimirChofer"/>
+</message>
+<message name="ImprimirChoferResponse">
+<part name="parameters" element="tns:ImprimirChoferResponse"/>
+</message>
+<message name="ImprimirChoferREtorno">
+<part name="parameters" element="tns:ImprimirChoferREtorno"/>
+</message>
+<message name="ImprimirChoferREtornoResponse">
+<part name="parameters" element="tns:ImprimirChoferREtornoResponse"/>
+</message>
+<message name="getChofer">
+<part name="parameters" element="tns:getChofer"/>
+</message>
+<message name="getChoferResponse">
+<part name="parameters" element="tns:getChoferResponse"/>
+</message>
+<message name="getChoferNombre">
+<part name="parameters" element="tns:getChoferNombre"/>
+</message>
+<message name="getChoferNombreResponse">
+<part name="parameters" element="tns:getChoferNombreResponse"/>
+</message>
+<message name="GraficarArbolChofer">
+<part name="parameters" element="tns:GraficarArbolChofer"/>
+</message>
+<message name="GraficarArbolChoferResponse">
+<part name="parameters" element="tns:GraficarArbolChoferResponse"/>
+</message>
+<message name="ModificarChofer">
+<part name="parameters" element="tns:ModificarChofer"/>
+</message>
+<message name="ModificarChoferResponse">
+<part name="parameters" element="tns:ModificarChoferResponse"/>
+</message>
+<message name="ExisteChofer">
+<part name="parameters" element="tns:ExisteChofer"/>
+</message>
+<message name="ExisteChoferResponse">
+<part name="parameters" element="tns:ExisteChoferResponse"/>
+</message>
+<message name="InsertarChofer">
+<part name="parameters" element="tns:InsertarChofer"/>
+</message>
+<message name="InsertarChoferResponse">
+<part name="parameters" element="tns:InsertarChoferResponse"/>
+</message>
+<message name="AgregarBus">
+<part name="parameters" element="tns:AgregarBus"/>
+</message>
+<message name="AgregarBusResponse">
+<part name="parameters" element="tns:AgregarBusResponse"/>
+</message>
+<message name="ExisteBus">
+<part name="parameters" element="tns:ExisteBus"/>
+</message>
+<message name="ExisteBusResponse">
+<part name="parameters" element="tns:ExisteBusResponse"/>
+</message>
+<message name="ImprimirLista">
+<part name="parameters" element="tns:ImprimirLista"/>
+</message>
+<message name="ImprimirListaResponse">
+<part name="parameters" element="tns:ImprimirListaResponse"/>
+</message>
+<message name="GraficarListaBuses">
+<part name="parameters" element="tns:GraficarListaBuses"/>
+</message>
+<message name="GraficarListaBusesResponse">
+<part name="parameters" element="tns:GraficarListaBusesResponse"/>
+</message>
+<message name="Imprimir Rutas">
+<part name="parameters" element="tns:Imprimir Rutas"/>
+</message>
+<message name="Imprimir RutasResponse">
+<part name="parameters" element="tns:Imprimir RutasResponse"/>
+</message>
+<message name="RetornarListaRutas">
+<part name="parameters" element="tns:RetornarListaRutas"/>
+</message>
+<message name="RetornarListaRutasResponse">
+<part name="parameters" element="tns:RetornarListaRutasResponse"/>
+</message>
+<message name="ExisteRuta">
+<part name="parameters" element="tns:ExisteRuta"/>
+</message>
+<message name="ExisteRutaResponse">
+<part name="parameters" element="tns:ExisteRutaResponse"/>
+</message>
+<message name="RetornarListaDeNombresDeEstaciones">
+<part name="parameters" element="tns:RetornarListaDeNombresDeEstaciones"/>
+</message>
+<message name="RetornarListaDeNombresDeEstacionesResponse">
+<part name="parameters" element="tns:RetornarListaDeNombresDeEstacionesResponse"/>
+</message>
+<message name="RetornarNombresDeRutasEstaciones">
+<part name="parameters" element="tns:RetornarNombresDeRutasEstaciones"/>
+</message>
+<message name="RetornarNombresDeRutasEstacionesResponse">
+<part name="parameters" element="tns:RetornarNombresDeRutasEstacionesResponse"/>
+</message>
+<message name="CrearRuta">
+<part name="parameters" element="tns:CrearRuta"/>
+</message>
+<message name="CrearRutaResponse">
+<part name="parameters" element="tns:CrearRutaResponse"/>
+</message>
+<message name="Borrar">
+<part name="parameters" element="tns:Borrar"/>
+</message>
+<message name="BorrarResponse">
+<part name="parameters" element="tns:BorrarResponse"/>
+</message>
+<message name="AgregarNumeroExtacion">
+<part name="parameters" element="tns:AgregarNumeroExtacion"/>
+</message>
+<message name="AgregarNumeroExtacionResponse">
+<part name="parameters" element="tns:AgregarNumeroExtacionResponse"/>
+</message>
+<message name="AgregarNombreRuta">
+<part name="parameters" element="tns:AgregarNombreRuta"/>
+</message>
+<message name="AgregarNombreRutaResponse">
+<part name="parameters" element="tns:AgregarNombreRutaResponse"/>
+</message>
+<message name="RetornarNombresDeRutas">
+<part name="parameters" element="tns:RetornarNombresDeRutas"/>
+</message>
+<message name="RetornarNombresDeRutasResponse">
+<part name="parameters" element="tns:RetornarNombresDeRutasResponse"/>
 </message>
 <message name="getAdmin">
 <part name="parameters" element="tns:getAdmin"/>
@@ -105,17 +377,9 @@
 <part name="parameters" element="tns:getAdminResponse"/>
 </message>
 <portType name="SerivicioWeb">
-<operation name="Borrar">
-<input wsam:Action="http://Servicio/SerivicioWeb/BorrarRequest" message="tns:Borrar"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/BorrarResponse" message="tns:BorrarResponse"/>
-</operation>
-<operation name="InsertarAdmin">
-<input wsam:Action="http://Servicio/SerivicioWeb/InsertarAdminRequest" message="tns:InsertarAdmin"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/InsertarAdminResponse" message="tns:InsertarAdminResponse"/>
-</operation>
-<operation name="ExisteAdmin">
-<input wsam:Action="http://Servicio/SerivicioWeb/ExisteAdminRequest" message="tns:ExisteAdmin"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/ExisteAdminResponse" message="tns:ExisteAdminResponse"/>
+<operation name="Volumen">
+<input wsam:Action="http://Servicio/SerivicioWeb/VolumenRequest" message="tns:Volumen"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/VolumenResponse" message="tns:VolumenResponse"/>
 </operation>
 <operation name="Agregar">
 <input wsam:Action="http://Servicio/SerivicioWeb/AgregarRequest" message="tns:Agregar"/>
@@ -133,80 +397,238 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/LogearAdminRequest" message="tns:LogearAdmin"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/LogearAdminResponse" message="tns:LogearAdminResponse"/>
 </operation>
-=======
-<message name="Agregar">
-<part name="parameters" element="tns:Agregar"/>
-</message>
-<message name="AgregarResponse">
-<part name="parameters" element="tns:AgregarResponse"/>
-</message>
-<portType name="SerivicioWeb">
->>>>>>> origin/master
-<operation name="Volumen">
-<input wsam:Action="http://Servicio/SerivicioWeb/VolumenRequest" message="tns:Volumen"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/VolumenResponse" message="tns:VolumenResponse"/>
-</operation>
-<<<<<<< HEAD
-<operation name="LogearChofer">
-<input wsam:Action="http://Servicio/SerivicioWeb/LogearChoferRequest" message="tns:LogearChofer"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/LogearChoferResponse" message="tns:LogearChoferResponse"/>
+<operation name="LogearEstaciones">
+<input wsam:Action="http://Servicio/SerivicioWeb/LogearEstacionesRequest" message="tns:LogearEstaciones"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/LogearEstacionesResponse" message="tns:LogearEstacionesResponse"/>
 </operation>
 <operation name="LogearEstacionesGenerales">
 <input wsam:Action="http://Servicio/SerivicioWeb/LogearEstacionesGeneralesRequest" message="tns:LogearEstacionesGenerales"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/LogearEstacionesGeneralesResponse" message="tns:LogearEstacionesGeneralesResponse"/>
 </operation>
-<operation name="ImprimirAdminRetorno">
-<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirAdminRetornoRequest" message="tns:ImprimirAdminRetorno"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirAdminRetornoResponse" message="tns:ImprimirAdminRetornoResponse"/>
+<operation name="LogearChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/LogearChoferRequest" message="tns:LogearChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/LogearChoferResponse" message="tns:LogearChoferResponse"/>
+</operation>
+<operation name="ExisteAdmin">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteAdminRequest" message="tns:ExisteAdmin"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteAdminResponse" message="tns:ExisteAdminResponse"/>
+</operation>
+<operation name="InsertarAdmin">
+<input wsam:Action="http://Servicio/SerivicioWeb/InsertarAdminRequest" message="tns:InsertarAdmin"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/InsertarAdminResponse" message="tns:InsertarAdminResponse"/>
 </operation>
 <operation name="ImprimirAdmins">
 <input wsam:Action="http://Servicio/SerivicioWeb/ImprimirAdminsRequest" message="tns:ImprimirAdmins"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/ImprimirAdminsResponse" message="tns:ImprimirAdminsResponse"/>
 </operation>
-<operation name="LogearEstaciones">
-<input wsam:Action="http://Servicio/SerivicioWeb/LogearEstacionesRequest" message="tns:LogearEstaciones"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/LogearEstacionesResponse" message="tns:LogearEstacionesResponse"/>
-</operation>
-<operation name="GraficarArbolAdministrador">
-<input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolAdministradorRequest" message="tns:GraficarArbolAdministrador"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolAdministradorResponse" message="tns:GraficarArbolAdministradorResponse"/>
+<operation name="ImprimirAdminRetorno">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirAdminRetornoRequest" message="tns:ImprimirAdminRetorno"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirAdminRetornoResponse" message="tns:ImprimirAdminRetornoResponse"/>
 </operation>
 <operation name="getAdminNombre">
 <input wsam:Action="http://Servicio/SerivicioWeb/getAdminNombreRequest" message="tns:getAdminNombre"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/getAdminNombreResponse" message="tns:getAdminNombreResponse"/>
 </operation>
+<operation name="GraficarArbolAdministrador">
+<input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolAdministradorRequest" message="tns:GraficarArbolAdministrador"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolAdministradorResponse" message="tns:GraficarArbolAdministradorResponse"/>
+</operation>
+<operation name="ModificarAdmin">
+<input wsam:Action="http://Servicio/SerivicioWeb/ModificarAdminRequest" message="tns:ModificarAdmin"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ModificarAdminResponse" message="tns:ModificarAdminResponse"/>
+</operation>
+<operation name="ImprimirEstacionesClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionesClaveRequest" message="tns:ImprimirEstacionesClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionesClaveResponse" message="tns:ImprimirEstacionesClaveResponse"/>
+</operation>
+<operation name="ImprimirEstacionesClave2">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionesClave2Request" message="tns:ImprimirEstacionesClave2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionesClave2Response" message="tns:ImprimirEstacionesClave2Response"/>
+</operation>
+<operation name="ImprimirEstacionClaveRetorno">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetornoRequest" message="tns:ImprimirEstacionClaveRetorno"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetornoResponse" message="tns:ImprimirEstacionClaveRetornoResponse"/>
+</operation>
+<operation name="ImprimirEstacionClaveRetorno2">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetorno2Request" message="tns:ImprimirEstacionClaveRetorno2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetorno2Response" message="tns:ImprimirEstacionClaveRetorno2Response"/>
+</operation>
+<operation name="getEstacionClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveRequest" message="tns:getEstacionClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveResponse" message="tns:getEstacionClaveResponse"/>
+</operation>
+<operation name="getEstacionClave2">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionClave2Request" message="tns:getEstacionClave2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionClave2Response" message="tns:getEstacionClave2Response"/>
+</operation>
+<operation name="getEstacionClaveNombre">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveNombreRequest" message="tns:getEstacionClaveNombre"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveNombreResponse" message="tns:getEstacionClaveNombreResponse"/>
+</operation>
+<operation name="getEstacionClaveNombre2">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveNombre2Request" message="tns:getEstacionClaveNombre2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveNombre2Response" message="tns:getEstacionClaveNombre2Response"/>
+</operation>
+<operation name="GraficarArbolEstacionClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionClaveRequest" message="tns:GraficarArbolEstacionClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionClaveResponse" message="tns:GraficarArbolEstacionClaveResponse"/>
+</operation>
+<operation name="ModificarEstacionClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/ModificarEstacionClaveRequest" message="tns:ModificarEstacionClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ModificarEstacionClaveResponse" message="tns:ModificarEstacionClaveResponse"/>
+</operation>
+<operation name="ExisteEstacionClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteEstacionClaveRequest" message="tns:ExisteEstacionClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteEstacionClaveResponse" message="tns:ExisteEstacionClaveResponse"/>
+</operation>
+<operation name="InsertarEstacionClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/InsertarEstacionClaveRequest" message="tns:InsertarEstacionClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/InsertarEstacionClaveResponse" message="tns:InsertarEstacionClaveResponse"/>
+</operation>
+<operation name="ImprimirEstaGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeneralRequest" message="tns:ImprimirEstaGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeneralResponse" message="tns:ImprimirEstaGeneralResponse"/>
+</operation>
+<operation name="ImprimirEstaGeREtorno">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeREtornoRequest" message="tns:ImprimirEstaGeREtorno"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeREtornoResponse" message="tns:ImprimirEstaGeREtornoResponse"/>
+</operation>
+<operation name="getEstacionGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralRequest" message="tns:getEstacionGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralResponse" message="tns:getEstacionGeneralResponse"/>
+</operation>
+<operation name="getEstacionGeneralNombre">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralNombreRequest" message="tns:getEstacionGeneralNombre"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralNombreResponse" message="tns:getEstacionGeneralNombreResponse"/>
+</operation>
+<operation name="ImprimirEstaGeneral2">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeneral2Request" message="tns:ImprimirEstaGeneral2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeneral2Response" message="tns:ImprimirEstaGeneral2Response"/>
+</operation>
+<operation name="ImprimirEstaGeREtorno2">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeREtorno2Request" message="tns:ImprimirEstaGeREtorno2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstaGeREtorno2Response" message="tns:ImprimirEstaGeREtorno2Response"/>
+</operation>
+<operation name="getEstacionGeneral2">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneral2Request" message="tns:getEstacionGeneral2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneral2Response" message="tns:getEstacionGeneral2Response"/>
+</operation>
+<operation name="getEstacionGeneralNombre2">
+<input wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralNombre2Request" message="tns:getEstacionGeneralNombre2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralNombre2Response" message="tns:getEstacionGeneralNombre2Response"/>
+</operation>
+<operation name="GraficarArbolEstacionGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionGeneralRequest" message="tns:GraficarArbolEstacionGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionGeneralResponse" message="tns:GraficarArbolEstacionGeneralResponse"/>
+</operation>
+<operation name="ModificarEstacionGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/ModificarEstacionGeneralRequest" message="tns:ModificarEstacionGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ModificarEstacionGeneralResponse" message="tns:ModificarEstacionGeneralResponse"/>
+</operation>
+<operation name="ExisteEstacionGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteEstacionGeneralRequest" message="tns:ExisteEstacionGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteEstacionGeneralResponse" message="tns:ExisteEstacionGeneralResponse"/>
+</operation>
+<operation name="InsertarEstacionGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/InsertarEstacionGeneralRequest" message="tns:InsertarEstacionGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/InsertarEstacionGeneralResponse" message="tns:InsertarEstacionGeneralResponse"/>
+</operation>
+<operation name="ImprimirChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirChoferRequest" message="tns:ImprimirChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirChoferResponse" message="tns:ImprimirChoferResponse"/>
+</operation>
+<operation name="ImprimirChoferREtorno">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirChoferREtornoRequest" message="tns:ImprimirChoferREtorno"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirChoferREtornoResponse" message="tns:ImprimirChoferREtornoResponse"/>
+</operation>
+<operation name="getChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/getChoferRequest" message="tns:getChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getChoferResponse" message="tns:getChoferResponse"/>
+</operation>
+<operation name="getChoferNombre">
+<input wsam:Action="http://Servicio/SerivicioWeb/getChoferNombreRequest" message="tns:getChoferNombre"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getChoferNombreResponse" message="tns:getChoferNombreResponse"/>
+</operation>
+<operation name="GraficarArbolChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolChoferRequest" message="tns:GraficarArbolChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolChoferResponse" message="tns:GraficarArbolChoferResponse"/>
+</operation>
+<operation name="ModificarChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/ModificarChoferRequest" message="tns:ModificarChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ModificarChoferResponse" message="tns:ModificarChoferResponse"/>
+</operation>
+<operation name="ExisteChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteChoferRequest" message="tns:ExisteChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteChoferResponse" message="tns:ExisteChoferResponse"/>
+</operation>
+<operation name="InsertarChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/InsertarChoferRequest" message="tns:InsertarChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/InsertarChoferResponse" message="tns:InsertarChoferResponse"/>
+</operation>
+<operation name="AgregarBus">
+<input wsam:Action="http://Servicio/SerivicioWeb/AgregarBusRequest" message="tns:AgregarBus"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AgregarBusResponse" message="tns:AgregarBusResponse"/>
+</operation>
+<operation name="ExisteBus">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteBusRequest" message="tns:ExisteBus"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteBusResponse" message="tns:ExisteBusResponse"/>
+</operation>
+<operation name="ImprimirLista">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaRequest" message="tns:ImprimirLista"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaResponse" message="tns:ImprimirListaResponse"/>
+</operation>
+<operation name="GraficarListaBuses">
+<input wsam:Action="http://Servicio/SerivicioWeb/GraficarListaBusesRequest" message="tns:GraficarListaBuses"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/GraficarListaBusesResponse" message="tns:GraficarListaBusesResponse"/>
+</operation>
+<operation name="Imprimir Rutas">
+<input wsam:Action="http://Servicio/SerivicioWeb/Imprimir RutasRequest" message="tns:Imprimir Rutas"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/Imprimir RutasResponse" message="tns:Imprimir RutasResponse"/>
+</operation>
+<operation name="RetornarListaRutas">
+<input wsam:Action="http://Servicio/SerivicioWeb/RetornarListaRutasRequest" message="tns:RetornarListaRutas"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/RetornarListaRutasResponse" message="tns:RetornarListaRutasResponse"/>
+</operation>
+<operation name="ExisteRuta">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteRutaRequest" message="tns:ExisteRuta"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteRutaResponse" message="tns:ExisteRutaResponse"/>
+</operation>
+<operation name="RetornarListaDeNombresDeEstaciones">
+<input wsam:Action="http://Servicio/SerivicioWeb/RetornarListaDeNombresDeEstacionesRequest" message="tns:RetornarListaDeNombresDeEstaciones"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/RetornarListaDeNombresDeEstacionesResponse" message="tns:RetornarListaDeNombresDeEstacionesResponse"/>
+</operation>
+<operation name="RetornarNombresDeRutasEstaciones">
+<input wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasEstacionesRequest" message="tns:RetornarNombresDeRutasEstaciones"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasEstacionesResponse" message="tns:RetornarNombresDeRutasEstacionesResponse"/>
+</operation>
+<operation name="CrearRuta">
+<input wsam:Action="http://Servicio/SerivicioWeb/CrearRutaRequest" message="tns:CrearRuta"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/CrearRutaResponse" message="tns:CrearRutaResponse"/>
+</operation>
+<operation name="Borrar">
+<input wsam:Action="http://Servicio/SerivicioWeb/BorrarRequest" message="tns:Borrar"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/BorrarResponse" message="tns:BorrarResponse"/>
+</operation>
+<operation name="AgregarNumeroExtacion">
+<input wsam:Action="http://Servicio/SerivicioWeb/AgregarNumeroExtacionRequest" message="tns:AgregarNumeroExtacion"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AgregarNumeroExtacionResponse" message="tns:AgregarNumeroExtacionResponse"/>
+</operation>
+<operation name="AgregarNombreRuta">
+<input wsam:Action="http://Servicio/SerivicioWeb/AgregarNombreRutaRequest" message="tns:AgregarNombreRuta"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AgregarNombreRutaResponse" message="tns:AgregarNombreRutaResponse"/>
+</operation>
+<operation name="RetornarNombresDeRutas">
+<input wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasRequest" message="tns:RetornarNombresDeRutas"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasResponse" message="tns:RetornarNombresDeRutasResponse"/>
+</operation>
 <operation name="getAdmin">
 <input wsam:Action="http://Servicio/SerivicioWeb/getAdminRequest" message="tns:getAdmin"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/getAdminResponse" message="tns:getAdminResponse"/>
-=======
-<operation name="Agregar">
-<input wsam:Action="http://Servicio/SerivicioWeb/AgregarRequest" message="tns:Agregar"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/AgregarResponse" message="tns:AgregarResponse"/>
->>>>>>> origin/master
 </operation>
 </portType>
 <binding name="SerivicioWebPortBinding" type="tns:SerivicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<<<<<<< HEAD
-<operation name="Borrar">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="InsertarAdmin">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="ExisteAdmin">
+<operation name="Volumen">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -251,19 +673,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-=======
->>>>>>> origin/master
-<operation name="Volumen">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<<<<<<< HEAD
-<operation name="LogearChofer">
+<operation name="LogearEstaciones">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -281,7 +691,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="ImprimirAdminRetorno">
+<operation name="LogearChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="InsertarAdmin">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -299,16 +727,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="LogearEstaciones">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="GraficarArbolAdministrador">
+<operation name="ImprimirAdminRetorno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -326,10 +745,439 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="GraficarArbolAdministrador">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstacionesClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstacionesClave2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstacionClaveRetorno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstacionClaveRetorno2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionClave2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionClaveNombre">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionClaveNombre2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarArbolEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="InsertarEstacionClave">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstaGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstaGeREtorno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionGeneralNombre">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstaGeneral2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirEstaGeREtorno2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionGeneral2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getEstacionGeneralNombre2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarArbolEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="InsertarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirChoferREtorno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getChoferNombre">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarArbolChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ModificarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="InsertarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteBus">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirLista">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="GraficarListaBuses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Imprimir Rutas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="RetornarListaRutas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="RetornarListaDeNombresDeEstaciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="RetornarNombresDeRutasEstaciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CrearRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="Borrar">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarNumeroExtacion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarNombreRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="RetornarNombresDeRutas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="getAdmin">
-=======
-<operation name="Agregar">
->>>>>>> origin/master
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

@@ -23,14 +23,8 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-<<<<<<< HEAD
                <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
-                
->>>>>>> origin/master
             </ul>
         </div>
         
@@ -43,6 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
+                    <li><a href="MostrarEstacionesGenerales.jsp">Crear EstacionGeneral</a></li>
                     <li><a href="CrearUsuarioEstacionGeneral.jsp">Crear EstacionGeneral</a></li>
                     <li><a href="ModificarUsuarioEstacionGeneral.jsp">Modificar EstacionGeneral</a></li>
                     <li><a href="EliminarUsuarioEstacionGeneral.jsp">Eliminar EstacionGeneral</a></li>
@@ -67,22 +62,56 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
-                        <br>
-                        
+                    <form action="CrearUsuarioEstacionGeneral.jsp" method="POST">
+                      <br>
+                      <h5>Id Estacion: </h5>  
+                      <br>
+                      <input type="text" name="numeroidesta" value="" />      
+                      <br>
+                      <br>  
                       <h5>Nombre De la Estacion: </h5>  
                       <br>
-                      <input type="text" name="correo" value="" />
+                      <input type="text" name="nombreestaciongeneral" value="" />
                       <br>
                       <br>
                       <h5>Contraseña: </h5>
                       <br>
-                      <input type="text" name="contraseña" value="" />
+                          <input type="password" name="modestaciongeneral" value="" />
                       <br>
                       <br>
                       <input type="submit" value="CREAR" />
                       
                     </form>
+                
+                   <%
+   if (request.getParameter("numeroidesta") != null){
+    try {
+        
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	int clave = Integer.parseInt(request.getParameter("numeroidesta"));
+        java.lang.String correo = request.getParameter("nombreestaciongeneral");
+	String contraseña = request.getParameter("modestaciongeneral");
+	// TODO process result here
+	boolean result = port.existeEstacionGeneral(clave);
+	//out.println("Datos Invalidos");
+        
+        if(result==true){//existe Ese Usuario
+        String mensaje="<script language='javascript'>alert('Esta EstacionClave Ya Existe');</script>"; 
+        out.println(mensaje);    
+        }else{//no existe Tonces Insertar
+        String msg=port.insertarEstacionGeneral(clave, correo, contraseña);
+        String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
+        out.println(mensaje);
+        }
+                
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
                     
         </div>
         <div id="content_bottom"></div>

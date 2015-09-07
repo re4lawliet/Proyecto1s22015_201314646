@@ -23,14 +23,8 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
-                
->>>>>>> origin/master
             </ul>
         </div>
         
@@ -43,6 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
+                          <li><a href="MostrarChofer.jsp">Tabla De Choferes</a></li>
                     <li><a href="CrearUsuarioChofer.jsp">Crear Chofer</a></li>
                     <li><a href="ModificarUsuarioChofer.jsp">Modificar Chofer</a></li>
                     <li><a href="EliminarUsuarioChofer.jsp">Eliminar Chofer</a></li>
@@ -67,13 +62,45 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
+                    <form action="ModificarUsuarioChofer.jsp" method="POST">
                         <br>
                       <h5>Seleccione El Que desea Modificar: </h5> 
                       <br>
                       <select name="ListaAdmins">
-                          <option>admin1</option>
-                          <option>admin2</option>
+                                                      <%-- start web service invocation --%><hr/>
+    <%
+    try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();	
+        
+        int y=port.imprimirChoferREtorno().size();
+        int count=0;        
+        if(port.imprimirChoferREtorno().isEmpty()){
+         //vacia   
+        }else{//llena
+         
+         for (int i=y-1; i>=0;i--){    
+         //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
+         //out.println(mensaje);
+         String mensaje2=port.getChoferNombre(i).toString();
+         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla
+         
+        %>  
+        
+        <option value="<%= mensaje2%>"><%= mensaje2%></option>
+               
+         <%
+         count=count+1;
+         }   
+         
+        }
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+  
                       </select>
                       <br>
                       <br>    
@@ -89,13 +116,43 @@
                       <br>
                       <h5>Contraseña: </h5>
                       <br>
-                      <input type="text" name="contraseña" value="" />
+                          <input type="password" name="contralol" value="" />
                       <br>
                       <br>
                       <input type="submit" value="MODIFICAR" />
                       
                     </form>
                     
+        
+        <%-- start web service invocation --%><hr/>
+    <%
+    if ( request.getParameter("nombre") != null){ 
+    try {
+        
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	int arg0 = Integer.valueOf(request.getParameter("ListaAdmins"));
+	java.lang.String arg1 = request.getParameter("nombre");
+	java.lang.String arg2 = request.getParameter("apellido");
+        java.lang.String arg3 = request.getParameter("contralol");
+	// TODO process result here
+	java.lang.String result = port.modificarChofer(arg0, arg1, arg2,arg3);
+	out.println("Result = "+result);
+        
+        String msg=result;
+        String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
+        out.println(mensaje);
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+    
+    
         </div>
         <div id="content_bottom"></div>
             

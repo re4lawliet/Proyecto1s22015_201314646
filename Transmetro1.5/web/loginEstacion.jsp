@@ -76,8 +76,16 @@
               <input type="password" name="contra" value="contra" />
               <br>
               <br>  
-                  <input id="estacion" type="radio" name="radio" value="rad" />
+                  
+              <br>    
+                  <select name="opcion" class="boton" cnchange="this.form[valor].value==this.valor">
+                      <option value="1">EstacionClave</option>
+                      <option value="2">EstacionGeneral</option>
+                  </select>
               <br>     
+                                   
+                  
+                  
               <input type="submit" value="Iniciar Sesion" />      
           </form>
                )       
@@ -88,6 +96,8 @@
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
 	 // TODO initialize WS operation arguments here
+        int valuar=Integer.valueOf(request.getParameter("opcion"));
+        
 	int id = Integer.valueOf(request.getParameter("id"));
 	java.lang.String nombreEstacion = request.getParameter("nombre");
 	java.lang.String contraseña = request.getParameter("contra");
@@ -98,15 +108,25 @@
 	boolean result = port.logearEstaciones(id, nombreEstacion, contraseña);
         boolean result2=port.logearEstacionesGenerales(id, nombreEstacion, contraseña);
         out.println("Datos Invalidos"); 
-        
-        //--------------------------------------
+        if(valuar==1){
+         //--------------------------------------
         if(result==true){
         response.sendRedirect("MenuEstacionClave.jsp");                
         }else{      
-        String mensaje="<script language='javascript'>alert('Usuario O Contraseña Invalidos');</script>"; 
+        String mensaje="<script language='javascript'>alert('EstacionClave: Usuario O Contraseña Invalidos');</script>"; 
         out.println(mensaje);    
         }
-        //--------------------------------------
+        //--------------------------------------   
+        }else{
+                if(result2==true){
+        response.sendRedirect("MenuEstacionGeneral.jsp");                
+        }else{      
+        String mensaje="<script language='javascript'>alert('EstacionGeneral: Usuario O Contraseña Invalidos');</script>"; 
+        out.println(mensaje);    
+        }
+        //--------------------------------------  
+        }
+        
         
     } catch (Exception ex) {
 	// TODO handle custom exceptions here

@@ -1,10 +1,7 @@
 
 package servicio;
 
-<<<<<<< HEAD
 import java.util.List;
-=======
->>>>>>> origin/master
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
@@ -30,55 +27,18 @@ public interface SerivicioWeb {
 
     /**
      * 
-<<<<<<< HEAD
-     * @param nombre
+     * @param radio
      * @return
-     *     returns java.lang.String
+     *     returns int
      */
-    @WebMethod(operationName = "Borrar")
+    @WebMethod(operationName = "Volumen")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Borrar", targetNamespace = "http://Servicio/", className = "servicio.Borrar")
-    @ResponseWrapper(localName = "BorrarResponse", targetNamespace = "http://Servicio/", className = "servicio.BorrarResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/BorrarRequest", output = "http://Servicio/SerivicioWeb/BorrarResponse")
-    public String borrar(
-        @WebParam(name = "nombre", targetNamespace = "")
-        String nombre);
-
-    /**
-     * 
-     * @param clave
-     * @param correo
-     * @param contraseña
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(operationName = "InsertarAdmin")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "InsertarAdmin", targetNamespace = "http://Servicio/", className = "servicio.InsertarAdmin")
-    @ResponseWrapper(localName = "InsertarAdminResponse", targetNamespace = "http://Servicio/", className = "servicio.InsertarAdminResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/InsertarAdminRequest", output = "http://Servicio/SerivicioWeb/InsertarAdminResponse")
-    public String insertarAdmin(
-        @WebParam(name = "clave", targetNamespace = "")
-        int clave,
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo,
-        @WebParam(name = "contrase\u00f1a", targetNamespace = "")
-        String contraseña);
-
-    /**
-     * 
-     * @param clave
-     * @return
-     *     returns boolean
-     */
-    @WebMethod(operationName = "ExisteAdmin")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ExisteAdmin", targetNamespace = "http://Servicio/", className = "servicio.ExisteAdmin")
-    @ResponseWrapper(localName = "ExisteAdminResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteAdminResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/ExisteAdminRequest", output = "http://Servicio/SerivicioWeb/ExisteAdminResponse")
-    public boolean existeAdmin(
-        @WebParam(name = "clave", targetNamespace = "")
-        int clave);
+    @RequestWrapper(localName = "Volumen", targetNamespace = "http://Servicio/", className = "servicio.Volumen")
+    @ResponseWrapper(localName = "VolumenResponse", targetNamespace = "http://Servicio/", className = "servicio.VolumenResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/VolumenRequest", output = "http://Servicio/SerivicioWeb/VolumenResponse")
+    public int volumen(
+        @WebParam(name = "radio", targetNamespace = "")
+        int radio);
 
     /**
      * 
@@ -133,37 +93,22 @@ public interface SerivicioWeb {
 
     /**
      * 
-=======
->>>>>>> origin/master
-     * @param radio
-     * @return
-     *     returns int
-     */
-    @WebMethod(operationName = "Volumen")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Volumen", targetNamespace = "http://Servicio/", className = "servicio.Volumen")
-    @ResponseWrapper(localName = "VolumenResponse", targetNamespace = "http://Servicio/", className = "servicio.VolumenResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/VolumenRequest", output = "http://Servicio/SerivicioWeb/VolumenResponse")
-    public int volumen(
-        @WebParam(name = "radio", targetNamespace = "")
-        int radio);
-
-    /**
-     * 
-<<<<<<< HEAD
      * @param id
+     * @param nombreEstacion
      * @param contraseña
      * @return
      *     returns boolean
      */
-    @WebMethod(operationName = "LogearChofer")
+    @WebMethod(operationName = "LogearEstaciones")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "LogearChofer", targetNamespace = "http://Servicio/", className = "servicio.LogearChofer")
-    @ResponseWrapper(localName = "LogearChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.LogearChoferResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/LogearChoferRequest", output = "http://Servicio/SerivicioWeb/LogearChoferResponse")
-    public boolean logearChofer(
+    @RequestWrapper(localName = "LogearEstaciones", targetNamespace = "http://Servicio/", className = "servicio.LogearEstaciones")
+    @ResponseWrapper(localName = "LogearEstacionesResponse", targetNamespace = "http://Servicio/", className = "servicio.LogearEstacionesResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/LogearEstacionesRequest", output = "http://Servicio/SerivicioWeb/LogearEstacionesResponse")
+    public boolean logearEstaciones(
         @WebParam(name = "id", targetNamespace = "")
         int id,
+        @WebParam(name = "nombreEstacion", targetNamespace = "")
+        String nombreEstacion,
         @WebParam(name = "contrase\u00f1a", targetNamespace = "")
         String contraseña);
 
@@ -190,15 +135,57 @@ public interface SerivicioWeb {
 
     /**
      * 
+     * @param id
+     * @param contraseña
      * @return
-     *     returns java.util.List<java.lang.Object>
+     *     returns boolean
      */
-    @WebMethod(operationName = "ImprimirAdminRetorno")
+    @WebMethod(operationName = "LogearChofer")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "ImprimirAdminRetorno", targetNamespace = "http://Servicio/", className = "servicio.ImprimirAdminRetorno")
-    @ResponseWrapper(localName = "ImprimirAdminRetornoResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirAdminRetornoResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/ImprimirAdminRetornoRequest", output = "http://Servicio/SerivicioWeb/ImprimirAdminRetornoResponse")
-    public List<Object> imprimirAdminRetorno();
+    @RequestWrapper(localName = "LogearChofer", targetNamespace = "http://Servicio/", className = "servicio.LogearChofer")
+    @ResponseWrapper(localName = "LogearChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.LogearChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/LogearChoferRequest", output = "http://Servicio/SerivicioWeb/LogearChoferResponse")
+    public boolean logearChofer(
+        @WebParam(name = "id", targetNamespace = "")
+        int id,
+        @WebParam(name = "contrase\u00f1a", targetNamespace = "")
+        String contraseña);
+
+    /**
+     * 
+     * @param clave
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "ExisteAdmin")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ExisteAdmin", targetNamespace = "http://Servicio/", className = "servicio.ExisteAdmin")
+    @ResponseWrapper(localName = "ExisteAdminResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteAdminResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ExisteAdminRequest", output = "http://Servicio/SerivicioWeb/ExisteAdminResponse")
+    public boolean existeAdmin(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave);
+
+    /**
+     * 
+     * @param clave
+     * @param correo
+     * @param contraseña
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "InsertarAdmin")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "InsertarAdmin", targetNamespace = "http://Servicio/", className = "servicio.InsertarAdmin")
+    @ResponseWrapper(localName = "InsertarAdminResponse", targetNamespace = "http://Servicio/", className = "servicio.InsertarAdminResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/InsertarAdminRequest", output = "http://Servicio/SerivicioWeb/InsertarAdminResponse")
+    public String insertarAdmin(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "contrase\u00f1a", targetNamespace = "")
+        String contraseña);
 
     /**
      * 
@@ -214,36 +201,15 @@ public interface SerivicioWeb {
 
     /**
      * 
-     * @param id
-     * @param nombreEstacion
-     * @param contraseña
      * @return
-     *     returns boolean
+     *     returns java.util.List<java.lang.Object>
      */
-    @WebMethod(operationName = "LogearEstaciones")
+    @WebMethod(operationName = "ImprimirAdminRetorno")
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "LogearEstaciones", targetNamespace = "http://Servicio/", className = "servicio.LogearEstaciones")
-    @ResponseWrapper(localName = "LogearEstacionesResponse", targetNamespace = "http://Servicio/", className = "servicio.LogearEstacionesResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/LogearEstacionesRequest", output = "http://Servicio/SerivicioWeb/LogearEstacionesResponse")
-    public boolean logearEstaciones(
-        @WebParam(name = "id", targetNamespace = "")
-        int id,
-        @WebParam(name = "nombreEstacion", targetNamespace = "")
-        String nombreEstacion,
-        @WebParam(name = "contrase\u00f1a", targetNamespace = "")
-        String contraseña);
-
-    /**
-     * 
-     * @return
-     *     returns boolean
-     */
-    @WebMethod(operationName = "GraficarArbolAdministrador")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "GraficarArbolAdministrador", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolAdministrador")
-    @ResponseWrapper(localName = "GraficarArbolAdministradorResponse", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolAdministradorResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/GraficarArbolAdministradorRequest", output = "http://Servicio/SerivicioWeb/GraficarArbolAdministradorResponse")
-    public boolean graficarArbolAdministrador();
+    @RequestWrapper(localName = "ImprimirAdminRetorno", targetNamespace = "http://Servicio/", className = "servicio.ImprimirAdminRetorno")
+    @ResponseWrapper(localName = "ImprimirAdminRetornoResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirAdminRetornoResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirAdminRetornoRequest", output = "http://Servicio/SerivicioWeb/ImprimirAdminRetornoResponse")
+    public List<Object> imprimirAdminRetorno();
 
     /**
      * 
@@ -262,6 +228,714 @@ public interface SerivicioWeb {
 
     /**
      * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "GraficarArbolAdministrador")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GraficarArbolAdministrador", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolAdministrador")
+    @ResponseWrapper(localName = "GraficarArbolAdministradorResponse", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolAdministradorResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/GraficarArbolAdministradorRequest", output = "http://Servicio/SerivicioWeb/GraficarArbolAdministradorResponse")
+    public boolean graficarArbolAdministrador();
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "ModificarAdmin")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ModificarAdmin", targetNamespace = "http://Servicio/", className = "servicio.ModificarAdmin")
+    @ResponseWrapper(localName = "ModificarAdminResponse", targetNamespace = "http://Servicio/", className = "servicio.ModificarAdminResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ModificarAdminRequest", output = "http://Servicio/SerivicioWeb/ModificarAdminResponse")
+    public String modificarAdmin(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "ImprimirEstacionesClave")
+    @RequestWrapper(localName = "ImprimirEstacionesClave", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionesClave")
+    @ResponseWrapper(localName = "ImprimirEstacionesClaveResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionesClaveResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstacionesClaveRequest", output = "http://Servicio/SerivicioWeb/ImprimirEstacionesClaveResponse")
+    public void imprimirEstacionesClave(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionClave arg0);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "ImprimirEstacionesClave2")
+    @RequestWrapper(localName = "ImprimirEstacionesClave2", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionesClave2")
+    @ResponseWrapper(localName = "ImprimirEstacionesClave2Response", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionesClave2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstacionesClave2Request", output = "http://Servicio/SerivicioWeb/ImprimirEstacionesClave2Response")
+    public void imprimirEstacionesClave2(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionClave arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "ImprimirEstacionClaveRetorno")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ImprimirEstacionClaveRetorno", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionClaveRetorno")
+    @ResponseWrapper(localName = "ImprimirEstacionClaveRetornoResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionClaveRetornoResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetornoRequest", output = "http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetornoResponse")
+    public List<Object> imprimirEstacionClaveRetorno();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "ImprimirEstacionClaveRetorno2")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ImprimirEstacionClaveRetorno2", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionClaveRetorno2")
+    @ResponseWrapper(localName = "ImprimirEstacionClaveRetorno2Response", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstacionClaveRetorno2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetorno2Request", output = "http://Servicio/SerivicioWeb/ImprimirEstacionClaveRetorno2Response")
+    public List<Object> imprimirEstacionClaveRetorno2();
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionClave", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClave")
+    @ResponseWrapper(localName = "getEstacionClaveResponse", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClaveResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionClaveRequest", output = "http://Servicio/SerivicioWeb/getEstacionClaveResponse")
+    public String getEstacionClave(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionClave2", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClave2")
+    @ResponseWrapper(localName = "getEstacionClave2Response", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClave2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionClave2Request", output = "http://Servicio/SerivicioWeb/getEstacionClave2Response")
+    public String getEstacionClave2(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionClaveNombre", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClaveNombre")
+    @ResponseWrapper(localName = "getEstacionClaveNombreResponse", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClaveNombreResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionClaveNombreRequest", output = "http://Servicio/SerivicioWeb/getEstacionClaveNombreResponse")
+    public String getEstacionClaveNombre(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionClaveNombre2", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClaveNombre2")
+    @ResponseWrapper(localName = "getEstacionClaveNombre2Response", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionClaveNombre2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionClaveNombre2Request", output = "http://Servicio/SerivicioWeb/getEstacionClaveNombre2Response")
+    public String getEstacionClaveNombre2(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "GraficarArbolEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GraficarArbolEstacionClave", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolEstacionClave")
+    @ResponseWrapper(localName = "GraficarArbolEstacionClaveResponse", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolEstacionClaveResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/GraficarArbolEstacionClaveRequest", output = "http://Servicio/SerivicioWeb/GraficarArbolEstacionClaveResponse")
+    public boolean graficarArbolEstacionClave();
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "ModificarEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ModificarEstacionClave", targetNamespace = "http://Servicio/", className = "servicio.ModificarEstacionClave")
+    @ResponseWrapper(localName = "ModificarEstacionClaveResponse", targetNamespace = "http://Servicio/", className = "servicio.ModificarEstacionClaveResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ModificarEstacionClaveRequest", output = "http://Servicio/SerivicioWeb/ModificarEstacionClaveResponse")
+    public String modificarEstacionClave(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
+     * @param clave
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "ExisteEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ExisteEstacionClave", targetNamespace = "http://Servicio/", className = "servicio.ExisteEstacionClave")
+    @ResponseWrapper(localName = "ExisteEstacionClaveResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteEstacionClaveResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ExisteEstacionClaveRequest", output = "http://Servicio/SerivicioWeb/ExisteEstacionClaveResponse")
+    public boolean existeEstacionClave(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave);
+
+    /**
+     * 
+     * @param clave
+     * @param correo
+     * @param contraseña
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "InsertarEstacionClave")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "InsertarEstacionClave", targetNamespace = "http://Servicio/", className = "servicio.InsertarEstacionClave")
+    @ResponseWrapper(localName = "InsertarEstacionClaveResponse", targetNamespace = "http://Servicio/", className = "servicio.InsertarEstacionClaveResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/InsertarEstacionClaveRequest", output = "http://Servicio/SerivicioWeb/InsertarEstacionClaveResponse")
+    public String insertarEstacionClave(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "contrase\u00f1a", targetNamespace = "")
+        String contraseña);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "ImprimirEstaGeneral")
+    @RequestWrapper(localName = "ImprimirEstaGeneral", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeneral")
+    @ResponseWrapper(localName = "ImprimirEstaGeneralResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeneralResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstaGeneralRequest", output = "http://Servicio/SerivicioWeb/ImprimirEstaGeneralResponse")
+    public void imprimirEstaGeneral(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionGeneral arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "ImprimirEstaGeREtorno")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ImprimirEstaGeREtorno", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeREtorno")
+    @ResponseWrapper(localName = "ImprimirEstaGeREtornoResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeREtornoResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstaGeREtornoRequest", output = "http://Servicio/SerivicioWeb/ImprimirEstaGeREtornoResponse")
+    public List<Object> imprimirEstaGeREtorno();
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionGeneral", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneral")
+    @ResponseWrapper(localName = "getEstacionGeneralResponse", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneralResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionGeneralRequest", output = "http://Servicio/SerivicioWeb/getEstacionGeneralResponse")
+    public String getEstacionGeneral(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionGeneralNombre", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneralNombre")
+    @ResponseWrapper(localName = "getEstacionGeneralNombreResponse", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneralNombreResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionGeneralNombreRequest", output = "http://Servicio/SerivicioWeb/getEstacionGeneralNombreResponse")
+    public String getEstacionGeneralNombre(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "ImprimirEstaGeneral2")
+    @RequestWrapper(localName = "ImprimirEstaGeneral2", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeneral2")
+    @ResponseWrapper(localName = "ImprimirEstaGeneral2Response", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeneral2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstaGeneral2Request", output = "http://Servicio/SerivicioWeb/ImprimirEstaGeneral2Response")
+    public void imprimirEstaGeneral2(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoEstacionGeneral arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "ImprimirEstaGeREtorno2")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ImprimirEstaGeREtorno2", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeREtorno2")
+    @ResponseWrapper(localName = "ImprimirEstaGeREtorno2Response", targetNamespace = "http://Servicio/", className = "servicio.ImprimirEstaGeREtorno2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirEstaGeREtorno2Request", output = "http://Servicio/SerivicioWeb/ImprimirEstaGeREtorno2Response")
+    public List<Object> imprimirEstaGeREtorno2();
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionGeneral2", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneral2")
+    @ResponseWrapper(localName = "getEstacionGeneral2Response", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneral2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionGeneral2Request", output = "http://Servicio/SerivicioWeb/getEstacionGeneral2Response")
+    public String getEstacionGeneral2(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getEstacionGeneralNombre2", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneralNombre2")
+    @ResponseWrapper(localName = "getEstacionGeneralNombre2Response", targetNamespace = "http://Servicio/", className = "servicio.GetEstacionGeneralNombre2Response")
+    @Action(input = "http://Servicio/SerivicioWeb/getEstacionGeneralNombre2Request", output = "http://Servicio/SerivicioWeb/getEstacionGeneralNombre2Response")
+    public String getEstacionGeneralNombre2(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "GraficarArbolEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GraficarArbolEstacionGeneral", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolEstacionGeneral")
+    @ResponseWrapper(localName = "GraficarArbolEstacionGeneralResponse", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolEstacionGeneralResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/GraficarArbolEstacionGeneralRequest", output = "http://Servicio/SerivicioWeb/GraficarArbolEstacionGeneralResponse")
+    public boolean graficarArbolEstacionGeneral();
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "ModificarEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ModificarEstacionGeneral", targetNamespace = "http://Servicio/", className = "servicio.ModificarEstacionGeneral")
+    @ResponseWrapper(localName = "ModificarEstacionGeneralResponse", targetNamespace = "http://Servicio/", className = "servicio.ModificarEstacionGeneralResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ModificarEstacionGeneralRequest", output = "http://Servicio/SerivicioWeb/ModificarEstacionGeneralResponse")
+    public String modificarEstacionGeneral(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
+     * @param clave
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "ExisteEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ExisteEstacionGeneral", targetNamespace = "http://Servicio/", className = "servicio.ExisteEstacionGeneral")
+    @ResponseWrapper(localName = "ExisteEstacionGeneralResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteEstacionGeneralResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ExisteEstacionGeneralRequest", output = "http://Servicio/SerivicioWeb/ExisteEstacionGeneralResponse")
+    public boolean existeEstacionGeneral(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave);
+
+    /**
+     * 
+     * @param clave
+     * @param correo
+     * @param contraseña
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "InsertarEstacionGeneral")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "InsertarEstacionGeneral", targetNamespace = "http://Servicio/", className = "servicio.InsertarEstacionGeneral")
+    @ResponseWrapper(localName = "InsertarEstacionGeneralResponse", targetNamespace = "http://Servicio/", className = "servicio.InsertarEstacionGeneralResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/InsertarEstacionGeneralRequest", output = "http://Servicio/SerivicioWeb/InsertarEstacionGeneralResponse")
+    public String insertarEstacionGeneral(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "contrase\u00f1a", targetNamespace = "")
+        String contraseña);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod(operationName = "ImprimirChofer")
+    @RequestWrapper(localName = "ImprimirChofer", targetNamespace = "http://Servicio/", className = "servicio.ImprimirChofer")
+    @ResponseWrapper(localName = "ImprimirChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirChoferRequest", output = "http://Servicio/SerivicioWeb/ImprimirChoferResponse")
+    public void imprimirChofer(
+        @WebParam(name = "arg0", targetNamespace = "")
+        NodoChofer arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod(operationName = "ImprimirChoferREtorno")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ImprimirChoferREtorno", targetNamespace = "http://Servicio/", className = "servicio.ImprimirChoferREtorno")
+    @ResponseWrapper(localName = "ImprimirChoferREtornoResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirChoferREtornoResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirChoferREtornoRequest", output = "http://Servicio/SerivicioWeb/ImprimirChoferREtornoResponse")
+    public List<Object> imprimirChoferREtorno();
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getChofer", targetNamespace = "http://Servicio/", className = "servicio.GetChofer")
+    @ResponseWrapper(localName = "getChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.GetChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/getChoferRequest", output = "http://Servicio/SerivicioWeb/getChoferResponse")
+    public String getChofer(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @param iteracion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getChoferNombre", targetNamespace = "http://Servicio/", className = "servicio.GetChoferNombre")
+    @ResponseWrapper(localName = "getChoferNombreResponse", targetNamespace = "http://Servicio/", className = "servicio.GetChoferNombreResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/getChoferNombreRequest", output = "http://Servicio/SerivicioWeb/getChoferNombreResponse")
+    public String getChoferNombre(
+        @WebParam(name = "iteracion", targetNamespace = "")
+        int iteracion);
+
+    /**
+     * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "GraficarArbolChofer")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GraficarArbolChofer", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolChofer")
+    @ResponseWrapper(localName = "GraficarArbolChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.GraficarArbolChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/GraficarArbolChoferRequest", output = "http://Servicio/SerivicioWeb/GraficarArbolChoferResponse")
+    public boolean graficarArbolChofer();
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "ModificarChofer")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ModificarChofer", targetNamespace = "http://Servicio/", className = "servicio.ModificarChofer")
+    @ResponseWrapper(localName = "ModificarChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.ModificarChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ModificarChoferRequest", output = "http://Servicio/SerivicioWeb/ModificarChoferResponse")
+    public String modificarChofer(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3);
+
+    /**
+     * 
+     * @param clave
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "ExisteChofer")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ExisteChofer", targetNamespace = "http://Servicio/", className = "servicio.ExisteChofer")
+    @ResponseWrapper(localName = "ExisteChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ExisteChoferRequest", output = "http://Servicio/SerivicioWeb/ExisteChoferResponse")
+    public boolean existeChofer(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave);
+
+    /**
+     * 
+     * @param arg3
+     * @param arg2
+     * @param clave
+     * @param correo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "InsertarChofer")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "InsertarChofer", targetNamespace = "http://Servicio/", className = "servicio.InsertarChofer")
+    @ResponseWrapper(localName = "InsertarChoferResponse", targetNamespace = "http://Servicio/", className = "servicio.InsertarChoferResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/InsertarChoferRequest", output = "http://Servicio/SerivicioWeb/InsertarChoferResponse")
+    public String insertarChofer(
+        @WebParam(name = "clave", targetNamespace = "")
+        int clave,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "AgregarBus")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "AgregarBus", targetNamespace = "http://Servicio/", className = "servicio.AgregarBus")
+    @ResponseWrapper(localName = "AgregarBusResponse", targetNamespace = "http://Servicio/", className = "servicio.AgregarBusResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/AgregarBusRequest", output = "http://Servicio/SerivicioWeb/AgregarBusResponse")
+    public String agregarBus(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "ExisteBus")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ExisteBus", targetNamespace = "http://Servicio/", className = "servicio.ExisteBus")
+    @ResponseWrapper(localName = "ExisteBusResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteBusResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ExisteBusRequest", output = "http://Servicio/SerivicioWeb/ExisteBusResponse")
+    public boolean existeBus(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "ImprimirLista")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ImprimirLista", targetNamespace = "http://Servicio/", className = "servicio.ImprimirLista")
+    @ResponseWrapper(localName = "ImprimirListaResponse", targetNamespace = "http://Servicio/", className = "servicio.ImprimirListaResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ImprimirListaRequest", output = "http://Servicio/SerivicioWeb/ImprimirListaResponse")
+    public String imprimirLista();
+
+    /**
+     * 
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "GraficarListaBuses")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "GraficarListaBuses", targetNamespace = "http://Servicio/", className = "servicio.GraficarListaBuses")
+    @ResponseWrapper(localName = "GraficarListaBusesResponse", targetNamespace = "http://Servicio/", className = "servicio.GraficarListaBusesResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/GraficarListaBusesRequest", output = "http://Servicio/SerivicioWeb/GraficarListaBusesResponse")
+    public boolean graficarListaBuses();
+
+    /**
+     * 
+     * @param nombre
+     */
+    @WebMethod(operationName = "Imprimir Rutas")
+    @RequestWrapper(localName = "Imprimir Rutas", targetNamespace = "http://Servicio/", className = "servicio.Imprimir_0020Rutas")
+    @ResponseWrapper(localName = "Imprimir RutasResponse", targetNamespace = "http://Servicio/", className = "servicio.Imprimir_0020RutasResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/Imprimir RutasRequest", output = "http://Servicio/SerivicioWeb/Imprimir RutasResponse")
+    public void imprimir_0020Rutas(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre);
+
+    /**
+     * 
+     * @return
+     *     returns int
+     */
+    @WebMethod(operationName = "RetornarListaRutas")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "RetornarListaRutas", targetNamespace = "http://Servicio/", className = "servicio.RetornarListaRutas")
+    @ResponseWrapper(localName = "RetornarListaRutasResponse", targetNamespace = "http://Servicio/", className = "servicio.RetornarListaRutasResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/RetornarListaRutasRequest", output = "http://Servicio/SerivicioWeb/RetornarListaRutasResponse")
+    public int retornarListaRutas();
+
+    /**
+     * 
+     * @param nombre
+     * @return
+     *     returns boolean
+     */
+    @WebMethod(operationName = "ExisteRuta")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "ExisteRuta", targetNamespace = "http://Servicio/", className = "servicio.ExisteRuta")
+    @ResponseWrapper(localName = "ExisteRutaResponse", targetNamespace = "http://Servicio/", className = "servicio.ExisteRutaResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/ExisteRutaRequest", output = "http://Servicio/SerivicioWeb/ExisteRutaResponse")
+    public boolean existeRuta(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns int
+     */
+    @WebMethod(operationName = "RetornarListaDeNombresDeEstaciones")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "RetornarListaDeNombresDeEstaciones", targetNamespace = "http://Servicio/", className = "servicio.RetornarListaDeNombresDeEstaciones")
+    @ResponseWrapper(localName = "RetornarListaDeNombresDeEstacionesResponse", targetNamespace = "http://Servicio/", className = "servicio.RetornarListaDeNombresDeEstacionesResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/RetornarListaDeNombresDeEstacionesRequest", output = "http://Servicio/SerivicioWeb/RetornarListaDeNombresDeEstacionesResponse")
+    public int retornarListaDeNombresDeEstaciones(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "RetornarNombresDeRutasEstaciones")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "RetornarNombresDeRutasEstaciones", targetNamespace = "http://Servicio/", className = "servicio.RetornarNombresDeRutasEstaciones")
+    @ResponseWrapper(localName = "RetornarNombresDeRutasEstacionesResponse", targetNamespace = "http://Servicio/", className = "servicio.RetornarNombresDeRutasEstacionesResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/RetornarNombresDeRutasEstacionesRequest", output = "http://Servicio/SerivicioWeb/RetornarNombresDeRutasEstacionesResponse")
+    public String retornarNombresDeRutasEstaciones(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        int arg1);
+
+    /**
+     * 
+     * @param nombre
+     */
+    @WebMethod(operationName = "CrearRuta")
+    @RequestWrapper(localName = "CrearRuta", targetNamespace = "http://Servicio/", className = "servicio.CrearRuta")
+    @ResponseWrapper(localName = "CrearRutaResponse", targetNamespace = "http://Servicio/", className = "servicio.CrearRutaResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/CrearRutaRequest", output = "http://Servicio/SerivicioWeb/CrearRutaResponse")
+    public void crearRuta(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre);
+
+    /**
+     * 
+     * @param nombre
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "Borrar")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "Borrar", targetNamespace = "http://Servicio/", className = "servicio.Borrar")
+    @ResponseWrapper(localName = "BorrarResponse", targetNamespace = "http://Servicio/", className = "servicio.BorrarResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/BorrarRequest", output = "http://Servicio/SerivicioWeb/BorrarResponse")
+    public String borrar(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre);
+
+    /**
+     * 
+     * @param nombre
+     */
+    @WebMethod(operationName = "AgregarNumeroExtacion")
+    @RequestWrapper(localName = "AgregarNumeroExtacion", targetNamespace = "http://Servicio/", className = "servicio.AgregarNumeroExtacion")
+    @ResponseWrapper(localName = "AgregarNumeroExtacionResponse", targetNamespace = "http://Servicio/", className = "servicio.AgregarNumeroExtacionResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/AgregarNumeroExtacionRequest", output = "http://Servicio/SerivicioWeb/AgregarNumeroExtacionResponse")
+    public void agregarNumeroExtacion(
+        @WebParam(name = "nombre", targetNamespace = "")
+        int nombre);
+
+    /**
+     * 
+     * @param nombre
+     */
+    @WebMethod(operationName = "AgregarNombreRuta")
+    @RequestWrapper(localName = "AgregarNombreRuta", targetNamespace = "http://Servicio/", className = "servicio.AgregarNombreRuta")
+    @ResponseWrapper(localName = "AgregarNombreRutaResponse", targetNamespace = "http://Servicio/", className = "servicio.AgregarNombreRutaResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/AgregarNombreRutaRequest", output = "http://Servicio/SerivicioWeb/AgregarNombreRutaResponse")
+    public void agregarNombreRuta(
+        @WebParam(name = "nombre", targetNamespace = "")
+        String nombre);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod(operationName = "RetornarNombresDeRutas")
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "RetornarNombresDeRutas", targetNamespace = "http://Servicio/", className = "servicio.RetornarNombresDeRutas")
+    @ResponseWrapper(localName = "RetornarNombresDeRutasResponse", targetNamespace = "http://Servicio/", className = "servicio.RetornarNombresDeRutasResponse")
+    @Action(input = "http://Servicio/SerivicioWeb/RetornarNombresDeRutasRequest", output = "http://Servicio/SerivicioWeb/RetornarNombresDeRutasResponse")
+    public String retornarNombresDeRutas(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
      * @param iteracion
      * @return
      *     returns java.lang.String
@@ -274,16 +948,5 @@ public interface SerivicioWeb {
     public String getAdmin(
         @WebParam(name = "iteracion", targetNamespace = "")
         int iteracion);
-=======
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod(operationName = "Agregar")
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "Agregar", targetNamespace = "http://Servicio/", className = "servicio.Agregar")
-    @ResponseWrapper(localName = "AgregarResponse", targetNamespace = "http://Servicio/", className = "servicio.AgregarResponse")
-    @Action(input = "http://Servicio/SerivicioWeb/AgregarRequest", output = "http://Servicio/SerivicioWeb/AgregarResponse")
-    public String agregar();
->>>>>>> origin/master
 
 }

@@ -23,14 +23,8 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
-                
->>>>>>> origin/master
             </ul>
         </div>
         
@@ -43,10 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
-<<<<<<< HEAD
                     <li><a href="MostrarAdministradores.jsp">Tabla De Administradores</a></li>
-=======
->>>>>>> origin/master
                     <li><a href="CrearUsuarioAdministrador.jsp">Crear Administradores</a></li>
                     <li><a href="ModificarUsuarioAdministrador.jsp">Modificar Administradores</a></li>
                     <li><a href="EliminarUsuarioAdministrador.jsp">Eliminar Administradores</a></li>
@@ -71,12 +62,11 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
+                    <form action="ModificarUsuarioAdministrador.jsp" method="POST">
                         <br>
                       <h5>Seleccione El Que desea Modificar: </h5> 
                       <br>
-                      <select name="ListaAdmins">
-<<<<<<< HEAD
+                      <select name="ListaAdmins"class="boton" cnchange="this.form[valor].value==this.valor">
                           
                           
                             <%-- start web service invocation --%><hr/>
@@ -98,7 +88,7 @@
          
         %>  
         
-        <option><%= mensaje2%></option>
+        <option value="<%= mensaje2%>"><%= mensaje2%></option>
                
          <%
          count=count+1;
@@ -113,10 +103,6 @@
     %>
     <%-- end web service invocation --%><hr/>
   
-=======
-                          <option>admin1</option>
-                          <option>admin2</option>
->>>>>>> origin/master
                       </select>
                       <br>
                       <br>    
@@ -128,12 +114,40 @@
                       <br>
                       <h5>Contraseña: </h5>
                       <br>
-                      <input type="text" name="contraseña" value="" />
+                          <input type="password" name="contraotra" value="contraotra" />
                       <br>
                       <br>
                       <input type="submit" value="MODIFICAR" />
                       
                     </form>
+    
+        <%-- start web service invocation --%><hr/>
+    <%
+    if ( request.getParameter("correo") != null){ 
+    try {
+        
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String arg0 = request.getParameter("ListaAdmins");
+	java.lang.String arg1 = request.getParameter("correo");
+	java.lang.String arg2 = request.getParameter("contraotra");
+	// TODO process result here
+	java.lang.String result = port.modificarAdmin(arg0, arg1, arg2);
+	out.println("Result = "+result);
+        
+        String msg=result;
+        String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
+        out.println(mensaje);
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+    
                     
         </div>
         <div id="content_bottom"></div>

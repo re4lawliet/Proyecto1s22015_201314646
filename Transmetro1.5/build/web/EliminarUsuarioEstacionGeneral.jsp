@@ -23,14 +23,8 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
-                
->>>>>>> origin/master
             </ul>
         </div>
         
@@ -43,6 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
+                    <li><a href="MostrarEstacionesGenerales.jsp">Crear EstacionGeneral</a></li>
                     <li><a href="CrearUsuarioEstacionGeneral.jsp">Crear EstacionGeneral</a></li>
                     <li><a href="ModificarUsuarioEstacionGeneral.jsp">Modificar EstacionGeneral</a></li>
                     <li><a href="EliminarUsuarioEstacionGeneral.jsp">Eliminar EstacionGeneral</a></li>

@@ -23,14 +23,8 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-                <li class="menuitem"><a href="index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
-                
->>>>>>> origin/master
             </ul>
         </div>
         
@@ -43,6 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
+                          <li><a href="MostrarChofer.jsp">Tabla De Choferes</a></li>
                     <li><a href="CrearUsuarioChofer.jsp">Crear Chofer</a></li>
                     <li><a href="ModificarUsuarioChofer.jsp">Modificar Chofer</a></li>
                     <li><a href="EliminarUsuarioChofer.jsp">Eliminar Chofer</a></li>
@@ -67,35 +62,69 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
+                    <form action="CrearUsuarioChofer.jsp" method="POST">
                         <br>
                         
-                      <h5>Nombre: </h5>  
+                       
+                      <h5>Clave: </h5>
                       <br>
-                      <input type="text" name="nombre" value="" />
+                      <input type="text" name="clave" value="" />
                       <br>
                       <h5>Apellido: </h5>  
                       <br>
                       <input type="text" name="apellido" value="" />
                       <br>
                       <br>
-<<<<<<< HEAD
-                       <h5>Clave: </h5>
+                      <h5>Nombre: </h5>  
                       <br>
-                      <input type="text" name="clave" value="" />
+                       <input type="text" name="nombre" value="" />
                       <br>
                       <br>                          
-=======
->>>>>>> origin/master
                       <h5>Contraseña: </h5>
                       <br>
-                      <input type="text" name="contraseña" value="" />
+                          <input type="password" name="contraXD" value="" />
                       <br>
                       <br>
-                      <input type="submit" value="CREAR" />
+                      <input type="submit" value="CREA" />
                       
                     </form>
                     
+                
+                    <%-- start web service invocation --%><hr/>
+    <%
+        if (request.getParameter("clave") != null){
+    try {
+        
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	int clave = Integer.parseInt(request.getParameter("clave"));
+        java.lang.String nombre = request.getParameter("nombre");
+        java.lang.String apellido = request.getParameter("apellido");
+	String contraseña = request.getParameter("contraXD");
+	// TODO process result here
+	boolean result = port.existeChofer(clave);
+	//out.println("Datos Invalidos");
+        
+        if(result==true){//existe Ese Usuario
+        String mensaje="<script language='javascript'>alert('Este Admin Ya Existe');</script>"; 
+        out.println(mensaje);    
+        }else{//no existe Tonces Insertar
+        String msg=port.insertarChofer(clave, nombre,apellido,contraseña);
+        String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
+        out.println(mensaje);
+        }
+                
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
+                
+                
         </div>
         <div id="content_bottom"></div>
             

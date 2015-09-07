@@ -23,13 +23,8 @@
         <div id="menu">
         	<ul>
             	<<li class="menuitem"><a href="MenuAdministrador.jsp">MenuAdmin</a></li>
-<<<<<<< HEAD
                 <li class="menuitem"><a href="www.google.com">Acerca de</a></li>
                 <li class="menuitem"><a href="index.jsp">Cerrar Sesion</a></li>
-=======
-                <li class="menuitem"><a href="/index.jsp">Acerca de</a></li>
-                <li class="menuitem"><a href="">Cerrar Sesion</a></li>
->>>>>>> origin/master
                 
             </ul>
         </div>
@@ -46,24 +41,19 @@
                     <li><a href="#">Asignacion de Buses</a></li>
                     <li><a href="#">Agregar Usuarios de Estaciones</a></li>
                     </br>
+                    <li><a href="AgregarBus.jsp">Agregar Buses</a></li>
+                    <li><a href="AgregarRuta.jsp">Agregar Rutas</a></li>
+                    </br>
                     </br>
                     <h3><font color="yellow">AdministrarUsuarios:</font></h3>                   
-<<<<<<< HEAD
                     <li><a href="MostrarAdministradores.jsp">Administradores:</a></li>
-=======
-                    <li><a href="CrearUsuarioAdministrador.jsp">Administradores:</a></li>
->>>>>>> origin/master
-                    <li><a href="CrearUsuarioEstacionClave.jsp">Estaciones Claves:</a></li>
-                    <li><a href="CrearUsuarioEstacionGeneral.jsp">Estaciones Generales:</a></li>
-                    <li><a href="CrearUsuarioChofer.jsp">Choferes:</a></li>
+                    <li><a href="MostrarEstacionesClave.jsp">Estaciones Claves:</a></li>
+                    <li><a href="MostrarEstacionesGenerales.jsp">Estaciones Generales:</a></li>
+                    <li><a href="MostrarChofer.jsp">Choferes:</a></li>
                     </br>
                     <h3><font color="yellow">Reportes:</font></h3>
                     <li><a href="#">Resumen</a></li>
-<<<<<<< HEAD
                     <li><a href="graficas.jsp">Graficas</a></li>
-=======
-                    <li><a href="#">Graficas</a></li>
->>>>>>> origin/master
                 </ul>
 </div>
                 

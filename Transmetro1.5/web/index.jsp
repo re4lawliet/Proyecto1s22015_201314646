@@ -31,11 +31,6 @@
         </div>
         
         <div id="leftmenu">
-<<<<<<< HEAD
-=======
-
-       
->>>>>>> origin/master
                 
                 
               <div id="leftmenu_bottom"></div>

@@ -5,12 +5,9 @@
  */
 package Servicio;
 
-<<<<<<< HEAD
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-=======
->>>>>>> origin/master
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -22,24 +19,28 @@ import javax.jws.WebParam;
 @WebService(serviceName = "SerivicioWeb")
 public class SerivicioWeb {
     
-<<<<<<< HEAD
-    public ListaBuses Lista = new ListaBuses ();
+    
     public ArbolAvlAdmin Arbol1=new ArbolAvlAdmin ();
     
     //INSTANCIA DE ARBOLES EN WEB SERVICE
+    public ListaBuses Lista = new ListaBuses();
     public ArbolAdministradores arbol1 = new ArbolAdministradores ();
     public ArbolEstacionClave arbol2=new ArbolEstacionClave();
     public ArbolEstacionGeneral arbol3=new ArbolEstacionGeneral();
     public ArbolChoferes arbol4 = new ArbolChoferes();
+    public ArrayList <Ruta> ListaRutas= new ArrayList <> ();
+    public ArrayList <String> NombreRutas= new ArrayList <> ();
+    public ArrayList <Integer> NumeroPorEstacion= new ArrayList <> ();
     //______________________________________________________________________
     
     public String impresor="";
     public ArrayList <String> ListaAdmins= new ArrayList <> ();
+    public ArrayList <String> ListaEstacionesClaveNombre= new ArrayList <> ();
+    public ArrayList <String> ListaEstacionesGeneralesNombre= new ArrayList <> ();
     public boolean ValidarOperacion=false;//ESta ES PARA VER SI IMPRime solo nombres o imprime todo los datos del nodo
-=======
-    public ListaDobleBuses Lista = new ListaDobleBuses ();
->>>>>>> origin/master
-    
+    public boolean ValidarOperacion2=false;
+    public boolean ValidarOperacion3=false;
+    public boolean ValidarOperacion4=false;
     /**
      * This is a sample web service operation
      */
@@ -58,17 +59,13 @@ public class SerivicioWeb {
         //TODO write your implementation code here:
         
         bus x ;
-        Lista.AgregarAlFinal(new bus());       
+        Lista.AgregarAlFinal(new bus(5));       
         
         String Concat="";
   String datos="<-a-s->";
                 if (!Lista.esVacia()){ //si no esta vacia porlomenos tiene un nodo
             
-<<<<<<< HEAD
             NodoBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
-=======
-            NodoDobleBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
->>>>>>> origin/master
             
             while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
             datos = datos + "["+auxiliar.dato.nombre+"]<-a-s->"; //mostrar de esta forma
@@ -92,18 +89,13 @@ public class SerivicioWeb {
     public String Borrar(@WebParam(name = "nombre") String nombre) {
         //TODO write your implementation code here:
         
-<<<<<<< HEAD
         NodoBuses x =Lista.Busqueda(nombre);
-=======
-        NodoDobleBuses x =Lista.Busqueda(nombre);
->>>>>>> origin/master
         
         Lista.EliminarBicho(x);
         
         return x.dato.id+"";
     }
 
-<<<<<<< HEAD
     /**
      * Web service operation
      */
@@ -353,11 +345,7 @@ public class SerivicioWeb {
 
     
 //::::::::::::::::::GRAFICAR ARBOL ADMINISTRADOR ::::::::::::::::::::::::::::::::    
-    
-
-
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::    
-
+        
     /**
      * Web service operation
      */
@@ -377,10 +365,764 @@ public class SerivicioWeb {
      return validar;   
     }
 
-    
-=======
->>>>>>> origin/master
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
     
+    //:::::::::::::::::::::::::Modificar el Arbol Administradores::::::::::::::::::::
+
+    /**
+     * Web service operation
+     * @param nodo
+     */
+    @WebMethod(operationName = "ModificarAdmin")
+    public String ModificarAdmin(String correoBusqueda,String correoNuevo, String contra) {
+        //TODO write your implementation code here:
+        String validar="MSJ";
+        
+        if(arbol1!=null){  
+            //Modifica
+            validar=arbol1.ModificarArbol(arbol1.A, correoBusqueda, correoNuevo, contra);
+        }else{
+            //No Hay DATOS
+            validar="No Hay DAtos";
+        }
+        
+        return validar;
+    }
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    
+//------------IMPRIMIR Estaciones Clave--------------------
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ImprimirEstacionesClave")
+    public void ImprimirEstacionesClave(NodoEstacionClave nodo) {
+        //TODO write your implementation code here:
+        String ad;
+        String retorno;
+        if ( nodo != null ){
+            ImprimirEstacionesClave(nodo.Derecho);
+            
+            if(ValidarOperacion4==false){
+            ad="["+ nodo.ingreso + "]"+"-----------"+nodo.NombreEstacion+"-----------"+nodo.contraseña+"||";
+            }else{
+            ad=""+nodo.ingreso;    
+            }
+            
+            ListaAdmins.add(ad);
+            
+            ImprimirEstacionesClave(nodo.Izquierdo);
+        }
+            
+        
+    }
+    
+    
+     @WebMethod(operationName = "ImprimirEstacionesClave2")
+    public void ImprimirEstacionesClave2(NodoEstacionClave nodo) {
+        //TODO write your implementation code here:
+        String ad;
+        String retorno;
+        if ( nodo != null ){
+            ImprimirEstacionesClave2(nodo.Derecho);
+            
+            if(ValidarOperacion3==false){
+            ad="["+ nodo.ingreso + "]"+"-----------"+nodo.NombreEstacion+"-----------||";
+            }else{
+            ad=""+nodo.ingreso;    
+            }
+            
+            ListaEstacionesClaveNombre.add(ad);
+            ImprimirEstacionesClave2(nodo.Izquierdo);
+        }
+            
+        
+    }
+    
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "ImprimirEstacionClaveRetorno")
+    public ArrayList ImprimirEstacionClaveRetorno() {
+        //TODO write your implementation code here:
+        ListaAdmins.clear();//limpia la anterior
+        ImprimirEstacionesClave(arbol2.A);
+        
+        return ListaAdmins;
+    }
+    
+        @WebMethod(operationName = "ImprimirEstacionClaveRetorno2")
+    public ArrayList ImprimirEstacionClaveRetorno2() {
+        //TODO write your implementation code here:
+        ListaEstacionesClaveNombre.clear();//limpia la anterior
+        ImprimirEstacionesClave2(arbol2.A);
+        
+        return ListaEstacionesClaveNombre;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEstacionClave")
+    public String getEstacionClave(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+        ValidarOperacion4=false;
+        String lol =ListaAdmins.get(iteracion);
+        
+       return lol;       
+    }
+    
+        @WebMethod(operationName = "getEstacionClave2")
+    public String getEstacionClave2(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+        ValidarOperacion3=false;
+        String lol =ListaEstacionesClaveNombre.get(iteracion);
+        
+       return lol;       
+    }
+        /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEstacionClaveNombre")
+    public String getEstacionClaveNombre(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+       ValidarOperacion4=true; 
+       String lol =ListaAdmins.get(iteracion);         
+       return lol;  
+       
+    }
+        @WebMethod(operationName = "getEstacionClaveNombre2")
+    public String getEstacionClaveNombre2(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+       ValidarOperacion3=true; 
+       String lol =ListaEstacionesClaveNombre.get(iteracion);         
+       return lol;  
+       
+    }
+//---------------------------------------------------------
+  
+    //::::::::::::::::::GRAFICAR ARBOL EstacionesClave ::::::::::::::::::::::::::::::::    
+        
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "GraficarArbolEstacionClave")
+    public boolean GraficarArbolEstacionesClave() {
+    boolean validar=false;
+        if(arbol2.A!=null){
+    arbol2.GraficarNodos(arbol2.A);
+    arbol2.GraficaLineasArbol1(arbol2.A);
+    arbol2.EscribirArchivo1();
+    arbol2.Graficar1();
+        validar=true;
+        }else{
+        validar=false;    
+        }
+    
+     return validar;   
+    }
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+        //:::::::::::::::::::::::::Modificar el Arbol Estacion Clave::::::::::::::::::::
+
+    /**
+     * Web service operation
+     * @param nodo
+     */
+    @WebMethod(operationName = "ModificarEstacionClave")
+    public String ModificarEstacionClave(int correoBusqueda,String correoNuevo, String contra) {
+        //TODO write your implementation code here:
+        String validar="MSJ";
+        
+        if(arbol2!=null){  
+            //Modifica
+            validar=arbol2.ModificarArbol(arbol2.A, correoBusqueda, correoNuevo, contra);
+        }else{
+            //No Hay DATOS
+            validar="No Hay DAtos";
+        }
+        
+        return validar;
+    }
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   
+//:::::::::::::::::::::::::::::INSERTAR ARBOL ESTACION CLAVE::::::::::::::::::::::::::::::::
+    
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ExisteEstacionClave")
+    public boolean ExisteEstatcionClave(@WebParam(name = "clave") int clave) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        NodoEstacionClave nodoObtenido=arbol2.BuscarPorDato(arbol2.A, clave);
+        
+        if(nodoObtenido.ingreso==clave){
+        validar=true;    
+        }else{
+        validar=false;    
+        }
+        
+        return validar;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "InsertarEstacionClave")
+    public String InsertarEstacionClave(@WebParam(name = "clave") int clave, @WebParam(name = "correo") String nombreEC, @WebParam(name = "contrase\u00f1a") String contraseña) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        
+        arbol2.InsercionAutor(clave, nombreEC, contraseña);
+        
+        return "Se Inserto id: "+clave+" Correo: "+nombreEC+" Con Exito: "+contraseña;
+    }
+   
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI INICIAN LAS GENERALES------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    
+    
+    //------------IMPRIMIR Estaciones Generales--------------------
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ImprimirEstaGeneral")
+    public void ImprimirEstacionGeneral(NodoEstacionGeneral nodo) {
+        //TODO write your implementation code here:
+        String ad;
+        String retorno;
+        if ( nodo != null ){
+            ImprimirEstacionGeneral(nodo.Derecho);
+            
+            if(ValidarOperacion==false){
+            ad="["+ nodo.ingreso + "]"+"-----------"+nodo.NombreEstacion+"-----------"+nodo.contraseña+"||";
+            }else{
+            ad=""+nodo.ingreso;    
+            }
+            
+            ListaAdmins.add(ad);
+            ImprimirEstacionGeneral(nodo.Izquierdo);
+        }
+              
+    }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "ImprimirEstaGeREtorno")
+    public ArrayList ImprimirEstacionGeneralRetorno() {
+        //TODO write your implementation code here:
+        ListaAdmins.clear();//limpia la anterior
+        ImprimirEstacionGeneral(arbol3.A);
+        
+        return ListaAdmins;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEstacionGeneral")
+    public String getEstacionGeneral(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+        ValidarOperacion=false;
+        String lol =ListaAdmins.get(iteracion);
+        
+       return lol;       
+    }
+        /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEstacionGeneralNombre")
+    public String getEstacionGeneralNombre(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+       ValidarOperacion=true; 
+       String lol =ListaAdmins.get(iteracion);         
+       return lol;  
+       
+    }
+    
+    //..............Impresion Nombre Estacion General O las 2
+        @WebMethod(operationName = "ImprimirEstaGeneral2")
+    public void ImprimirEstacionGeneral2(NodoEstacionGeneral nodo) {
+        //TODO write your implementation code here:
+        String ad;
+        String retorno;
+        if ( nodo != null ){
+            ImprimirEstacionGeneral2(nodo.Derecho);
+            
+            if(ValidarOperacion2==false){
+            ad="["+ nodo.ingreso + "]"+"-----------"+nodo.NombreEstacion+"-----------+||";
+            }else{
+            ad=""+nodo.ingreso;    
+            }
+            
+            ListaEstacionesGeneralesNombre.add(ad);
+            ImprimirEstacionGeneral2(nodo.Izquierdo);
+        }
+              
+    }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "ImprimirEstaGeREtorno2")
+    public ArrayList ImprimirEstacionGeneralRetorno2() {
+        //TODO write your implementation code here:
+        ListaEstacionesGeneralesNombre.clear();//limpia la anterior
+        ImprimirEstacionGeneral2(arbol3.A);
+        
+        return ListaEstacionesGeneralesNombre;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEstacionGeneral2")
+    public String getEstacionGeneral2(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+        ValidarOperacion2=false;
+        String lol =ListaEstacionesGeneralesNombre.get(iteracion);
+        
+       return lol;       
+    }
+        /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getEstacionGeneralNombre2")
+    public String getEstacionGeneralNombre2(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+       ValidarOperacion2=true; 
+       String lol =ListaEstacionesGeneralesNombre.get(iteracion);         
+       return lol;  
+       
+    }
+//---------------------------------------
+    
+    //::::::::::::::::::GRAFICAR ARBOL EstacionesGeneral ::::::::::::::::::::::::::::::::    
+        
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "GraficarArbolEstacionGeneral")
+    public boolean GraficarArbolEstacionGeneral() {
+    boolean validar=false;
+        if(arbol3.A!=null){
+    arbol3.GraficarNodos(arbol3.A);
+    arbol3.GraficaLineasArbol1(arbol3.A);
+    arbol3.EscribirArchivo1();
+    arbol3.Graficar1();
+        validar=true;
+        }else{
+        validar=false;    
+        }
+    
+     return validar;   
+    }
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+        //:::::::::::::::::::::::::Modificar el Arbol EstacionGeneral::::::::::::::::::::
+
+    /**
+     * Web service operation
+     * @param correoBusqueda     */
+    @WebMethod(operationName = "ModificarEstacionGeneral")
+    public String ModificarEstacionGeneral(int correoBusqueda,String correoNuevo, String contra) {
+        //TODO write your implementation code here:
+        String validar="MSJ";
+        
+        if(arbol3!=null){  
+            //Modifica
+            validar=arbol3.ModificarArbol(arbol3.A, correoBusqueda, correoNuevo, contra);
+        }else{
+            //No Hay DATOS
+            validar="No Hay DAtos";
+        }
+        
+        return validar;
+    }
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   
+//:::::::::::::::::::::::::::::INSERTAR ARBOL ESTACION CLAVE::::::::::::::::::::::::::::::::
+    
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ExisteEstacionGeneral")
+    public boolean ExisteEstacionGeneral(@WebParam(name = "clave") int clave) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        NodoEstacionGeneral nodoObtenido=arbol3.BuscarPorDato(arbol3.A, clave);
+        
+        if(nodoObtenido.ingreso==clave){
+        validar=true;    
+        }else{
+        validar=false;    
+        }
+        
+        return validar;
+    }
+    
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "InsertarEstacionGeneral")
+    public String InsertarEstacionGeneral(@WebParam(name = "clave") int clave, @WebParam(name = "correo") String nombreEC, @WebParam(name = "contrase\u00f1a") String contraseña) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        
+        arbol3.InsercionAutor(clave, nombreEC, contraseña);
+        
+        return "Se Inserto id: "+clave+" Correo: "+nombreEC+" Con Exito: "+contraseña;
+    }
+    
+
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI INICIAN Los Choferes------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    
+    
+    //------------IMPRIMIR Estaciones Generales--------------------
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ImprimirChofer")
+    public void ImprimirChofer(NodoChofer nodo) {
+        //TODO write your implementation code here:
+        String ad;
+        String retorno;
+        if ( nodo != null ){
+            ImprimirChofer(nodo.Derecho);
+            
+            if(ValidarOperacion==false){
+            ad="["+ nodo.ingreso + "]"+"-----------"+nodo.NombreChofer+"-----------"+nodo.ApellidoChofer+"-----------"+nodo.Contraseña+"||";
+            }else{
+            ad=""+nodo.ingreso;    
+            }
+            
+            ListaAdmins.add(ad);
+            ImprimirChofer(nodo.Izquierdo);
+        }
+              
+    }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "ImprimirChoferREtorno")
+    public ArrayList ImprimirChoferRetorno() {
+        //TODO write your implementation code here:
+        ListaAdmins.clear();//limpia la anterior
+        ImprimirChofer(arbol4.A);
+        
+        return ListaAdmins;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getChofer")
+    public String getChofer(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+        ValidarOperacion=false;
+        String lol =ListaAdmins.get(iteracion);
+        
+       return lol;       
+    }
+        /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getChoferNombre")
+    public String getChoferNombre(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+       ValidarOperacion=true; 
+       String lol =ListaAdmins.get(iteracion);         
+       return lol;  
+       
+    }
+//---------------------------------------
+    
+    //::::::::::::::::::GRAFICAR ARBOL EstacionesGeneral ::::::::::::::::::::::::::::::::    
+        
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "GraficarArbolChofer")
+    public boolean GraficarArbolChofer() {
+    boolean validar=false;
+        if(arbol4.A!=null){
+    arbol4.GraficarNodos(arbol4.A);
+    arbol4.GraficaLineasArbol1(arbol4.A);
+    arbol4.EscribirArchivo1();
+    arbol4.Graficar1();
+        validar=true;
+        }else{
+        validar=false;    
+        }
+    
+     return validar;   
+    }
+
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+        //:::::::::::::::::::::::::Modificar el Arbol EstacionGeneral::::::::::::::::::::
+
+    /**
+     * Web service operation
+     * @param correoBusqueda     */
+    @WebMethod(operationName = "ModificarChofer")
+    public String ModificarChofer(int claveBusqueda,String NombreNuevo, String ApellidoNuevo, String ContraNueva) {
+        //TODO write your implementation code here:
+        String validar="MSJ";
+        
+        if(arbol4!=null){  
+            //Modifica
+            validar=arbol4.ModificarArbol(arbol4.A, claveBusqueda, NombreNuevo, ApellidoNuevo,ContraNueva);
+        }else{
+            //No Hay DATOS
+            validar="No Hay DAtos";
+        }
+        
+        return validar;
+    }
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+   
+//:::::::::::::::::::::::::::::INSERTAR ARBOL ESTACION CLAVE::::::::::::::::::::::::::::::::
+    
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ExisteChofer")
+    public boolean ExisteChofer(@WebParam(name = "clave") int clave) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        NodoChofer nodoObtenido=arbol4.BuscarPorDato(arbol4.A, clave);
+        
+        if(nodoObtenido.ingreso==clave){
+        validar=true;    
+        }else{
+        validar=false;    
+        }
+        
+        return validar;
+    }
+    
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "InsertarChofer")
+    public String InsertarChofer(@WebParam(name = "clave") int clave, @WebParam(name = "correo") String nombrechofer,  String apellido, String contraseña) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        
+        arbol4.InsercionAutor(clave, nombrechofer, apellido, contraseña);
+        
+        return "Se Inserto id: "+clave+" Correo: "+nombrechofer+" "+apellido+" Con Exito: "+contraseña;
+    }
+    
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI BUSES------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    
+    
+        /**
+     * Web service operation
+     * @param nombre
+     * @return 
+     */
+    @WebMethod(operationName = "AgregarBus")
+    public String AgregarBus(int id) {
+        //TODO write your implementation code here:
+        
+        bus x ;
+        Lista.AgregarAlFinal(new bus(id));       
+        
+        String Concat="";
+        String datos="<-a-s->";
+                if (!Lista.esVacia()){ //si no esta vacia porlomenos tiene un nodo
+            
+            NodoBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
+            
+            while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+            datos = datos + "["+auxiliar.dato.nombre+"]<-a-s->"; //mostrar de esta forma
+            String lol = auxiliar.dato.nombre;
+            int lol2=auxiliar.dato.id;
+            auxiliar = auxiliar.siguiente; //auxiliar vaser = a auxiliar de siguiente
+            
+             }
+            
+        }else {
+             System.out.println("VACIO");
+         }
+        
+        return datos;
+    }
+    
+     @WebMethod(operationName = "ExisteBus")
+    public boolean ExisteBus(int id) {
+        //Si el bus existe REtorna True De Lo Contrario False
+         boolean validar=false;
+        NodoBuses auxiliar=Lista.inicio;
+        NodoBuses auxiliarFinal = null;
+        boolean retorno = false;
+        
+         if (Lista.inicio!=null){ //si no esta vacia porlomenos tiene un nodo
+             //crea nodoDoble auxiliar y apunta al final
+            
+                while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+           
+                if (auxiliar.dato.id==id){
+                    //auxiliarFinal=auxiliar;
+                    retorno=true;
+                }else{
+//nada
+                }
+                
+                auxiliar = auxiliar.siguiente; //auxiliar va a recorrer a anterior
+            }
+            
+            
+        }else {
+            //JOptionPane.showMessageDialog(null, null,"ESta Vacia Mula",JOptionPane.INFORMATION_MESSAGE);
+            retorno=false;
+        }
+                
+      return retorno;
+    }
+     
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ImprimirLista")
+    public String ImprimirLista() {
+        //TODO write your implementation code here:
+        String validar="";
+        
+        
+        if (!Lista.esVacia()){ //si no esta vacia porlomenos tiene un nodo
+            String datos="";
+            int contador=0;
+            NodoBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
+           
+            while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+            datos = datos+"-"+contador+")----"+"["+auxiliar.dato.id+"]---"+auxiliar.dato.nombre+"<br>"; //mostrar de esta forma
+            auxiliar = auxiliar.siguiente; //auxiliar vaser = a auxiliar de siguiente
+            contador++;
+            }
+            
+            validar=datos;
+           // JOptionPane.showMessageDialog(null, datos,"Mostrando De inicio a fin",JOptionPane.nombre.INFORMATION_MESSAGE);
+        }else{
+            validar="NO ESISTEN DATOS EN LISTA----------";
+        }
+        
+        return validar;
+    }
+    
+    //------------------Graficar Lista de Buses---------------------------------
+    
+    @WebMethod(operationName = "GraficarListaBuses")
+    public boolean GraficarListaBuses() {
+    boolean validar=false;
+    
+        if(Lista.inicio!=null){
+    Lista.GraficarNodos(Lista.inicio);
+    Lista.GraficaLista(Lista.inicio);
+    Lista.EscribirArchivo1();
+    Lista.Graficar1();
+        validar=true;
+        }else{
+        validar=false;    
+        }
+    
+     return validar;   
+    }
+    //---------------------------------------------------------------------------
+    
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI Lista De Rutas-------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "CrearRuta")
+    public void CrearRuta(@WebParam(name = "nombre") String nombre) {
+        //TODO write your implementation code here:       
+        ListaRutas.add(new Ruta(nombre,NombreRutas,NumeroPorEstacion));     
+        NombreRutas.clear();
+        NumeroPorEstacion.clear();
+    }
+    
+    @WebMethod(operationName = "ExisteRuta")
+     public boolean ExisteRuta(@WebParam(name = "nombre") String nombre) {
+        //TODO write your implementation code here:
+        boolean retorno=false;
+        int y=ListaRutas.size();
+        if(ListaRutas.isEmpty()){
+        for (int i=y-1; i>=0;i--){ 
+          if(ListaRutas.get(i).nombre.equals(nombre)){
+              retorno=true;
+          }else{
+              retorno=false;
+          }  
+        }   
+        }else{
+            retorno=false;
+        }
+        
+        return retorno;   
+        
+    }
+    
+    
+    @WebMethod(operationName = "AgregarNombreRuta")
+     public void AgregarNombreRuta(@WebParam(name = "nombre") String nombre) {
+       
+     NombreRutas.add(nombre);
+              
+    }
+    
+    public void AgregarNumeroExtacion(@WebParam(name = "nombre") int n) {
+       
+     NumeroPorEstacion.add(n);
+              
+    }
+     
+    @WebMethod(operationName = "Imprimir Rutas")
+     public void ImprimirRutas(@WebParam(name = "nombre") String nombre) {
+           
+}
+
+    public int RetornarListaRutas() {
+     return ListaRutas.size();      
+}  
+    
+    public int RetornarListaDeNombresDeEstaciones(int i) {
+     return ListaRutas.get(i).ListaEstaciones.size();      
+}   
+     
+   public String RetornarNombresDeRutas(int i) {
+       String retorno=ListaRutas.get(i).nombre;      
+       return retorno;      
+}    
+    
+      public String RetornarNombresDeRutasEstaciones(int i, int j) {
+       String retorno=ListaRutas.get(i).ListaEstaciones.get(j);      
+       return retorno;      
+}    
     
 }

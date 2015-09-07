@@ -16,9 +16,9 @@ public class bus {
     
     public static int contador=0;
     
-    public bus(){
-        this.id = contador;
-        this.nombre="Bus_"+contador;
+    public bus(int id){
+        this.id = id;
+        this.nombre="Bus_"+id;
         contador = contador+1;
              
     }

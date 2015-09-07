@@ -1,6 +1,9 @@
 
 package Servicio;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,7 +15,10 @@ public class ListaBuses {
     public NodoBuses inicio; //nodo iniciall
     public NodoBuses fin;    //nodo final
     
+    int Tamaño=0;
     
+        public ArrayList <String> LineasGrafico= new ArrayList <> ();
+        
     //constructor por defecto
     public ListaBuses (){
         inicio = null; //inicio nulo
@@ -46,7 +52,7 @@ public class ListaBuses {
             inicio = fin = new NodoBuses (o); //inicio y fin apuntan al primer nodo q vamos a crear cn el primer const
             //cuando no hay nodos
         } 
-            
+        Tamaño++;    
     }
     
     //MEtodo Para Agregar Nodos al Final
@@ -78,7 +84,7 @@ public class ListaBuses {
             datos = datos + "["+auxiliar.dato.nombre+"]<-a-s->"; //mostrar de esta forma
             auxiliar = auxiliar.siguiente; //auxiliar vaser = a auxiliar de siguiente
              }
-            JOptionPane.showMessageDialog(null, datos,"Mostrando De inicio a fin",JOptionPane.INFORMATION_MESSAGE);
+           // JOptionPane.showMessageDialog(null, datos,"Mostrando De inicio a fin",JOptionPane.INFORMATION_MESSAGE);
         }
     }
     
@@ -102,12 +108,41 @@ public class ListaBuses {
         }
     }
     
+    public boolean BusquedaBool (int p){
+        
+        NodoBuses auxiliar=inicio;
+        NodoBuses auxiliarFinal = null;
+        boolean retorno = false;
+         if (!esVacia()){ //si no esta vacia porlomenos tiene un nodo
+             //crea nodoDoble auxiliar y apunta al final
+            
+            while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+           
+                if (auxiliar.dato.id==p){
+                    auxiliarFinal=auxiliar;
+                    retorno=true;
+                }else{
+                    retorno=false;
+                }
+                
+                auxiliar = auxiliar.siguiente; //auxiliar va a recorrer a anterior
+            }
+            
+            
+        }else {
+            JOptionPane.showMessageDialog(null, null,"ESta Vacia Mula",JOptionPane.INFORMATION_MESSAGE);
+            retorno=false;
+        }
+        return retorno;
+    }
+    
+    
     public NodoBuses Busqueda (String p){
         
         NodoBuses auxiliar=inicio;
         NodoBuses auxiliarFinal = null;
         bus retorno = null;
-         if (!esVacia()){ //si no esta vacia porlomenos tiene un nodo
+         if (inicio!=null){ //si no esta vacia porlomenos tiene un nodo
              //crea nodoDoble auxiliar y apunta al final
             
             while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
@@ -303,6 +338,137 @@ public class ListaBuses {
       n = null;
      }
      }
+     
+      //::::::::::::::::::::GRAFICAR ARBOL ADMINISTRADOR::::::::::::::::::::::::::
+        
+         public void GraficaLista(NodoBuses Nodo) {
+        //TODO write your implementation code here:
+        if (Nodo == null)
+			return;
+		else{
+                        try{
+                        
+                    
+                            
+                        LineasGrafico.add(""+Nodo.dato.nombre+"->"+Nodo.siguiente.dato.nombre+";\n");
+                        LineasGrafico.add(""+Nodo.siguiente.dato.nombre+"->"+Nodo.dato.nombre+";\n");
+			GraficaLista (Nodo.siguiente);                        
+			
+                            
+                            
+                        }catch (Exception e){
+                            
+                        }
+                        
+		}
+        
+    } 
+           
+          public void GraficarNodos(NodoBuses Nodo) {
+        //TODO write your implementation code here:
+        if (Nodo == null)
+			return;
+		else{
+                        LineasGrafico.add(""+Nodo.dato.nombre+";\n");
+			GraficarNodos (Nodo.siguiente);
+			
+			
+		}
+        
+    } 
+           
+        public void EscribirArchivo1() {
+            FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            //ESCRIBE EL FICHERO EN EL DIRECTORIO
+            fichero = new FileWriter("/home/carlos/Documents/Graphviz/GraficarLista1.dot");
+            pw = new PrintWriter(fichero);
+            //--------------------------------------------------------------------------------------
+            
+            //Pinta lo Que deseamos en el Fichero---------------------------------------------------
+            
+            pw.println("digraph G {");//cabezera del Graphviz
+            
+            pw.println ("rankdir=LR;");//pone la Direccion de Izquierda a Derecha
+            pw.println ("node [shape=record,width=.1,height=.1];");//pone el cuadro q simula el nodo
+          
+            for (int i=0; i< LineasGrafico.size(); i++){
+                pw.print(""+LineasGrafico.get(i).toString());
+                System.out.println(""+LineasGrafico.get(i));
+            }
+            
+            pw.println("}"); //Fin del GraphViz 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+    
+        
+    }
+
+        public  void Graficar1() {
+        //Limpiar Array
+        LineasGrafico.clear();
+        try {
+
+//path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
+
+String dotPath = "dot";
+
+//path del archivo creado con el codigo del graphviz que queremos
+
+String fileInputPath = "/home/carlos/Documents/Graphviz/GraficarLista1.dot";
+
+//path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
+
+String fileOutputPath = "/home/carlos/NetBeansProjects/Transmetro1.5/web/Lista1.jpg";
+
+//tipo de imagen de salida, en este caso es jpg
+
+String tParam = "-Tjpg";
+
+String tOParam = "-o";
+
+//concatenamos nuestras direcciones. Lo que hice es crear un vector, para poder editar las direcciones de entrada y salida, usando las variables antes inicializadas
+
+//recordemos el comando en la consola de windows: C:\Archivos de programa\Graphviz 2.21\bin\dot.exe -Tjpg grafo1.txt -o grafo1.jpg Esto es lo que concatenamos en el vector siguiente:
+
+String[] cmd = new String[5];
+cmd[0] = dotPath;
+cmd[1] = tParam;
+cmd[2] = fileInputPath;
+cmd[3] = tOParam;
+cmd[4] = fileOutputPath;
+
+//Invocamos nuestra clase 
+
+Runtime rt = Runtime.getRuntime();
+
+//Ahora ejecutamos como lo hacemos en consola
+
+rt.exec( cmd );
+
+//Grafica Generada
+
+} catch (Exception ex) {
+ex.printStackTrace();
+}  finally {
+}
+    }
+        
+//::::::::::::::::::::FIN:::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  
+        
      
      
 }
