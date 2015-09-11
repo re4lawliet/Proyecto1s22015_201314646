@@ -28,9 +28,13 @@ public class SerivicioWeb {
     public ArbolEstacionClave arbol2=new ArbolEstacionClave();
     public ArbolEstacionGeneral arbol3=new ArbolEstacionGeneral();
     public ArbolChoferes arbol4 = new ArbolChoferes();
+    
+    
+    //-------------------------------------------------------
     public ArrayList <Ruta> ListaRutas= new ArrayList <> ();
     public ArrayList <String> NombreRutas= new ArrayList <> ();
     public ArrayList <Integer> NumeroPorEstacion= new ArrayList <> ();
+    public ArrayList <String> NumeroPorChofer= new ArrayList <> ();
     //______________________________________________________________________
     
     public String impresor="";
@@ -41,6 +45,7 @@ public class SerivicioWeb {
     public boolean ValidarOperacion2=false;
     public boolean ValidarOperacion3=false;
     public boolean ValidarOperacion4=false;
+    public boolean ValidarOperacion5=false;//chofer
     /**
      * This is a sample web service operation
      */
@@ -122,11 +127,17 @@ public class SerivicioWeb {
     @WebMethod(operationName = "LogearAdmin")
     public boolean LogearAdmin(@WebParam(name = "correo") String correo, @WebParam(name = "contrase\u00f1a") String contraseña) {
         //TODO write your implementation code here:
-        arbol1.InsercionAutor(14, "fish", "123");
-        arbol1.InsercionAutor(6, "carlos", "1234");
-        arbol1.InsercionAutor(24, "josue", "12345");
-        arbol1.InsercionAutor(35, "correo", "contra");
-        arbol1.InsercionAutor(59, "correo", "contra");
+        arbol1.InsercionAutor( "fish", "123");
+        arbol1.InsercionAutor( "carlos", "1234");
+        arbol1.InsercionAutor( "josue", "12345");
+        arbol1.InsercionAutor( "Juande", "contra");
+        arbol1.InsercionAutor( "batres", "contra");
+//        arbol1.InsercionAutor( "hola", "contra");
+//        arbol1.InsercionAutor( "mundo", "contra");
+//        arbol1.InsercionAutor( "francis", "contra");
+//        arbol1.InsercionAutor( "asdf", "contra");
+//        arbol1.InsercionAutor( "wilson", "contra");
+        
         
         boolean validar=false;//si es verdadero Logear Sino Contra O correo Malo
         NodoAdministrador nodoObtenido=arbol1.BuscarPorCorreo(arbol1.A, correo);
@@ -249,16 +260,23 @@ public class SerivicioWeb {
         return validar;
     }
 
+    
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI INICIAN ADmins-----------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    
+    
     /**
      * Web service operation
      */
     @WebMethod(operationName = "ExisteAdmin")
-    public boolean ExisteAdmin(@WebParam(name = "clave") int clave) {
+    public boolean ExisteAdmin(@WebParam(name = "clave") String clave) {
         //TODO write your implementation code here:
         boolean validar=false;
-        NodoAdministrador nodoObtenido=arbol1.BuscarPorDato(arbol1.A, clave);
+        NodoAdministrador nodoObtenido=arbol1.BuscarPorCorreo(arbol1.A, clave);
         
-        if(nodoObtenido.ingreso==clave){
+        if(nodoObtenido.correo.equals(clave)){
         validar=true;    
         }else{
         validar=false;    
@@ -267,6 +285,8 @@ public class SerivicioWeb {
         return validar;
     }
 
+    
+    
     /**
      * Web service operation
      */
@@ -275,7 +295,7 @@ public class SerivicioWeb {
         //TODO write your implementation code here:
         boolean validar=false;
         
-        arbol1.InsercionAutor(clave, correo, contraseña);
+        arbol1.InsercionAutor(correo, contraseña);
         
         return "Se Inserto id: "+clave+" Correo: "+correo+" Con Exito: "+contraseña;
     }
@@ -389,6 +409,27 @@ public class SerivicioWeb {
         
         return validar;
     }
+    
+    public String EliminarAdmin(String Correo){
+        String mensaje="Elimino: "+Correo;
+        
+        if("...".equals(Correo)){
+        mensaje="...";
+        }else{
+         arbol1.EliminarDelArbol(Correo);
+        //arbol1.EquilibrarDespuesDeEliminar(arbol1.A, Correo);   
+        }
+        
+        return mensaje;
+    }
+    
+    
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI INICIAN Estaciones Clave------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    
+    
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     
 //------------IMPRIMIR Estaciones Clave--------------------
@@ -500,6 +541,19 @@ public class SerivicioWeb {
        String lol =ListaEstacionesClaveNombre.get(iteracion);         
        return lol;  
        
+    }
+    
+        public String EliminarEstacionClave(int Correo){
+        String mensaje="Elimino: "+Correo;
+        
+        if("...".equals(Correo)){
+        mensaje="...";
+        }else{
+         arbol2.EliminarDelArbol(Correo);
+        //arbol1.EquilibrarDespuesDeEliminar(arbol1.A, Correo);   
+        }
+        
+        return mensaje;
     }
 //---------------------------------------------------------
   
@@ -705,6 +759,19 @@ public class SerivicioWeb {
        
     }
 //---------------------------------------
+        public String EliminarEstacionGeneral(int Correo){
+        String mensaje="Elimino: "+Correo;
+        
+        if("...".equals(Correo)){
+        mensaje="...";
+        }else{
+         arbol3.EliminarDelArbol(Correo);
+        //arbol1.EquilibrarDespuesDeEliminar(arbol1.A, Correo);   
+        }
+        
+        return mensaje;
+    }
+    
     
     //::::::::::::::::::GRAFICAR ARBOL EstacionesGeneral ::::::::::::::::::::::::::::::::    
         
@@ -851,6 +918,77 @@ public class SerivicioWeb {
        return lol;  
        
     }
+    
+        @WebMethod(operationName = "ImprimirChofer2")
+    public void ImprimirChofer2(NodoChofer nodo) {
+        //TODO write your implementation code here:
+        String ad;
+        String retorno;
+        if ( nodo != null ){
+            ImprimirChofer2(nodo.Derecho);
+            
+            if(ValidarOperacion5==false){
+            ad="["+ nodo.ingreso + "]"+"-----------"+nodo.NombreChofer+"--"+nodo.ApellidoChofer+"-----------||";
+            }else{
+            ad=""+nodo.ingreso;    
+            }
+            
+            NumeroPorChofer.add(ad);
+            ImprimirChofer2(nodo.Izquierdo);
+        }
+              
+    }
+
+    /**
+     * Web service operation
+     * @return 
+     */
+    @WebMethod(operationName = "ImprimirChoferREtorno2")
+    public ArrayList ImprimirChoferRetorno2() {
+        //TODO write your implementation code here:
+        NumeroPorChofer.clear();//limpia la anterior
+        ImprimirChofer2(arbol4.A);
+        
+        return NumeroPorChofer;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getChofer2")
+    public String getChofer2(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+        ValidarOperacion5=false;
+        String lol =NumeroPorChofer.get(iteracion);
+        
+       return lol;       
+    }
+        /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "getChoferNombre2")
+    public String getChoferNombre2(@WebParam(name = "iteracion") int iteracion) {
+        //TODO write your implementation code here:
+       ValidarOperacion5=true; 
+       String lol =NumeroPorChofer.get(iteracion);         
+       return lol;  
+       
+    }
+    
+    
+        public String EliminarChofer(int Correo){
+        String mensaje="Elimino: "+Correo;
+        
+        if("...".equals(Correo)){
+        mensaje="...";
+        }else{
+         arbol4.EliminarDelArbol(Correo);
+        //arbol1.EquilibrarDespuesDeEliminar(arbol1.A, Correo);   
+        }
+        
+        return mensaje;
+    }
+    
 //---------------------------------------
     
     //::::::::::::::::::GRAFICAR ARBOL EstacionesGeneral ::::::::::::::::::::::::::::::::    
@@ -1006,7 +1144,7 @@ public class SerivicioWeb {
     /**
      * Web service operation
      */
-    @WebMethod(operationName = "ImprimirLista")
+    @WebMethod(operationName = "ImprimirListaBuses")
     public String ImprimirLista() {
         //TODO write your implementation code here:
         String validar="";
@@ -1031,6 +1169,33 @@ public class SerivicioWeb {
         
         return validar;
     }
+    
+        @WebMethod(operationName = "ImprimirListaBusesParaAsignar")
+    public String ImprimirListaBusesParaAsignar() {
+        //TODO write your implementation code here:
+        String validar="";
+        
+        
+        if (!Lista.esVacia()){ //si no esta vacia porlomenos tiene un nodo
+            String datos="";
+            int contador=0;
+            NodoBuses auxiliar=Lista.inicio; //crea nodoDoble auxiliar y apunta al inicio
+           
+            while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+            datos = datos+"<option value=\""+auxiliar.dato.id+"\">"+auxiliar.dato.nombre+"</option>"+"<br>"; //mostrar de esta forma
+            auxiliar = auxiliar.siguiente; //auxiliar vaser = a auxiliar de siguiente
+            contador++;
+            }
+            
+            validar=datos;
+           // JOptionPane.showMessageDialog(null, datos,"Mostrando De inicio a fin",JOptionPane.nombre.INFORMATION_MESSAGE);
+        }else{
+            validar="NO ESISTEN DATOS EN LISTA----------";
+        }
+        
+        return validar;
+    }
+    
     
     //------------------Graficar Lista de Buses---------------------------------
     
@@ -1125,4 +1290,90 @@ public class SerivicioWeb {
        return retorno;      
 }    
     
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI ASIGANACIONES -------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+      
+       public String AsignacionDeBuses(int bus, String ruta, int chofer, String horainicio, String horafinal, String fecha) {
+       String mensaje="";
+           
+       //Aqui Encuentra el chofer al que se le dara la Asignacion    
+       String nombreChofer=arbol4.BuscarPorDato(arbol4.A, chofer).NombreChofer;
+       int idChofer=arbol4.BuscarPorDato(arbol4.A, chofer).ingreso;    
+           
+       NodoBuses objetoBus = BuscarObjetoEnListaBuses(bus); //Buscar en Lista de Buses
+       Ruta objetoRuta=BuscarObjetoEnListaRutas(ruta); //Buscar en Lista Rutas
+       
+       String x=objetoBus.dato.nombre;
+       String y=objetoRuta.nombre;
+               
+      arbol4.BuscarPorDato(arbol4.A, chofer).ListaDeAsiganaciones.add(new Asignaciones (objetoBus,objetoRuta,nombreChofer,idChofer,horainicio,horafinal,fecha)        );
+      
+      
+      String mensaje2="mensajeVergueo";
+      mensaje="Se Asigno al Chofer:"+nombreChofer+" La Asignacion Numero: "+arbol4.BuscarPorDato(arbol4.A, chofer).ListaDeAsiganaciones.get(0).id
+              +"-El Bus: "+objetoBus.dato.nombre+"|"
+              +"-La Ruta: "+objetoRuta.nombre+"|"
+              +"-Hora Inicio: "+horainicio+"|"
+              +"-Hora Fin: "+horafinal+"|"
+              +"-Fecha: "+fecha+"|"
+              +"Completado!!!!"
+              ;
+      
+      return mensaje;        
+}     
+       
+     public NodoBuses BuscarObjetoEnListaBuses (int idbus){
+         bus b;
+          //Si el bus existe REtorna True De Lo Contrario False
+        NodoBuses auxiliar=Lista.inicio;
+        NodoBuses auxiliarFinal = null;
+        boolean retorno = false;
+        
+         if (Lista.inicio!=null){ //si no esta vacia porlomenos tiene un nodo
+             //crea nodoDoble auxiliar y apunta al final
+            
+                while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+           
+                if (auxiliar.dato.id==idbus){
+                    auxiliarFinal=auxiliar;
+                    retorno=true;
+                }else{
+//nada
+                }
+                
+                auxiliar = auxiliar.siguiente; //auxiliar va a recorrer a anterior
+            }
+            
+            
+        }else {
+            //JOptionPane.showMessageDialog(null, null,"ESta Vacia Mula",JOptionPane.INFORMATION_MESSAGE);
+            retorno=false;
+        }
+         
+         return auxiliarFinal;
+     }  
+     
+     public Ruta BuscarObjetoEnListaRutas (String nombre){
+        
+        boolean retorno=false;
+        Ruta temp = null;
+        int y=ListaRutas.size();
+        if(ListaRutas.isEmpty()){
+         
+        }else{
+         for (int i=y-1; i>=0;i--){ 
+          if(ListaRutas.get(i).nombre.equals(nombre)){
+              temp=ListaRutas.get(i);
+              retorno=true;
+          }else{
+              retorno=false;
+          }  
+        } 
+        }
+        
+        return temp;  
+         
+     }
+     
 }

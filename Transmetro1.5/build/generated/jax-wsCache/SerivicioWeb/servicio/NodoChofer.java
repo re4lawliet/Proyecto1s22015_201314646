@@ -1,6 +1,8 @@
 
 package servicio;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -21,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="NombreChofer" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ApellidoChofer" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Contraseña" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="ListaDeAsiganaciones" type="{http://Servicio/}asignaciones" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -34,7 +37,8 @@ import javax.xml.bind.annotation.XmlType;
     "ingreso",
     "nombreChofer",
     "apellidoChofer",
-    "contrase\u00f1a"
+    "contrase\u00f1a",
+    "listaDeAsiganaciones"
 })
 public class NodoChofer {
 
@@ -45,6 +49,8 @@ public class NodoChofer {
     protected String apellidoChofer;
     @XmlElement(name = "Contrase\u00f1a")
     protected String contraseña;
+    @XmlElement(name = "ListaDeAsiganaciones", nillable = true)
+    protected List<Asignaciones> listaDeAsiganaciones;
 
     /**
      * Obtiene el valor de la propiedad ingreso.
@@ -132,6 +138,35 @@ public class NodoChofer {
      */
     public void setContraseña(String value) {
         this.contraseña = value;
+    }
+
+    /**
+     * Gets the value of the listaDeAsiganaciones property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the listaDeAsiganaciones property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getListaDeAsiganaciones().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Asignaciones }
+     * 
+     * 
+     */
+    public List<Asignaciones> getListaDeAsiganaciones() {
+        if (listaDeAsiganaciones == null) {
+            listaDeAsiganaciones = new ArrayList<Asignaciones>();
+        }
+        return this.listaDeAsiganaciones;
     }
 
 }

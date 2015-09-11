@@ -5,6 +5,8 @@
  */
 package Servicio;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author carlos
@@ -16,6 +18,9 @@ public class NodoChofer {
     public String NombreChofer;
     public String ApellidoChofer;
     public String Contraseña;
+    
+     public ArrayList <Asignaciones> ListaDeAsiganaciones= new ArrayList <> ();
+        
         
 	int Fe;
         int Altura;

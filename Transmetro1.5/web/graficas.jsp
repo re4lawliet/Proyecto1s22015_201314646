@@ -38,7 +38,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADOR:</font></h3>
                         
                 <ul>
-                    <li><a href="#">Asignacion de Buses</a></li>
+                    <li><a href="AsignacionDeBuses.jsp">Asignacion de Buses</a></li>
                     <li><a href="#">Agregar Usuarios de Estaciones</a></li>
                     </br>
                     <li><a href="AgregarBus.jsp">Agregar Buses</a></li>
@@ -80,8 +80,8 @@
 	out.println("Result = "+result);
         
         if(result==true){//grafico
-        String mensaje="<script language='javascript'>alert('Grafico Arbol Admin');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('Grafico Arbol Admin');</script>"; 
+        //out.println(mensaje);
         //SEtear Imagen Del Arbol En Pagina
         String arbol="Arbol1.jpg";
         %>
@@ -94,8 +94,8 @@
         <br>    
         <%
         }else{//no Grafico
-        String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
+        //out.println(mensaje);
         
         %>
         
@@ -128,8 +128,8 @@
 	out.println("Result = "+result);
         
         if(result==true){//grafico
-        String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionClave');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionClave');</script>"; 
+        //out.println(mensaje);
         //SEtear Imagen Del Arbol En Pagina
         String arbol="Arbol2.jpg";
         %>
@@ -142,8 +142,8 @@
         <br>    
         <%
         }else{//no Grafico
-        String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
+        ////out.println(mensaje);
         
         %>
         
@@ -174,8 +174,8 @@
 	out.println("Result = "+result);
         
         if(result==true){//grafico
-        String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionGeneral');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionGeneral');</script>"; 
+        //out.println(mensaje);
         //SEtear Imagen Del Arbol En Pagina
         String arbol="Arbol3.jpg";
         %>
@@ -188,8 +188,8 @@
         <br>    
         <%
         }else{//no Grafico
-        String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
+        //out.println(mensaje);
         
         %>
         
@@ -222,8 +222,8 @@
 	out.println("Result = "+result);
         
         if(result==true){//grafico
-        String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionClave');</script>"; 
-        out.println(mensaje);
+       // String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionClave');</script>"; 
+        //out.println(mensaje);
         //SEtear Imagen Del Arbol En Pagina
         String arbol="Arbol4.jpg";
         %>
@@ -236,8 +236,8 @@
         <br>    
         <%
         }else{//no Grafico
-        String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
-        out.println(mensaje);
+        //String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
+        //out.println(mensaje);
         
         %>
         
@@ -268,8 +268,8 @@
 	out.println("Result = "+result);
         
         if(result==true){//grafico
-        String mensaje="<script language='javascript'>alert('Grafico Lista de Buses');</script>"; 
-        out.println(mensaje);
+       // String mensaje="<script language='javascript'>alert('Grafico Lista de Buses');</script>"; 
+       // out.println(mensaje);
         //SEtear Imagen Del Arbol En Pagina
         String arbol="Lista1.jpg";
         %>
@@ -282,8 +282,8 @@
         <br>    
         <%
         }else{//no Grafico
-        String mensaje="<script language='javascript'>alert('No Se Genero Lista Buses Falta De Datos');</script>"; 
-        out.println(mensaje);
+       // String mensaje="<script language='javascript'>alert('No Se Genero Lista Buses Falta De Datos');</script>"; 
+       // out.println(mensaje);
         
         %>
         

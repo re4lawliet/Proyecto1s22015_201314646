@@ -4,6 +4,12 @@
 <xsd:import namespace="http://Servicio/" schemaLocation="http://localhost:8080/WebService/SerivicioWeb?xsd=1"/>
 </xsd:schema>
 </types>
+<message name="Borrar">
+<part name="parameters" element="tns:Borrar"/>
+</message>
+<message name="BorrarResponse">
+<part name="parameters" element="tns:BorrarResponse"/>
+</message>
 <message name="Volumen">
 <part name="parameters" element="tns:Volumen"/>
 </message>
@@ -94,6 +100,12 @@
 <message name="ModificarAdminResponse">
 <part name="parameters" element="tns:ModificarAdminResponse"/>
 </message>
+<message name="EliminarAdmin">
+<part name="parameters" element="tns:EliminarAdmin"/>
+</message>
+<message name="EliminarAdminResponse">
+<part name="parameters" element="tns:EliminarAdminResponse"/>
+</message>
 <message name="ImprimirEstacionesClave">
 <part name="parameters" element="tns:ImprimirEstacionesClave"/>
 </message>
@@ -141,6 +153,12 @@
 </message>
 <message name="getEstacionClaveNombre2Response">
 <part name="parameters" element="tns:getEstacionClaveNombre2Response"/>
+</message>
+<message name="EliminarEstacionClave">
+<part name="parameters" element="tns:EliminarEstacionClave"/>
+</message>
+<message name="EliminarEstacionClaveResponse">
+<part name="parameters" element="tns:EliminarEstacionClaveResponse"/>
 </message>
 <message name="GraficarArbolEstacionClave">
 <part name="parameters" element="tns:GraficarArbolEstacionClave"/>
@@ -214,6 +232,12 @@
 <message name="getEstacionGeneralNombre2Response">
 <part name="parameters" element="tns:getEstacionGeneralNombre2Response"/>
 </message>
+<message name="EliminarEstacionGeneral">
+<part name="parameters" element="tns:EliminarEstacionGeneral"/>
+</message>
+<message name="EliminarEstacionGeneralResponse">
+<part name="parameters" element="tns:EliminarEstacionGeneralResponse"/>
+</message>
 <message name="GraficarArbolEstacionGeneral">
 <part name="parameters" element="tns:GraficarArbolEstacionGeneral"/>
 </message>
@@ -262,6 +286,36 @@
 <message name="getChoferNombreResponse">
 <part name="parameters" element="tns:getChoferNombreResponse"/>
 </message>
+<message name="ImprimirChofer2">
+<part name="parameters" element="tns:ImprimirChofer2"/>
+</message>
+<message name="ImprimirChofer2Response">
+<part name="parameters" element="tns:ImprimirChofer2Response"/>
+</message>
+<message name="ImprimirChoferREtorno2">
+<part name="parameters" element="tns:ImprimirChoferREtorno2"/>
+</message>
+<message name="ImprimirChoferREtorno2Response">
+<part name="parameters" element="tns:ImprimirChoferREtorno2Response"/>
+</message>
+<message name="getChofer2">
+<part name="parameters" element="tns:getChofer2"/>
+</message>
+<message name="getChofer2Response">
+<part name="parameters" element="tns:getChofer2Response"/>
+</message>
+<message name="getChoferNombre2">
+<part name="parameters" element="tns:getChoferNombre2"/>
+</message>
+<message name="getChoferNombre2Response">
+<part name="parameters" element="tns:getChoferNombre2Response"/>
+</message>
+<message name="EliminarChofer">
+<part name="parameters" element="tns:EliminarChofer"/>
+</message>
+<message name="EliminarChoferResponse">
+<part name="parameters" element="tns:EliminarChoferResponse"/>
+</message>
 <message name="GraficarArbolChofer">
 <part name="parameters" element="tns:GraficarArbolChofer"/>
 </message>
@@ -298,17 +352,47 @@
 <message name="ExisteBusResponse">
 <part name="parameters" element="tns:ExisteBusResponse"/>
 </message>
-<message name="ImprimirLista">
-<part name="parameters" element="tns:ImprimirLista"/>
+<message name="ImprimirListaBuses">
+<part name="parameters" element="tns:ImprimirListaBuses"/>
 </message>
-<message name="ImprimirListaResponse">
-<part name="parameters" element="tns:ImprimirListaResponse"/>
+<message name="ImprimirListaBusesResponse">
+<part name="parameters" element="tns:ImprimirListaBusesResponse"/>
+</message>
+<message name="ImprimirListaBusesParaAsignar">
+<part name="parameters" element="tns:ImprimirListaBusesParaAsignar"/>
+</message>
+<message name="ImprimirListaBusesParaAsignarResponse">
+<part name="parameters" element="tns:ImprimirListaBusesParaAsignarResponse"/>
 </message>
 <message name="GraficarListaBuses">
 <part name="parameters" element="tns:GraficarListaBuses"/>
 </message>
 <message name="GraficarListaBusesResponse">
 <part name="parameters" element="tns:GraficarListaBusesResponse"/>
+</message>
+<message name="CrearRuta">
+<part name="parameters" element="tns:CrearRuta"/>
+</message>
+<message name="CrearRutaResponse">
+<part name="parameters" element="tns:CrearRutaResponse"/>
+</message>
+<message name="ExisteRuta">
+<part name="parameters" element="tns:ExisteRuta"/>
+</message>
+<message name="ExisteRutaResponse">
+<part name="parameters" element="tns:ExisteRutaResponse"/>
+</message>
+<message name="AgregarNombreRuta">
+<part name="parameters" element="tns:AgregarNombreRuta"/>
+</message>
+<message name="AgregarNombreRutaResponse">
+<part name="parameters" element="tns:AgregarNombreRutaResponse"/>
+</message>
+<message name="AgregarNumeroExtacion">
+<part name="parameters" element="tns:AgregarNumeroExtacion"/>
+</message>
+<message name="AgregarNumeroExtacionResponse">
+<part name="parameters" element="tns:AgregarNumeroExtacionResponse"/>
 </message>
 <message name="Imprimir Rutas">
 <part name="parameters" element="tns:Imprimir Rutas"/>
@@ -322,17 +406,17 @@
 <message name="RetornarListaRutasResponse">
 <part name="parameters" element="tns:RetornarListaRutasResponse"/>
 </message>
-<message name="ExisteRuta">
-<part name="parameters" element="tns:ExisteRuta"/>
-</message>
-<message name="ExisteRutaResponse">
-<part name="parameters" element="tns:ExisteRutaResponse"/>
-</message>
 <message name="RetornarListaDeNombresDeEstaciones">
 <part name="parameters" element="tns:RetornarListaDeNombresDeEstaciones"/>
 </message>
 <message name="RetornarListaDeNombresDeEstacionesResponse">
 <part name="parameters" element="tns:RetornarListaDeNombresDeEstacionesResponse"/>
+</message>
+<message name="RetornarNombresDeRutas">
+<part name="parameters" element="tns:RetornarNombresDeRutas"/>
+</message>
+<message name="RetornarNombresDeRutasResponse">
+<part name="parameters" element="tns:RetornarNombresDeRutasResponse"/>
 </message>
 <message name="RetornarNombresDeRutasEstaciones">
 <part name="parameters" element="tns:RetornarNombresDeRutasEstaciones"/>
@@ -340,35 +424,23 @@
 <message name="RetornarNombresDeRutasEstacionesResponse">
 <part name="parameters" element="tns:RetornarNombresDeRutasEstacionesResponse"/>
 </message>
-<message name="CrearRuta">
-<part name="parameters" element="tns:CrearRuta"/>
+<message name="AsignacionDeBuses">
+<part name="parameters" element="tns:AsignacionDeBuses"/>
 </message>
-<message name="CrearRutaResponse">
-<part name="parameters" element="tns:CrearRutaResponse"/>
+<message name="AsignacionDeBusesResponse">
+<part name="parameters" element="tns:AsignacionDeBusesResponse"/>
 </message>
-<message name="Borrar">
-<part name="parameters" element="tns:Borrar"/>
+<message name="BuscarObjetoEnListaBuses">
+<part name="parameters" element="tns:BuscarObjetoEnListaBuses"/>
 </message>
-<message name="BorrarResponse">
-<part name="parameters" element="tns:BorrarResponse"/>
+<message name="BuscarObjetoEnListaBusesResponse">
+<part name="parameters" element="tns:BuscarObjetoEnListaBusesResponse"/>
 </message>
-<message name="AgregarNumeroExtacion">
-<part name="parameters" element="tns:AgregarNumeroExtacion"/>
+<message name="BuscarObjetoEnListaRutas">
+<part name="parameters" element="tns:BuscarObjetoEnListaRutas"/>
 </message>
-<message name="AgregarNumeroExtacionResponse">
-<part name="parameters" element="tns:AgregarNumeroExtacionResponse"/>
-</message>
-<message name="AgregarNombreRuta">
-<part name="parameters" element="tns:AgregarNombreRuta"/>
-</message>
-<message name="AgregarNombreRutaResponse">
-<part name="parameters" element="tns:AgregarNombreRutaResponse"/>
-</message>
-<message name="RetornarNombresDeRutas">
-<part name="parameters" element="tns:RetornarNombresDeRutas"/>
-</message>
-<message name="RetornarNombresDeRutasResponse">
-<part name="parameters" element="tns:RetornarNombresDeRutasResponse"/>
+<message name="BuscarObjetoEnListaRutasResponse">
+<part name="parameters" element="tns:BuscarObjetoEnListaRutasResponse"/>
 </message>
 <message name="getAdmin">
 <part name="parameters" element="tns:getAdmin"/>
@@ -377,6 +449,10 @@
 <part name="parameters" element="tns:getAdminResponse"/>
 </message>
 <portType name="SerivicioWeb">
+<operation name="Borrar">
+<input wsam:Action="http://Servicio/SerivicioWeb/BorrarRequest" message="tns:Borrar"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/BorrarResponse" message="tns:BorrarResponse"/>
+</operation>
 <operation name="Volumen">
 <input wsam:Action="http://Servicio/SerivicioWeb/VolumenRequest" message="tns:Volumen"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/VolumenResponse" message="tns:VolumenResponse"/>
@@ -437,6 +513,10 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/ModificarAdminRequest" message="tns:ModificarAdmin"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/ModificarAdminResponse" message="tns:ModificarAdminResponse"/>
 </operation>
+<operation name="EliminarAdmin">
+<input wsam:Action="http://Servicio/SerivicioWeb/EliminarAdminRequest" message="tns:EliminarAdmin"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/EliminarAdminResponse" message="tns:EliminarAdminResponse"/>
+</operation>
 <operation name="ImprimirEstacionesClave">
 <input wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionesClaveRequest" message="tns:ImprimirEstacionesClave"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/ImprimirEstacionesClaveResponse" message="tns:ImprimirEstacionesClaveResponse"/>
@@ -468,6 +548,10 @@
 <operation name="getEstacionClaveNombre2">
 <input wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveNombre2Request" message="tns:getEstacionClaveNombre2"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/getEstacionClaveNombre2Response" message="tns:getEstacionClaveNombre2Response"/>
+</operation>
+<operation name="EliminarEstacionClave">
+<input wsam:Action="http://Servicio/SerivicioWeb/EliminarEstacionClaveRequest" message="tns:EliminarEstacionClave"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/EliminarEstacionClaveResponse" message="tns:EliminarEstacionClaveResponse"/>
 </operation>
 <operation name="GraficarArbolEstacionClave">
 <input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionClaveRequest" message="tns:GraficarArbolEstacionClave"/>
@@ -517,6 +601,10 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralNombre2Request" message="tns:getEstacionGeneralNombre2"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/getEstacionGeneralNombre2Response" message="tns:getEstacionGeneralNombre2Response"/>
 </operation>
+<operation name="EliminarEstacionGeneral">
+<input wsam:Action="http://Servicio/SerivicioWeb/EliminarEstacionGeneralRequest" message="tns:EliminarEstacionGeneral"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/EliminarEstacionGeneralResponse" message="tns:EliminarEstacionGeneralResponse"/>
+</operation>
 <operation name="GraficarArbolEstacionGeneral">
 <input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionGeneralRequest" message="tns:GraficarArbolEstacionGeneral"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolEstacionGeneralResponse" message="tns:GraficarArbolEstacionGeneralResponse"/>
@@ -549,6 +637,26 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/getChoferNombreRequest" message="tns:getChoferNombre"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/getChoferNombreResponse" message="tns:getChoferNombreResponse"/>
 </operation>
+<operation name="ImprimirChofer2">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirChofer2Request" message="tns:ImprimirChofer2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirChofer2Response" message="tns:ImprimirChofer2Response"/>
+</operation>
+<operation name="ImprimirChoferREtorno2">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirChoferREtorno2Request" message="tns:ImprimirChoferREtorno2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirChoferREtorno2Response" message="tns:ImprimirChoferREtorno2Response"/>
+</operation>
+<operation name="getChofer2">
+<input wsam:Action="http://Servicio/SerivicioWeb/getChofer2Request" message="tns:getChofer2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getChofer2Response" message="tns:getChofer2Response"/>
+</operation>
+<operation name="getChoferNombre2">
+<input wsam:Action="http://Servicio/SerivicioWeb/getChoferNombre2Request" message="tns:getChoferNombre2"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/getChoferNombre2Response" message="tns:getChoferNombre2Response"/>
+</operation>
+<operation name="EliminarChofer">
+<input wsam:Action="http://Servicio/SerivicioWeb/EliminarChoferRequest" message="tns:EliminarChofer"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/EliminarChoferResponse" message="tns:EliminarChoferResponse"/>
+</operation>
 <operation name="GraficarArbolChofer">
 <input wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolChoferRequest" message="tns:GraficarArbolChofer"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/GraficarArbolChoferResponse" message="tns:GraficarArbolChoferResponse"/>
@@ -573,13 +681,33 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/ExisteBusRequest" message="tns:ExisteBus"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/ExisteBusResponse" message="tns:ExisteBusResponse"/>
 </operation>
-<operation name="ImprimirLista">
-<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaRequest" message="tns:ImprimirLista"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaResponse" message="tns:ImprimirListaResponse"/>
+<operation name="ImprimirListaBuses">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaBusesRequest" message="tns:ImprimirListaBuses"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaBusesResponse" message="tns:ImprimirListaBusesResponse"/>
+</operation>
+<operation name="ImprimirListaBusesParaAsignar">
+<input wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaBusesParaAsignarRequest" message="tns:ImprimirListaBusesParaAsignar"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ImprimirListaBusesParaAsignarResponse" message="tns:ImprimirListaBusesParaAsignarResponse"/>
 </operation>
 <operation name="GraficarListaBuses">
 <input wsam:Action="http://Servicio/SerivicioWeb/GraficarListaBusesRequest" message="tns:GraficarListaBuses"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/GraficarListaBusesResponse" message="tns:GraficarListaBusesResponse"/>
+</operation>
+<operation name="CrearRuta">
+<input wsam:Action="http://Servicio/SerivicioWeb/CrearRutaRequest" message="tns:CrearRuta"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/CrearRutaResponse" message="tns:CrearRutaResponse"/>
+</operation>
+<operation name="ExisteRuta">
+<input wsam:Action="http://Servicio/SerivicioWeb/ExisteRutaRequest" message="tns:ExisteRuta"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/ExisteRutaResponse" message="tns:ExisteRutaResponse"/>
+</operation>
+<operation name="AgregarNombreRuta">
+<input wsam:Action="http://Servicio/SerivicioWeb/AgregarNombreRutaRequest" message="tns:AgregarNombreRuta"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AgregarNombreRutaResponse" message="tns:AgregarNombreRutaResponse"/>
+</operation>
+<operation name="AgregarNumeroExtacion">
+<input wsam:Action="http://Servicio/SerivicioWeb/AgregarNumeroExtacionRequest" message="tns:AgregarNumeroExtacion"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AgregarNumeroExtacionResponse" message="tns:AgregarNumeroExtacionResponse"/>
 </operation>
 <operation name="Imprimir Rutas">
 <input wsam:Action="http://Servicio/SerivicioWeb/Imprimir RutasRequest" message="tns:Imprimir Rutas"/>
@@ -589,37 +717,29 @@
 <input wsam:Action="http://Servicio/SerivicioWeb/RetornarListaRutasRequest" message="tns:RetornarListaRutas"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/RetornarListaRutasResponse" message="tns:RetornarListaRutasResponse"/>
 </operation>
-<operation name="ExisteRuta">
-<input wsam:Action="http://Servicio/SerivicioWeb/ExisteRutaRequest" message="tns:ExisteRuta"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/ExisteRutaResponse" message="tns:ExisteRutaResponse"/>
-</operation>
 <operation name="RetornarListaDeNombresDeEstaciones">
 <input wsam:Action="http://Servicio/SerivicioWeb/RetornarListaDeNombresDeEstacionesRequest" message="tns:RetornarListaDeNombresDeEstaciones"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/RetornarListaDeNombresDeEstacionesResponse" message="tns:RetornarListaDeNombresDeEstacionesResponse"/>
+</operation>
+<operation name="RetornarNombresDeRutas">
+<input wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasRequest" message="tns:RetornarNombresDeRutas"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasResponse" message="tns:RetornarNombresDeRutasResponse"/>
 </operation>
 <operation name="RetornarNombresDeRutasEstaciones">
 <input wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasEstacionesRequest" message="tns:RetornarNombresDeRutasEstaciones"/>
 <output wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasEstacionesResponse" message="tns:RetornarNombresDeRutasEstacionesResponse"/>
 </operation>
-<operation name="CrearRuta">
-<input wsam:Action="http://Servicio/SerivicioWeb/CrearRutaRequest" message="tns:CrearRuta"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/CrearRutaResponse" message="tns:CrearRutaResponse"/>
+<operation name="AsignacionDeBuses">
+<input wsam:Action="http://Servicio/SerivicioWeb/AsignacionDeBusesRequest" message="tns:AsignacionDeBuses"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/AsignacionDeBusesResponse" message="tns:AsignacionDeBusesResponse"/>
 </operation>
-<operation name="Borrar">
-<input wsam:Action="http://Servicio/SerivicioWeb/BorrarRequest" message="tns:Borrar"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/BorrarResponse" message="tns:BorrarResponse"/>
+<operation name="BuscarObjetoEnListaBuses">
+<input wsam:Action="http://Servicio/SerivicioWeb/BuscarObjetoEnListaBusesRequest" message="tns:BuscarObjetoEnListaBuses"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/BuscarObjetoEnListaBusesResponse" message="tns:BuscarObjetoEnListaBusesResponse"/>
 </operation>
-<operation name="AgregarNumeroExtacion">
-<input wsam:Action="http://Servicio/SerivicioWeb/AgregarNumeroExtacionRequest" message="tns:AgregarNumeroExtacion"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/AgregarNumeroExtacionResponse" message="tns:AgregarNumeroExtacionResponse"/>
-</operation>
-<operation name="AgregarNombreRuta">
-<input wsam:Action="http://Servicio/SerivicioWeb/AgregarNombreRutaRequest" message="tns:AgregarNombreRuta"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/AgregarNombreRutaResponse" message="tns:AgregarNombreRutaResponse"/>
-</operation>
-<operation name="RetornarNombresDeRutas">
-<input wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasRequest" message="tns:RetornarNombresDeRutas"/>
-<output wsam:Action="http://Servicio/SerivicioWeb/RetornarNombresDeRutasResponse" message="tns:RetornarNombresDeRutasResponse"/>
+<operation name="BuscarObjetoEnListaRutas">
+<input wsam:Action="http://Servicio/SerivicioWeb/BuscarObjetoEnListaRutasRequest" message="tns:BuscarObjetoEnListaRutas"/>
+<output wsam:Action="http://Servicio/SerivicioWeb/BuscarObjetoEnListaRutasResponse" message="tns:BuscarObjetoEnListaRutasResponse"/>
 </operation>
 <operation name="getAdmin">
 <input wsam:Action="http://Servicio/SerivicioWeb/getAdminRequest" message="tns:getAdmin"/>
@@ -628,6 +748,15 @@
 </portType>
 <binding name="SerivicioWebPortBinding" type="tns:SerivicioWeb">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+<operation name="Borrar">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="Volumen">
 <soap:operation soapAction=""/>
 <input>
@@ -763,6 +892,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="EliminarAdmin">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="ImprimirEstacionesClave">
 <soap:operation soapAction=""/>
 <input>
@@ -827,6 +965,15 @@
 </output>
 </operation>
 <operation name="getEstacionClaveNombre2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarEstacionClave">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -943,6 +1090,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="EliminarEstacionGeneral">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="GraficarArbolEstacionGeneral">
 <soap:operation soapAction=""/>
 <input>
@@ -1015,6 +1171,51 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="ImprimirChofer2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirChoferREtorno2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getChofer2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="getChoferNombre2">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="EliminarChofer">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="GraficarArbolChofer">
 <soap:operation soapAction=""/>
 <input>
@@ -1069,7 +1270,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="ImprimirLista">
+<operation name="ImprimirListaBuses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ImprimirListaBusesParaAsignar">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -1079,6 +1289,42 @@
 </output>
 </operation>
 <operation name="GraficarListaBuses">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="CrearRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="ExisteRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarNombreRuta">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="AgregarNumeroExtacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -1105,7 +1351,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="ExisteRuta">
+<operation name="RetornarListaDeNombresDeEstaciones">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -1114,7 +1360,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="RetornarListaDeNombresDeEstaciones">
+<operation name="RetornarNombresDeRutas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -1132,7 +1378,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="CrearRuta">
+<operation name="AsignacionDeBuses">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -1141,7 +1387,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="Borrar">
+<operation name="BuscarObjetoEnListaBuses">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -1150,25 +1396,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="AgregarNumeroExtacion">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="AgregarNombreRuta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="RetornarNombresDeRutas">
+<operation name="BuscarObjetoEnListaRutas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

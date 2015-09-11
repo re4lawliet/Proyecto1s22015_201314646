@@ -62,17 +62,70 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
+                    <form action="EliminarUsuarioEstacionClave.jsp" method="POST">
                         <br>
                       <h5>Seleccione El Que desea Eliminar: </h5> 
                       <br>
                       <select name="ListaAdmins">
-                          <option>admin1</option>
-                          <option>admin2</option>
+                          <option value="...">...</option>
+                          
+                                                                                                  <%-- start web service invocation --%><hr/>
+    <%
+    try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();	
+        
+         int y=port.imprimirEstacionClaveRetorno().size();
+        int x=port.imprimirEstacionClaveRetorno2().size();
+        int count=0;     
+        int radiocontador=0;
+        if(port.imprimirEstacionClaveRetorno().isEmpty()){
+         //vacia   
+        }else{//llena
+         
+         for (int i=y-1; i>=0;i--){    
+         //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
+         //out.println(mensaje);
+         String mensaje2=port.getEstacionClaveNombre(i).toString();//numero
+         String mensaje3=port.getEstacionClave2(i).toString();//nombre
+         
+        %>  
+        
+        <option value="<%= mensaje2%>"><%= mensaje3%></option>
+               
+         <%
+         count=count+1;
+         }   
+         
+        }
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+                          
                       </select>
                       <br>
                       <br>    
                           <input type="submit" value="ELIMINAR" />
+                                                    <%-- start web service invocation --%><hr/>
+    <%  if(request.getParameter("ListaAdmins")!="..."){
+        
+    try {
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	int arg0 = Integer.parseInt(request.getParameter("ListaAdmins"));
+	// TODO process result here
+	java.lang.String result = port.eliminarEstacionClave(arg0);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
                       
                     </form>
                     

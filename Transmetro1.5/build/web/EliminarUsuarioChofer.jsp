@@ -62,17 +62,67 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
+                    <form action="EliminarUsuarioChofer.jsp" method="POST">
                         <br>
                       <h5>Seleccione El Que desea Eliminar: </h5> 
                       <br>
                       <select name="ListaAdmins">
-                          <option>admin1</option>
-                          <option>admin2</option>
+                      
+                                                                                <%-- start web service invocation --%><hr/>
+    <%
+    try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();	
+        
+                int y=port.imprimirChoferREtorno().size();
+        int y1=port.imprimirChoferREtorno2().size();
+        int count=0;        
+        if(port.imprimirChoferREtorno().isEmpty()){
+         //vacia   
+        }else{//llena
+         
+         for (int i=y-1; i>=0;i--){    
+         //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
+         //out.println(mensaje);
+         String mensaje2=port.getChoferNombre(i).toString();
+         String mensaje3=port.getChofer2(i).toString();
+         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla
+         
+        %>  
+        
+        <option value="<%= mensaje2%>"><%= mensaje3%></option>
+               
+         <%
+         count=count+1;
+         }   
+         
+        }
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
                       </select>
                       <br>
                       <br>    
                           <input type="submit" value="ELIMINAR" />
+                              <%  if(request.getParameter("ListaAdmins")!="..."){
+        
+    try {
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	int arg0 = Integer.parseInt(request.getParameter("ListaAdmins"));
+	// TODO process result here
+	java.lang.String result = port.eliminarChofer(arg0);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
                       
                     </form>
                     

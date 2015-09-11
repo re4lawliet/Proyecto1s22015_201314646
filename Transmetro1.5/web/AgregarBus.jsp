@@ -38,7 +38,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADOR:</font></h3>
                         
                 <ul>
-                    <li><a href="#">Asignacion de Buses</a></li>
+                    <li><a href="AsignacionDeBuses.jsp">Asignacion de Buses</a></li>
                     <li><a href="#">Agregar Usuarios de Estaciones</a></li>
                     </br>
                     <li><a href="AgregarBus.jsp">Agregar Buses</a></li>
@@ -85,7 +85,7 @@
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
 	// TODO process result here
-	java.lang.String result = port.imprimirLista();
+	java.lang.String result = port.imprimirListaBuses();
 	//out.println("Result = "+result);
         %>
         

@@ -38,7 +38,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADOR:</font></h3>
                         
                 <ul>
-                    <li><a href="#">Asignacion de Buses</a></li>
+                    <li><a href="AsignacionDeBuses.jsp">Asignacion de Buses</a></li>
                     <li><a href="#">Agregar Usuarios de Estaciones</a></li>
                     </br>
                     <li><a href="AgregarBus.jsp">Agregar Buses</a></li>

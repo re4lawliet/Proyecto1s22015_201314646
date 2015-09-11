@@ -37,7 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
-                    <li><a href="MostrarEstacionesClave.jsp">Crear EstacionClave</a></li>
+                    <li><a href="MostrarEstacionesClave.jsp">Tabla de Estaciones Clave</a></li>
                     <li><a href="CrearUsuarioEstacionClave.jsp">Crear EstacionClave</a></li>
                     <li><a href="ModificarUsuarioEstacionClave.jsp">Modificar EstacionClave</a></li>
                     <li><a href="EliminarUsuarioEstacionClave.jsp">Eliminar EstacionClave</a></li>
@@ -72,8 +72,10 @@
     try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();	
         
-        int y=port.imprimirEstacionClaveRetorno().size();
-        int count=0;        
+       int y=port.imprimirEstacionClaveRetorno().size();
+        int x=port.imprimirEstacionClaveRetorno2().size();
+        int count=0;     
+        int radiocontador=0;
         if(port.imprimirEstacionClaveRetorno().isEmpty()){
          //vacia   
         }else{//llena
@@ -81,12 +83,12 @@
          for (int i=y-1; i>=0;i--){    
          //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
          //out.println(mensaje);
-         String mensaje2=port.getEstacionClaveNombre(i).toString();
-         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla
+         String mensaje2=port.getEstacionClaveNombre(i).toString();//numero
+         String mensaje3=port.getEstacionClave2(i).toString();//nombre
          
         %>  
         
-        <option><%= mensaje2%></option>
+        <option value="<%= mensaje2%>"><%= mensaje3%></option>
                
          <%
          count=count+1;

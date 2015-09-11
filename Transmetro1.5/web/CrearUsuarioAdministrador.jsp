@@ -87,24 +87,24 @@
                 
                     <%-- start web service invocation --%><hr/>
     <%
-        if (request.getParameter("clave") != null){
+        if (request.getParameter("correo") != null){
     try {
         
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
 	 // TODO initialize WS operation arguments here
-	int clave = Integer.parseInt(request.getParameter("clave"));
+	//int clave = Integer.parseInt(request.getParameter("clave"));
         java.lang.String correo = request.getParameter("correo");
 	String contraseña = request.getParameter("contraAdmin");
 	// TODO process result here
-	boolean result = port.existeAdmin(clave);
+	boolean result = port.existeAdmin(correo);
 	//out.println("Datos Invalidos");
         
         if(result==true){//existe Ese Usuario
         String mensaje="<script language='javascript'>alert('Este Admin Ya Existe');</script>"; 
         out.println(mensaje);    
         }else{//no existe Tonces Insertar
-        String msg=port.insertarAdmin(clave, correo, contraseña);
+        String msg=port.insertarAdmin(0, correo, contraseña);
         String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
         out.println(mensaje);
         }

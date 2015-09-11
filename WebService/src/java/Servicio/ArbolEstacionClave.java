@@ -17,7 +17,7 @@ public class ArbolEstacionClave {
   String impresor="";
   String rotaciones="";
   private boolean boleano=false;      
-        
+  public boolean AlturaC=false;      
 	public NodoEstacionClave A;
         public NodoEstacionClave Busqueda=null;
         public NodoEstacionClave EncontradoParaModificar=null;
@@ -354,9 +354,118 @@ public class ArbolEstacionClave {
         
         
         //--------------------Eliminar---------------------------------------------
-        //Este esta de la Gran puta
-        public void Eliminar(NodoEstacionClave R){
+                //Este esta de la Gran puta
+        public NodoEstacionClave Eliminar(NodoEstacionClave R, int x){
+        NodoEstacionClave i= null;
+        
+        if(R!=null){
+            if(R.ingreso==x){
+                if(R.Derecho==null&&R.Izquierdo==null){
+                    
+                     i=null;
+                    
+                }else if (R.Derecho!=null && R.Izquierdo==null){
+                
+                     i=R.Derecho;
+                
+                 }else if (R.Derecho==null && R.Izquierdo!=null){
+                
+                     i=R.Izquierdo;
+                
+                 }else if (R.Derecho!=null && R.Izquierdo!=null){
+                     NodoEstacionClave auxiliar=hijomasDerecho(R.Izquierdo,R);//=Hijo mas a la derecha(R, HijoIzquierda)
+                     NodoEstacionClave auxiliar2=R; //=Raiz
+                     auxiliar.Izquierdo=R.Izquierdo;
+                     auxiliar.Derecho=R.Derecho;
+                     i=auxiliar;
+                 }
+            }else{
+                if(x < R.ingreso){
+                    if(R.Izquierdo!=null){
+                        R.Izquierdo=Eliminar(R.Izquierdo,x);
+                        i=R;
+                    }else{
+                        i=R;
+                    }
+                }else{
+                    if(R.Derecho!=null){
+                        R.Derecho=Eliminar(R.Derecho,x);
+                        i=R;
+                    }else{
+                        i=R;
+                    }
+                    
+                }
+                
+                
+            }
             
+        }
+        return i;
+        }
+        
+        public NodoEstacionClave hijomasDerecho (NodoEstacionClave R, NodoEstacionClave padre){
+            NodoEstacionClave h=null;
+            if(R.Derecho==null){
+                if(R.Izquierdo!=null && padre.Izquierdo!=R){
+                    padre.Derecho=R.Izquierdo;
+                    R.Izquierdo=null;
+                }else if (R.Izquierdo==null){
+                    padre.Derecho=null;
+                }else if (R.Izquierdo!=null && padre.Izquierdo==R){
+                    padre.Izquierdo=R.Izquierdo;
+                    R.Izquierdo=null;
+                }
+                h=R;      
+            }else{
+                h=hijomasDerecho(R.Derecho,R);
+            }
+            
+            return h;
+        }
+        
+        public NodoEstacionClave EquilibrarDespuesDeEliminar(NodoEstacionClave R, int x){
+            NodoEstacionClave R1=null;
+            if (R!=null){
+                int hijoI=Altura(R.Izquierdo)+1;
+                int hijoD=Altura(R.Derecho)+1;
+                if(hijoI-hijoD==2){
+                    int dato=x;
+                    int datoI=R.Izquierdo.ingreso;
+                    R1=R.Izquierdo;
+                    if(x < R.ingreso){
+                        R=RotacionIzquierdaIzquierda(R,R1);//--------
+                    }else{
+                        R=RotacionIzquierdaDerecha(R,R1);   
+                    }
+                }if(-hijoI+hijoD==2){
+                    int dato=x;
+                    int datoD=R.Derecho.ingreso;
+                    R1=R.Derecho;
+                    if(x>R.ingreso){
+                        R=RotacionDerechaDerecha(R,R1);
+                    }else{
+                         R=RotacionDerechaIzquierda(R,R1);  
+                    }
+                }
+                if(R.ingreso==x){
+                    //nodo ya Existente
+                }else{
+                    if(x < R.ingreso){
+                        if(R.Izquierdo!=null){
+                            R.Izquierdo=EquilibrarDespuesDeEliminar(R.Izquierdo,x);
+                        }
+                        
+                    }else{
+                        if(R.Derecho!=null){
+                            R.Derecho=EquilibrarDespuesDeEliminar(R.Derecho,x);
+                        }
+                    }
+                }
+                
+            }
+            
+            return R;
         }
         
         //--------------------Fin---------------------------------------------------  
@@ -495,5 +604,151 @@ ex.printStackTrace();
         
 //::::::::::::::::::::FIN:::::::::::::::::::::::::::::::::::::::::::::::::::::::
   
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//-----------------------------ELIMINAR-----------------------------------------
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+        
+public void EliminarDelArbol(int valor){
+
+AlturaC=false;    
+
+A=borrar(A,valor);    
+    
+}
+
+public NodoEstacionClave  borrar(NodoEstacionClave R, int valor){
+    
+    if (R==null){
+    //NULOOO
+    }else if (R.ingreso==valor){//------------------------------Nodo Encontrado: 
+       NodoEstacionClave nodo;
+       nodo=R; //nodo a quitar
+       if(nodo.Izquierdo==null){
+           R=nodo.Derecho;
+           AlturaC=true;
+       }else if(nodo.Derecho==null){
+           R=nodo.Izquierdo;
+           AlturaC=true;
+       }else{//tiene los dos hijos:V
+           NodoEstacionClave iz=reemplazar(R,R.Izquierdo);
+           R.Izquierdo=iz;
+           if(AlturaC==true){
+               R=balancear1(R);
+           }
+       }
+       nodo=null;
+    }else if(valor < R.ingreso){
+        NodoEstacionClave Izquierda=borrar(R.Izquierdo,valor);
+        R.Izquierdo=Izquierda;
+        if(AlturaC==true){
+            R=balancear1(R);
+        }
+        
+    }else if (valor > R.ingreso){
+        NodoEstacionClave Derecha =borrar(R.Derecho,valor);
+        R.Derecho=Derecha;
+        if(AlturaC==true){
+            R=balancear2(R);
+        }
+    }
+    return R;
+}
+
+
+
+
+public NodoEstacionClave balancear1(NodoEstacionClave R){
+  
+     NodoEstacionClave N1;
+     switch(R.Fe){
+                                case -1:
+                                System.out.println("FE:-|"+R.Fe);
+				R.Fe= 0;
+			        Hh=false;	
+				break;
+                                    
+				case 0:
+                                System.out.println("FE:-|"+R.Fe);    
+				R.Fe= 1; 
+                                AlturaC=false;
+				break;
+                                    
+                                //se reestructura ya que pasaria a valer-2 y se desequilibra a la derecha
+                                
+                                case 1:
+				N1=R.Derecho;
+                                System.out.println("FE case rotar:-"+R.Fe);
+				     if (N1.Fe >= 0){
+                                         if(N1.Fe==0){
+                                         AlturaC=false;    
+                                         }
+					R = RotacionDerechaDerecha(R,N1);
+                                        //---------------------------------------
+			             }
+				     else{
+					R = RotacionDerechaIzquierda(R,N1);
+                                        
+				         }
+                                break;
+                                        
+                             }
+     return R;
+    
+}
+    
+  public NodoEstacionClave balancear2(NodoEstacionClave R){
+      NodoEstacionClave N1;
+      switch(R.Fe){
+                                    
+				case 1:
+				R.Fe= 0;
+			        Hh=false;	
+				break;
+				case 0:
+                                
+				R.Fe= -1;
+                                AlturaC=false;//---------------------------------------
+				break;
+                                //se reestructura ya que pasaria a valer-2 y se desequilibra a la izq
+			        case -1:
+                                
+                                N1=R.Izquierdo;
+				if (N1.Fe<= 0){   
+                                    if(N1.Fe==0){
+                                    AlturaC=false;
+                                    }    
+                                R = RotacionIzquierdaIzquierda(R,N1);
+                                
+                                }else{      
+                                R = RotacionIzquierdaDerecha(R,N1);
+                                
+                                }
+                                 
+			        break;  
+                             }
+      return R;
+      
+  }         
+  
+  public NodoEstacionClave reemplazar(NodoEstacionClave n,NodoEstacionClave act){
+      
+      if(act.Derecho!=null){
+          NodoEstacionClave d;
+          d=reemplazar (n,act.Derecho);
+          act.Derecho=d;
+          if(AlturaC==true){
+              act=balancear2(act);
+          }
+      }else{
+          n.ingreso=act.ingreso;
+          n=act;
+          act=act.Izquierdo;
+          n=null;
+          AlturaC=true;
+          
+      }
+      return act;
+  }
    
 }

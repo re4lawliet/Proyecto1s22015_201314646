@@ -37,7 +37,7 @@
                 <h3><font color="yellow">OPCIONES ADMINISTRADORES:</font></h3>
                         
                 <ul>
-                    <li><a href="MostrarEstacionesGenerales.jsp">Crear EstacionGeneral</a></li>
+                    <li><a href="MostrarEstacionesGenerales.jsp">Tabla de Estaciones Generales</a></li>
                     <li><a href="CrearUsuarioEstacionGeneral.jsp">Crear EstacionGeneral</a></li>
                     <li><a href="ModificarUsuarioEstacionGeneral.jsp">Modificar EstacionGeneral</a></li>
                     <li><a href="EliminarUsuarioEstacionGeneral.jsp">Eliminar EstacionGeneral</a></li>
@@ -73,7 +73,9 @@
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();	
         
         int y=port.imprimirEstaGeREtorno().size();
-        int count=0;        
+        int x=port.imprimirEstaGeREtorno2().size();
+        int count=0;     
+        int radiocontador=0;
         if(port.imprimirEstaGeREtorno().isEmpty()){
          //vacia   
         }else{//llena
@@ -81,12 +83,12 @@
          for (int i=y-1; i>=0;i--){    
          //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
          //out.println(mensaje);
-         String mensaje2=port.getEstacionGeneral(i).toString();
-         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla
+         String mensaje2=port.getEstacionGeneralNombre(i).toString();//numero
+         String mensaje3=port.getEstacionGeneral2(i).toString(); //nombre
          
         %>  
         
-        <option><%= mensaje2%></option>
+        <option value="<%= mensaje2%>"><%= mensaje3%></option>
                
          <%
          count=count+1;

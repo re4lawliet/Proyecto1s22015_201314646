@@ -63,11 +63,12 @@
         	<p>&nbsp;</p>
            	<p>&nbsp;</p>
                 
-                    <form action="lol" method="POST">
+                    <form action="EliminarUsuarioAdministrador.jsp" method="POST">
                         <br>
                       <h5>Seleccione El Que desea Eliminar: </h5> 
                       <br>
                       <select name="ListaAdmins">
+                          <option value="...">...</option>
                                                       <%-- start web service invocation --%><hr/>
     <%
     try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
@@ -83,7 +84,7 @@
          //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
          //out.println(mensaje);
          String mensaje2=port.getAdminNombre(i).toString();
-         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla
+         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla••••••.
          
         %>  
         
@@ -104,7 +105,26 @@
                       </select>
                       <br>
                       <br>    
-                          <input type="submit" value="ELIMINAR" />
+                      <input type="submit" value="ELIMINAR" />
+                      
+                          <%-- start web service invocation --%><hr/>
+    <%  if(request.getParameter("ListaAdmins")!="..."){
+        
+    try {
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	java.lang.String arg0 = request.getParameter("ListaAdmins");
+	// TODO process result here
+	java.lang.String result = port.eliminarAdmin(arg0);
+	out.println("Result = "+result);
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+
                       
                     </form>
                     

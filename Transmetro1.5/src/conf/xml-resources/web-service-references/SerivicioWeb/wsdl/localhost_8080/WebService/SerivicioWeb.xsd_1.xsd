@@ -20,13 +20,41 @@
 
 <xs:element name="AgregarResponse" type="tns:AgregarResponse"/>
 
+<xs:element name="AsignacionDeBuses" type="tns:AsignacionDeBuses"/>
+
+<xs:element name="AsignacionDeBusesResponse" type="tns:AsignacionDeBusesResponse"/>
+
 <xs:element name="Borrar" type="tns:Borrar"/>
 
 <xs:element name="BorrarResponse" type="tns:BorrarResponse"/>
 
+<xs:element name="BuscarObjetoEnListaBuses" type="tns:BuscarObjetoEnListaBuses"/>
+
+<xs:element name="BuscarObjetoEnListaBusesResponse" type="tns:BuscarObjetoEnListaBusesResponse"/>
+
+<xs:element name="BuscarObjetoEnListaRutas" type="tns:BuscarObjetoEnListaRutas"/>
+
+<xs:element name="BuscarObjetoEnListaRutasResponse" type="tns:BuscarObjetoEnListaRutasResponse"/>
+
 <xs:element name="CrearRuta" type="tns:CrearRuta"/>
 
 <xs:element name="CrearRutaResponse" type="tns:CrearRutaResponse"/>
+
+<xs:element name="EliminarAdmin" type="tns:EliminarAdmin"/>
+
+<xs:element name="EliminarAdminResponse" type="tns:EliminarAdminResponse"/>
+
+<xs:element name="EliminarChofer" type="tns:EliminarChofer"/>
+
+<xs:element name="EliminarChoferResponse" type="tns:EliminarChoferResponse"/>
+
+<xs:element name="EliminarEstacionClave" type="tns:EliminarEstacionClave"/>
+
+<xs:element name="EliminarEstacionClaveResponse" type="tns:EliminarEstacionClaveResponse"/>
+
+<xs:element name="EliminarEstacionGeneral" type="tns:EliminarEstacionGeneral"/>
+
+<xs:element name="EliminarEstacionGeneralResponse" type="tns:EliminarEstacionGeneralResponse"/>
 
 <xs:element name="ExisteAdmin" type="tns:ExisteAdmin"/>
 
@@ -90,7 +118,15 @@
 
 <xs:element name="ImprimirChofer" type="tns:ImprimirChofer"/>
 
+<xs:element name="ImprimirChofer2" type="tns:ImprimirChofer2"/>
+
+<xs:element name="ImprimirChofer2Response" type="tns:ImprimirChofer2Response"/>
+
 <xs:element name="ImprimirChoferREtorno" type="tns:ImprimirChoferREtorno"/>
+
+<xs:element name="ImprimirChoferREtorno2" type="tns:ImprimirChoferREtorno2"/>
+
+<xs:element name="ImprimirChoferREtorno2Response" type="tns:ImprimirChoferREtorno2Response"/>
 
 <xs:element name="ImprimirChoferREtornoResponse" type="tns:ImprimirChoferREtornoResponse"/>
 
@@ -128,9 +164,13 @@
 
 <xs:element name="ImprimirEstacionesClaveResponse" type="tns:ImprimirEstacionesClaveResponse"/>
 
-<xs:element name="ImprimirLista" type="tns:ImprimirLista"/>
+<xs:element name="ImprimirListaBuses" type="tns:ImprimirListaBuses"/>
 
-<xs:element name="ImprimirListaResponse" type="tns:ImprimirListaResponse"/>
+<xs:element name="ImprimirListaBusesParaAsignar" type="tns:ImprimirListaBusesParaAsignar"/>
+
+<xs:element name="ImprimirListaBusesParaAsignarResponse" type="tns:ImprimirListaBusesParaAsignarResponse"/>
+
+<xs:element name="ImprimirListaBusesResponse" type="tns:ImprimirListaBusesResponse"/>
 
 <xs:element name="InsertarAdmin" type="tns:InsertarAdmin"/>
 
@@ -210,7 +250,15 @@
 
 <xs:element name="getChofer" type="tns:getChofer"/>
 
+<xs:element name="getChofer2" type="tns:getChofer2"/>
+
+<xs:element name="getChofer2Response" type="tns:getChofer2Response"/>
+
 <xs:element name="getChoferNombre" type="tns:getChoferNombre"/>
+
+<xs:element name="getChoferNombre2" type="tns:getChoferNombre2"/>
+
+<xs:element name="getChoferNombre2Response" type="tns:getChoferNombre2Response"/>
 
 <xs:element name="getChoferNombreResponse" type="tns:getChoferNombreResponse"/>
 
@@ -270,6 +318,51 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="ImprimirChofer2">
+<xs:sequence>
+<xs:element name="arg0" type="tns:nodoChofer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoChofer">
+<xs:sequence>
+<xs:element name="ingreso" type="xs:int"/>
+<xs:element name="NombreChofer" type="xs:string" minOccurs="0"/>
+<xs:element name="ApellidoChofer" type="xs:string" minOccurs="0"/>
+<xs:element name="Contraseña" type="xs:string" minOccurs="0"/>
+<xs:element name="ListaDeAsiganaciones" type="tns:asignaciones" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asignaciones">
+<xs:sequence>
+<xs:element name="ObjetoBus" type="tns:nodoBuses" minOccurs="0"/>
+<xs:element name="ObjetoRuta" type="tns:ruta" minOccurs="0"/>
+<xs:element name="NombreBus" type="xs:string" minOccurs="0"/>
+<xs:element name="NombreRuta" type="xs:string" minOccurs="0"/>
+<xs:element name="NombreChofer" type="xs:string" minOccurs="0"/>
+<xs:element name="IdBus" type="xs:int"/>
+<xs:element name="IdChofer" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="nodoBuses">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ruta">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="ListaEstaciones" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="ListaNumeroDeEstaciones" type="xs:string" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ImprimirChofer2Response">
+<xs:sequence/>
+</xs:complexType>
+
 <xs:complexType name="GraficarListaBuses">
 <xs:sequence/>
 </xs:complexType>
@@ -316,6 +409,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="BuscarObjetoEnListaRutas">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BuscarObjetoEnListaRutasResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:ruta" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="ModificarEstacionGeneral">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -350,6 +455,18 @@
 
 <xs:complexType name="AgregarNombreRutaResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getChoferNombre2">
+<xs:sequence>
+<xs:element name="iteracion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getChoferNombre2Response">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="ImprimirEstaGeneral">
@@ -444,6 +561,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="BuscarObjetoEnListaBuses">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="BuscarObjetoEnListaBusesResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:nodoBuses" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="GraficarArbolEstacionGeneral">
 <xs:sequence/>
 </xs:complexType>
@@ -451,6 +580,18 @@
 <xs:complexType name="GraficarArbolEstacionGeneralResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionGeneral">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionGeneralResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -512,6 +653,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="getChofer2">
+<xs:sequence>
+<xs:element name="iteracion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getChofer2Response">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="ExisteEstacionClave">
 <xs:sequence>
 <xs:element name="clave" type="xs:int"/>
@@ -527,15 +680,6 @@
 <xs:complexType name="ImprimirChofer">
 <xs:sequence>
 <xs:element name="arg0" type="tns:nodoChofer" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="nodoChofer">
-<xs:sequence>
-<xs:element name="ingreso" type="xs:int"/>
-<xs:element name="NombreChofer" type="xs:string" minOccurs="0"/>
-<xs:element name="ApellidoChofer" type="xs:string" minOccurs="0"/>
-<xs:element name="Contraseña" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -577,6 +721,16 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="ImprimirListaBusesParaAsignar">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ImprimirListaBusesParaAsignarResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="ImprimirAvlAdmin">
 <xs:sequence/>
 </xs:complexType>
@@ -605,6 +759,23 @@
 
 <xs:complexType name="AgregarNumeroExtacionResponse">
 <xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AsignacionDeBuses">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:string" minOccurs="0"/>
+<xs:element name="arg2" type="xs:int"/>
+<xs:element name="arg3" type="xs:string" minOccurs="0"/>
+<xs:element name="arg4" type="xs:string" minOccurs="0"/>
+<xs:element name="arg5" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="AsignacionDeBusesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
 </xs:complexType>
 
 <xs:complexType name="ExisteEstacionGeneral">
@@ -811,6 +982,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="EliminarEstacionClave">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarEstacionClaveResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="ModificarChofer">
 <xs:sequence>
 <xs:element name="arg0" type="xs:int"/>
@@ -892,6 +1075,30 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="EliminarAdmin">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarAdminResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarChofer">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="EliminarChoferResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="ExisteChofer">
 <xs:sequence>
 <xs:element name="clave" type="xs:int"/>
@@ -916,11 +1123,11 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="ImprimirLista">
+<xs:complexType name="ImprimirListaBuses">
 <xs:sequence/>
 </xs:complexType>
 
-<xs:complexType name="ImprimirListaResponse">
+<xs:complexType name="ImprimirListaBusesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -928,7 +1135,7 @@
 
 <xs:complexType name="ExisteAdmin">
 <xs:sequence>
-<xs:element name="clave" type="xs:int"/>
+<xs:element name="clave" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
@@ -979,6 +1186,16 @@
 </xs:complexType>
 
 <xs:complexType name="ImprimirEstacionClaveRetornoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ImprimirChoferREtorno2">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="ImprimirChoferREtorno2Response">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
