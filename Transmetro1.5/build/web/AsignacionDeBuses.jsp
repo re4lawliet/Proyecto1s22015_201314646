@@ -235,6 +235,20 @@
         
         
         </form>
+    
+    
+    <br>
+                </br>
+    <br>
+                </br>
+    
+    <form action="AsignacionDeBuses2.jsp" method="POST">
+        
+        <input type="submit" value="CArGAR CSV" />
+        
+        
+    </form>
+    
         
         </div>
         <div id="content_bottom"></div>

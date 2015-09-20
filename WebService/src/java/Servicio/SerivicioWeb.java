@@ -5,7 +5,11 @@
  */
 package Servicio;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import javax.jws.WebService;
@@ -34,7 +38,10 @@ public class SerivicioWeb {
     public ArrayList <Ruta> ListaRutas= new ArrayList <> ();
     public ArrayList <String> NombreRutas= new ArrayList <> ();
     public ArrayList <Integer> NumeroPorEstacion= new ArrayList <> ();
+    public ArrayList <Integer> NumeroPorEstacion2= new ArrayList <> ();
     public ArrayList <String> NumeroPorChofer= new ArrayList <> ();
+    public ArrayList <NodoEstacionClave> NodoPorEstacionClave= new ArrayList <> ();
+    public ArrayList <NodoEstacionGeneral> NodoPorEstacionGeneral= new ArrayList <> ();
     //______________________________________________________________________
     
     public String impresor="";
@@ -46,6 +53,26 @@ public class SerivicioWeb {
     public boolean ValidarOperacion3=false;
     public boolean ValidarOperacion4=false;
     public boolean ValidarOperacion5=false;//chofer
+    public static int loginChofer;
+    public static int loginEstacionClave;
+    public static int loginEstacionGeneral;
+   
+    
+    
+    //-------------------------------csv------------------------------------}
+    File f;
+    FileReader lectorArchivo;
+    FileWriter escritorArchivo;
+    
+    
+    public SerivicioWeb(){
+        arbol1.InsercionAutor( "fish", "123");
+        arbol1.InsercionAutor( "carlos", "1234");
+        arbol1.InsercionAutor( "josue", "12345");
+        arbol1.InsercionAutor( "Juande", "contra");
+        arbol1.InsercionAutor( "batres", "contra");
+    }
+    
     /**
      * This is a sample web service operation
      */
@@ -127,11 +154,7 @@ public class SerivicioWeb {
     @WebMethod(operationName = "LogearAdmin")
     public boolean LogearAdmin(@WebParam(name = "correo") String correo, @WebParam(name = "contrase\u00f1a") String contraseña) {
         //TODO write your implementation code here:
-        arbol1.InsercionAutor( "fish", "123");
-        arbol1.InsercionAutor( "carlos", "1234");
-        arbol1.InsercionAutor( "josue", "12345");
-        arbol1.InsercionAutor( "Juande", "contra");
-        arbol1.InsercionAutor( "batres", "contra");
+        
 //        arbol1.InsercionAutor( "hola", "contra");
 //        arbol1.InsercionAutor( "mundo", "contra");
 //        arbol1.InsercionAutor( "francis", "contra");
@@ -181,7 +204,9 @@ public class SerivicioWeb {
             //Existe
             //y si Existe el correo y la contra tienen q ser iguales a las del nodo obtenido en la busqueda
             if(nodoObtenido.contraseña.equals(contraseña) && nodoObtenido.ingreso==id &&nodoObtenido.NombreEstacion.equals(nombreEstacion) ){
-            validar=true;    
+            validar=true;
+            loginEstacionClave=id;
+                    
             }else{//de lo contrario o la contra esta mala o cualquierdato 
             validar=false;
             }
@@ -213,7 +238,8 @@ public class SerivicioWeb {
             //Existe
             //y si Existe el correo y la contra tienen q ser iguales a las del nodo obtenido en la busqueda
             if(nodoObtenido.contraseña.equals(contra) && nodoObtenido.ingreso==id &&nodoObtenido.NombreEstacion.equals(nombre) ){
-            validar=true;    
+            validar=true; 
+            loginEstacionGeneral=id;
             }else{//de lo contrario o la contra esta mala o cualquierdato 
             validar=false;
             }
@@ -246,7 +272,8 @@ public class SerivicioWeb {
             //Existe
             //y si Existe el correo y la contra tienen q ser iguales a las del nodo obtenido en la busqueda
             if(nodoObtenido.ingreso==id && nodoObtenido.Contraseña.equals(contraseña) ){
-            validar=true;    
+            validar=true;
+            loginChofer=id;
             }else{//de lo contrario o la contra esta mala o cualquierdato 
             validar=false;
             }
@@ -613,6 +640,7 @@ public class SerivicioWeb {
         //TODO write your implementation code here:
         boolean validar=false;
         NodoEstacionClave nodoObtenido=arbol2.BuscarPorDato(arbol2.A, clave);
+        NodoEstacionGeneral nodo=arbol3.BuscarPorDato(arbol3.A, clave);
         
         if(nodoObtenido.ingreso==clave){
         validar=true;    
@@ -828,6 +856,8 @@ public class SerivicioWeb {
         //TODO write your implementation code here:
         boolean validar=false;
         NodoEstacionGeneral nodoObtenido=arbol3.BuscarPorDato(arbol3.A, clave);
+        
+        NodoEstacionClave nodo=arbol2.BuscarPorDato(arbol2.A, clave);
         
         if(nodoObtenido.ingreso==clave){
         validar=true;    
@@ -1227,9 +1257,12 @@ public class SerivicioWeb {
     @WebMethod(operationName = "CrearRuta")
     public void CrearRuta(@WebParam(name = "nombre") String nombre) {
         //TODO write your implementation code here:       
-        ListaRutas.add(new Ruta(nombre,NombreRutas,NumeroPorEstacion));     
+        ListaRutas.add(new Ruta(nombre,NombreRutas,NumeroPorEstacion,NumeroPorEstacion2));     
         NombreRutas.clear();
         NumeroPorEstacion.clear();
+        NumeroPorEstacion2.clear();
+        NodoPorEstacionClave.clear();
+        NodoPorEstacionGeneral.clear();
     }
     
     @WebMethod(operationName = "ExisteRuta")
@@ -1266,6 +1299,13 @@ public class SerivicioWeb {
      NumeroPorEstacion.add(n);
               
     }
+    
+     public void AgregarNumeroExtacion2(@WebParam(name = "nombre") int n) {
+       
+     NumeroPorEstacion2.add(n);
+              
+    }
+    
      
     @WebMethod(operationName = "Imprimir Rutas")
      public void ImprimirRutas(@WebParam(name = "nombre") String nombre) {
@@ -1306,9 +1346,16 @@ public class SerivicioWeb {
        
        String x=objetoBus.dato.nombre;
        String y=objetoRuta.nombre;
-               
-      arbol4.BuscarPorDato(arbol4.A, chofer).ListaDeAsiganaciones.add(new Asignaciones (objetoBus,objetoRuta,nombreChofer,idChofer,horainicio,horafinal,fecha)        );
+       
+       //crea el Objeto Asignacion
+       Asignaciones as = new Asignaciones (objetoBus,objetoRuta,nombreChofer,idChofer,horainicio,horafinal,fecha);
+       
+      arbol4.BuscarPorDato(arbol4.A, chofer).ListaDeAsiganaciones.add(as);
+      arbol4.BuscarPorDato(arbol4.A, chofer).AsignarBusEnUnDiaEspecifico(as); //Asigna La Asignacion en Un Dia Especifico
       
+      //Poner Al Bus la asignacion
+      
+      Lista.BusquedaID(bus).dato.ListaDeAsiganaciones.add(new Asignaciones (objetoBus,objetoRuta,nombreChofer,idChofer,horainicio,horafinal,fecha));
       
       String mensaje2="mensajeVergueo";
       mensaje="Se Asigno al Chofer:"+nombreChofer+" La Asignacion Numero: "+arbol4.BuscarPorDato(arbol4.A, chofer).ListaDeAsiganaciones.get(0).id
@@ -1375,5 +1422,330 @@ public class SerivicioWeb {
         return temp;  
          
      }
+ 
      
+     //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI Archivo CSV -------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+     
+     //------------------LEECTURA --------------------------
+    public String leerhoteles (String nombre){
+   
+try{
+    f = new File(nombre);
+    lectorArchivo = new FileReader(f);
+    BufferedReader br = new BufferedReader(lectorArchivo);
+    
+String l="Archivo Leido y Asignado Cn Exito";
+String aux="";//lee la linea 
+String atributos[] = null;    
+    aux=br.readLine();//mete en aux la primera linea
+    while(aux!=null){
+    atributos=aux.split(",");
+    //instanciar hoteles desde q carga el archivo
+    
+    //l=l+":-"+atributos[0]+","+atributos[1]+"";
+    
+    int bus=Integer.parseInt(atributos[0]);
+    String ruta=atributos[1]; 
+    int chofer=Integer.parseInt(atributos[2]);
+    String horainicio =atributos[3];
+    String horafinal=atributos[4]; 
+    String fecha=atributos[5];
+    
+    if (ValidacionesArchivo(bus,ruta,chofer,horainicio,horafinal,fecha)==true){
+        
+    String a=AsignacionDeBuses(bus,ruta,chofer,horainicio,horafinal,fecha);
+        
+    }else{
+        l="Fin Proceso De Analisis";
+    }
+    
+    //crearhotel.listahoteles.add(new hotel (atributos[0], atributos[1]));
+    
+    //-------------------------------------
+    aux=br.readLine();
+    
+    }//si la auxiliar no es nulla      
+    
+    br.close();
+    lectorArchivo.close();
+    return l;//retorna la linea 
+
+    
+    
+    
+}catch(IOException e){
+System.out.println("Error:"+e.getMessage());
+}
+return null;
+    }
+    
+    
+    
+    public boolean ValidacionesArchivo(int bus, String ruta, int chofer, String horainicio, String horafinal, String fecha){
+    boolean val=false;
+    
+    boolean v1 = ExisteBus(bus);//Verifica si hay bus
+    boolean v2=ExisteRuta(ruta);//verivica si hay ruta
+    boolean v3=ExisteChofer(chofer);//verifica si hay chofer
+        
+    if (v1==true && v2==true && v3==true){//si bus ruta y chofer existe
+        val=true;
+    }else if(v1==false && v2==false && v3==false){//si bus no existe y el chofer tampoco los Crea
+        
+        AgregarBus(bus);
+        InsertarChofer(chofer,"Chofer","ApellidoChofer","chofer");
+        val=true;
+        
+    }else{
+        val=false;
+    }
+    
+        return val;
+    }
+     
+    //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------AQUI LO DE RESUMENes -------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+     public String ResumenBus(@WebParam(name = "nombre") int id) {
+        //TODO write your implementation code here:
+        boolean validar=false;
+        NodoBuses auxiliar=Lista.inicio;
+        NodoBuses auxiliarFinal = null;
+        boolean retorno = false;
+        String Texto="";
+        
+         if (Lista.inicio!=null){ //si no esta vacia porlomenos tiene un nodo
+             //crea nodoDoble auxiliar y apunta al final
+            
+                while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+           
+                if (auxiliar.dato.id==id){
+                    //auxiliarFinal=auxiliar;
+                    Texto="Nombre: "+auxiliar.dato.nombre+"<br>"+
+                          "ID: "+auxiliar.dato.id+"<br>"+
+                          "**************************************<br>"
+                          ;
+                    
+                    int a=auxiliar.dato.ListaDeAsiganaciones.size();
+                    
+                    for (int i=a-1; i>=0;i--){
+                    String nombrechofer;
+                    nombrechofer=auxiliar.dato.ListaDeAsiganaciones.get(i).NombreChofer;
+                    String nombreruta;
+                    nombreruta=auxiliar.dato.ListaDeAsiganaciones.get(i).NombreRuta;
+                    String horaentrada;
+                    horaentrada=auxiliar.dato.ListaDeAsiganaciones.get(i).HoraEntrada;
+                    String horasalida;
+                    horasalida=auxiliar.dato.ListaDeAsiganaciones.get(i).HoraSalida;
+                    String fecha;
+                    fecha=auxiliar.dato.ListaDeAsiganaciones.get(i).Fecha;
+                    
+                    Texto=Texto+
+                          "NombreChofer: "+nombrechofer+"<br>"+
+                          "NombreRuta: "+nombreruta+"<br>"+
+                          "HorarioEntrada: "+horaentrada+"<br>"+
+                          "HorarioSalida: "+horasalida+"<br>"+
+                          "FechaAsignada: "+fecha+"<br>"+
+                          "---------------------------------------<br>"  ;  
+                    }
+                    
+                    retorno=true;
+                }else{
+//nada
+                }
+                
+                auxiliar = auxiliar.siguiente; //auxiliar va a recorrer a anterior
+            }
+            
+            
+        }else {
+            //JOptionPane.showMessageDialog(null, null,"ESta Vacia Mula",JOptionPane.INFORMATION_MESSAGE);
+            retorno=false;
+        }
+                
+      return Texto;
+        
+    }
+    
+    public String ResumenChofer(int id){
+        String Texto="";
+        NodoChofer nodoObtenido=arbol4.BuscarPorDato(arbol4.A, id);
+        
+        if(nodoObtenido.ingreso==id){
+           
+            Texto="Nombre: "+nodoObtenido.NombreChofer+"<br>"+
+                  "Apellido: "+nodoObtenido.ApellidoChofer+"<br>"+
+                  "ID: "+nodoObtenido.ingreso+"<br>"+
+                  "Contraseña: "+nodoObtenido.Contraseña+"<br>"+
+                  "*********************Asignaciones Totales*****************************<br>"
+                  ;
+            
+            int a=nodoObtenido.ListaDeAsiganaciones.size();
+                if(a!=0){   
+                for (int i=a-1; i>=0;i--){
+                    String busasignado;
+                    busasignado="Bus_"+nodoObtenido.ListaDeAsiganaciones.get(i).IdBus;
+                    String nombreruta;
+                    nombreruta=nodoObtenido.ListaDeAsiganaciones.get(i).NombreRuta;
+                    String horaentrada;
+                    horaentrada=nodoObtenido.ListaDeAsiganaciones.get(i).HoraEntrada;
+                    String horasalida;
+                    horasalida=nodoObtenido.ListaDeAsiganaciones.get(i).HoraSalida;
+                    String fecha;
+                    fecha=nodoObtenido.ListaDeAsiganaciones.get(i).Fecha;  
+                    
+                   Texto=Texto+
+                          "BusDesignado: "+busasignado+"<br>"+
+                          "RutaDesignada: "+nombreruta+"<br>"+
+                          "HorarioEntrada: "+horaentrada+"<br>"+
+                          "HorarioSalida: "+horasalida+"<br>"+
+                          "FechaAsignada: "+fecha+"<br>"+
+                          "---------------------------------------------------------------<br>";                   
+                }
+                }
+                
+                Texto=Texto+         
+                "+++++++++++++++++++++++++++ASIGNACIONES EN DIA ESPECIFICO´+++++++++++++++++++<br>";
+                int b=nodoObtenido.ListaDia.size();
+                
+                if(b!=0){
+                for (int i=b-1; i>=0;i--){
+                    
+                   String Fecha = nodoObtenido.ListaDia.get(i).Fecha;
+                   Texto=Texto+
+                           "Fecha: "+Fecha+" -ESTA ES DEL OBJETO DIA<br>"+
+                           ":::::::::::::::::::::::::::::::::<br>"
+                          ;
+                   
+                   int c = nodoObtenido.ListaDia.get(i).ListaDeBusesEnUnDia.size();
+                   
+                   if(c!=0){
+                   for (int j=c-1; j>=0;j--){
+                    String busasignado;
+                    busasignado="Bus_"+nodoObtenido.ListaDia.get(i).ListaDeBusesEnUnDia.get(j).IdBus;
+                    String nombreruta;
+                    nombreruta=nodoObtenido.ListaDia.get(i).ListaDeBusesEnUnDia.get(j).NombreRuta;
+                    String horaentrada;
+                    horaentrada=nodoObtenido.ListaDia.get(i).ListaDeBusesEnUnDia.get(j).HoraEntrada;
+                    String horasalida;
+                    horasalida=nodoObtenido.ListaDia.get(i).ListaDeBusesEnUnDia.get(j).HoraSalida;
+                    Texto=Texto+
+                          "BusDesignado: "+busasignado+"<br>"+
+                          "RutaDesignada: "+nombreruta+"<br>"+
+                          "HorarioEntrada: "+horaentrada+"<br>"+
+                          "HorarioSalida: "+horasalida+"<br>"+
+                          "======================================================<br>";
+                   }
+                   }       
+                                      
+                }
+                }
+            
+        }else{
+            //nada :v REtorna nada
+        }
+        
+        return Texto;
+    }
+    
+        //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------OTRAS GRAFICAS -------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    public boolean GraficarListaDeBusesAunChofer (int id){
+        boolean val =false;
+        
+        if (arbol4.A!=null){
+            val=true;
+            arbol4.Nodos2(id);
+            arbol4.Enlaces(id);
+            arbol4.EscribirArchivoBuses();
+            arbol4.GraficarArchivoBuses();
+            
+            
+        }else{
+            val=false;
+        }
+        
+        
+        return val;
+    }
+    
+            //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------OTRAS Chivas -------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
+    public int ChoferLogeado(){
+        int x=loginChofer;   
+        return x;
+        
+    }
+    
+    public void getEstacionClaveNodo(int id){ 
+        
+        NodoEstacionClave lo = arbol2.BuscarPorDato(arbol2.A, id);
+        
+     NodoPorEstacionClave.add(lo);      
+    }
+    
+    public void getEstacionGeneralNodo(int id){       
+     NodoPorEstacionGeneral.add(arbol3.BuscarPorDato(arbol3.A, id));      
+    }
+    
+         public String BuscarRuta(@WebParam(name = "nombre") String nombre) {
+        //TODO write your implementation code here:
+             String cadena ="hola Wroskiano <br><br><br>"+
+                     "********************************************************************************<br>"
+                     + " <form name=\"boton2\" action=\"MoverBuses.jsp\" method=\"POST\"> ";
+             
+        //boolean retorno=false;
+        int y1=ListaRutas.size();
+        if(!ListaRutas.isEmpty()){
+        for (int i=y1-1; i>=0;i--){ 
+          if(ListaRutas.get(i).nombre.equals(nombre)){
+              
+              int a=ListaRutas.get(i).ListaNumeroDeEstaciones.size();//----------------MAlFormer Exprecion
+              if(a!=0){
+                  for(int j=a-1; j>=0;j--){
+                  int busk=ListaRutas.get(i).ListaNumeroDeEstaciones.get(j);
+                  cadena =cadena +
+                          "Estacion Clave: "+arbol2.BuscarPorDato(arbol2.A, busk).NombreEstacion+"<br>"+
+                          "<input type=\"submit\" value=\"siguiente\" /><br>"+
+                          "*****************************************************************************<br>";
+                  }
+              }
+              
+              int b=ListaRutas.get(i).ListaNumeroDeEstaciones2.size();
+              if(b!=0){
+                  for(int j=a-1; j>=0;j--){
+                       int busk=ListaRutas.get(i).ListaNumeroDeEstaciones2.get(j);
+                  cadena =cadena +
+                          "Estacion General: "+arbol3.BuscarPorDato(arbol3.A, busk).NombreEstacion+"<br>"+
+                           "<input type=\"submit\" value=\"siguiente\" /><br>"+
+                          "*****************************************************************************<br>";
+                  }
+              }
+              
+              
+              //retorno=true;
+          }else{
+              //retorno=false;
+          }  
+        }   
+        }else{
+            //retorno=false;
+        }
+        
+        cadena =cadena+"</form>";
+        return cadena;   
+        
+    }
+         
+     //,!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿
+    //-----------------------OTRAS EstacionClave PAGINA -------------------------------------
+    //ññññ1111111111111111111111111111111111111111111111111111111111llllllllllllllllll
+    
 }

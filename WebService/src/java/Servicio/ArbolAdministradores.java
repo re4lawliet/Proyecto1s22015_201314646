@@ -531,13 +531,13 @@ public class ArbolAdministradores {
                         try{
                         
                             if (Nodo.Derecho==null && Nodo.Izquierdo!=null){
-                             LineasGrafico.add(""+Nodo.correo+""+Nodo.ingreso+"->"+Nodo.Izquierdo.correo+""+Nodo.Izquierdo.ingreso+";\n");    
+                             LineasGrafico.add("\""+Nodo.correo+"\""+"->"+"\""+Nodo.Izquierdo.correo+"\""+";\n");    
                             }else if (Nodo.Derecho!=null && Nodo.Izquierdo==null){
-                            LineasGrafico.add(""+Nodo.correo+""+Nodo.ingreso+"->"+Nodo.Derecho.correo+""+Nodo.Derecho.ingreso+";\n");    
+                            LineasGrafico.add("\""+Nodo.correo+"\""+"->"+"\""+Nodo.Derecho.correo+"\""+";\n");    
                             }else{
                             
-                        LineasGrafico.add(""+Nodo.correo+""+Nodo.ingreso+"->"+Nodo.Izquierdo.correo+""+Nodo.Izquierdo.ingreso+";\n");
-                        LineasGrafico.add(""+Nodo.correo+""+Nodo.ingreso+"->"+Nodo.Derecho.correo+""+Nodo.Derecho.ingreso+";\n");
+                        LineasGrafico.add("\""+Nodo.correo+"\""+"->"+"\""+Nodo.Izquierdo.correo+"\""+";\n");
+                        LineasGrafico.add("\""+Nodo.correo+"\""+"->"+"\""+Nodo.Derecho.correo+"\""+";\n");
 			GraficaLineasArbol1 (Nodo.Izquierdo);                        
 			GraficaLineasArbol1 (Nodo.Derecho);
                             }
@@ -555,7 +555,7 @@ public class ArbolAdministradores {
         if (Nodo == null)
 			return;
 		else{
-                        LineasGrafico.add(""+Nodo.correo+""+Nodo.ingreso+";\n");
+                        LineasGrafico.add("\""+Nodo.correo+"\""+";\n");
 			GraficarNodos (Nodo.Izquierdo);
 			GraficarNodos(Nodo.Derecho);
 			

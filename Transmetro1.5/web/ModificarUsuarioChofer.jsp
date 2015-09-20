@@ -66,7 +66,15 @@
                         <br>
                       <h5>Seleccione El Que desea Modificar: </h5> 
                       <br>
+                          
+                      <br>
+                       <input type="radio" name="radio1" value="1" />Modificar Correo y Contraseña
+                      <br>    
+                      <input type="radio" name="radio1" value="2" />Modificar Solo Contraseña (no escribir el Id)
+                      <br> 
+                      <br> 
                       <select name="ListaAdmins">
+                      <option value="...">...</option>
                                                       <%-- start web service invocation --%><hr/>
     <%
     try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
@@ -106,7 +114,11 @@
                       </select>
                       <br>
                       <br>    
-                     
+                       <h5>ID De La EStacion: </h5>  
+                      <br>
+                      <input type="text" name="id" value="" />
+                      <br>
+                      <br>
                       <h5>Nombre: </h5>  
                       <br>
                       <input type="text" name="nombre" value="" />
@@ -123,38 +135,70 @@
                       <br>
                       <input type="submit" value="MODIFICAR" />
                       
-                    </form>
+                    
                     
         
         <%-- start web service invocation --%><hr/>
     <%
-    if ( request.getParameter("nombre") != null){ 
+    
     try {
         
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
 	 // TODO initialize WS operation arguments here
+        String list=request.getParameter("ListaAdmins");
+        
 	int arg0 = Integer.valueOf(request.getParameter("ListaAdmins"));
 	java.lang.String arg1 = request.getParameter("nombre");
 	java.lang.String arg2 = request.getParameter("apellido");
         java.lang.String arg3 = request.getParameter("contralol");
+        
+        int vali1 = Integer.parseInt(request.getParameter("radio1"));
 	// TODO process result here
-	java.lang.String result = port.modificarChofer(arg0, arg1, arg2,arg3);
+        
+        if (!list.equals("...")){ //ejecutar
+            
+            if(vali1==2){
+        java.lang.String result = port.modificarChofer(arg0, arg1, arg2,arg3);
 	out.println("Result = "+result);
         
         String msg=result;
         String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
+        out.println(mensaje);  
+            }else{
+                int id=Integer.parseInt(request.getParameter("id"));
+                boolean result2=port.existeChofer(id);
+        
+        if(result2==true){//existe Ese Usuario
+        String mensaje="<script language='javascript'>alert('Este Chofer Ya Existe');</script>"; 
+        out.println(mensaje);    
+        }else{//no existe Tonces Insertar
+        port.eliminarChofer(arg0);//lo Elimina y procede a Incertar Nuevo
+        
+        String msg=port.insertarChofer(id, arg1, arg2, arg3);
+        String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
         out.println(mensaje);
+                
+        }
+            
+        }      
+        }//Se cierran Los puntos
+        
+        
+        
+        
+        
+	
         
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
-    }
+    
     %>
     <%-- end web service invocation --%><hr/>
 
     
-    
+    </form>
         </div>
         <div id="content_bottom"></div>
             

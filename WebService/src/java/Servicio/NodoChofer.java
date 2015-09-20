@@ -20,6 +20,8 @@ public class NodoChofer {
     public String Contraseña;
     
      public ArrayList <Asignaciones> ListaDeAsiganaciones= new ArrayList <> ();
+     
+     public ArrayList <Dia> ListaDia= new ArrayList <> ();
         
         
 	int Fe;
@@ -35,5 +37,32 @@ public class NodoChofer {
 		Fe = 0;
 		NodoAdministrador Derecho=null;
 		NodoAdministrador Izquierdo = null;
-	}    
+	}  
+        
+        
+        public void AsignarBusEnUnDiaEspecifico(Asignaciones a){
+        
+        int y=ListaDia.size();
+        
+        if(ListaDia.isEmpty()){//si la lista de Dias Esta Vacia
+        Dia o=new Dia(a); 
+        ListaDia.add(o);    
+        }else{//si ESta LLENA CON AS DE ALGUN DIA
+        
+        for (int i=y-1; i>=0;i--){//RECORRE LA LISTA DE DIAS
+            
+            if(ListaDia.get(i).Fecha.equals(a.Fecha)){//si la fecha de la lista de Dias=al objeto q entra:::
+               ListaDia.get(i).ListaDeBusesEnUnDia.add(a);                
+            }else{//Sino Existe La Fecha Tonces Crearla
+                Dia o1=new Dia(a);
+                ListaDia.add(o1);
+            }        
+            
+        }          
+        }
+                
+        
+        
+        }
+        
 }

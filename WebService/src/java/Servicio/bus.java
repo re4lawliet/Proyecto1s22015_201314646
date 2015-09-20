@@ -5,6 +5,8 @@
  */
 package Servicio;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author carlosmonterroso
@@ -13,6 +15,9 @@ package Servicio;
 public class bus {
     public String nombre;
     public int id;
+    
+    
+    public ArrayList <Asignaciones> ListaDeAsiganaciones= new ArrayList <> ();
     
     public static int contador=0;
     

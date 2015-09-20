@@ -14,6 +14,8 @@ public class NodoEstacionClave {
         
     public String NombreEstacion;
     public String contraseña;
+    
+    public int NumeroDeUsuarios=0;
         
 	int Fe;
         int Altura;

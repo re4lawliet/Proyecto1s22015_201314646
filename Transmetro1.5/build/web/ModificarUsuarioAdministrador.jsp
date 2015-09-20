@@ -66,8 +66,13 @@
                         <br>
                       <h5>Seleccione El Que desea Modificar: </h5> 
                       <br>
+                       <input type="radio" name="radio1" value="1" />Modificar Correo y Contraseña
+                      <br>    
+                      <input type="radio" name="radio1" value="2" />Modificar Solo Contraseña
+                      <br> 
+                      <br> 
                       <select name="ListaAdmins"class="boton" cnchange="this.form[valor].value==this.valor">
-                          
+                        <option value="...">...</option>  
                           
                             <%-- start web service invocation --%><hr/>
     <%
@@ -119,11 +124,11 @@
                       <br>
                       <input type="submit" value="MODIFICAR" />
                       
-                    </form>
+                    
     
         <%-- start web service invocation --%><hr/>
     <%
-    if ( request.getParameter("correo") != null){ 
+    
     try {
         
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
@@ -132,23 +137,42 @@
 	java.lang.String arg0 = request.getParameter("ListaAdmins");
 	java.lang.String arg1 = request.getParameter("correo");
 	java.lang.String arg2 = request.getParameter("contraotra");
+        int vali1 = Integer.parseInt(request.getParameter("radio1"));
 	// TODO process result here
-	java.lang.String result = port.modificarAdmin(arg0, arg1, arg2);
+        if (!arg0.equals("...")){ 
+        if(vali1==2){
+	java.lang.String result = port.modificarAdmin(arg0, arg0, arg2);//Modificar Solo Datos
 	out.println("Result = "+result);
         
         String msg=result;
+        String mensaje="<script language='javascript'>alert('"+msg+" +++Solo Contraseña+++');</script>"; 
+        out.println(mensaje);
+        }else{
+                
+        boolean result2=port.existeAdmin(arg1);
+        
+        if(result2==true){//existe Ese Usuario
+        String mensaje="<script language='javascript'>alert('Este Admin Ya Existe');</script>"; 
+        out.println(mensaje);    
+        }else{//no existe Tonces Insertar
+        port.eliminarAdmin(arg0);//lo Elimina y procede a Incertar Nuevo
+        
+        String msg=port.insertarAdmin(0, arg1, arg2);
         String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
         out.println(mensaje);
+        }
         
+        }
+        }
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
-    }
+    
     %>
     <%-- end web service invocation --%><hr/>
 
     
-                    
+            </form>        
         </div>
         <div id="content_bottom"></div>
             

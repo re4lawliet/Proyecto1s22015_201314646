@@ -73,7 +73,7 @@
             
              <form action="AgregarRuta.jsp" method="POST"> 
             
-             	<h2> MEnu Agregar Ruta:</h2>
+             	<h2> MEnu Agregar Ruta: (R)</h2>
                 </br>
                 </br>
                 <h3>Seleccione Las Estaciones Por Las Que ingresa La Ruta Nueva:</h3>
@@ -214,6 +214,7 @@
          if(request.getParameter(v)!=null){//si esta marcado
          port.agregarNumeroExtacion(numero);        
          port.agregarNombreRuta(mensaje3);
+         port.getEstacionClaveNodo(numero);
          
          }else{//esta Desmarcado
                  
@@ -243,7 +244,8 @@
          if(request.getParameter(v)!=null){//si esta marcado
                   
          port.agregarNombreRuta(mensaje3);
-         port.agregarNumeroExtacion(numero);
+         port.agregarNumeroExtacion2(numero);
+         port.getEstacionGeneralNodo(numero);
          
          }else{//esta Desmarcado
                  

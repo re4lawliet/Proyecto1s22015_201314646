@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para ImprimirListaResponse complex type.
+ * <p>Clase Java para ValidacionesArchivoResponse complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="ImprimirListaResponse">
+ * &lt;complexType name="ValidacionesArchivoResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,35 +27,27 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "ImprimirListaResponse", propOrder = {
+@XmlType(name = "ValidacionesArchivoResponse", propOrder = {
     "_return"
 })
-public class ImprimirListaResponse {
+public class ValidacionesArchivoResponse {
 
     @XmlElement(name = "return")
-    protected String _return;
+    protected boolean _return;
 
     /**
      * Obtiene el valor de la propiedad return.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
      */
-    public String getReturn() {
+    public boolean isReturn() {
         return _return;
     }
 
     /**
      * Define el valor de la propiedad return.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
      */
-    public void setReturn(String value) {
+    public void setReturn(boolean value) {
         this._return = value;
     }
 

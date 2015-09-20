@@ -55,37 +55,82 @@
         
         <div id="content_top"></div>
         <div id="content_main">
-        	<h2>You may use this template in any manner you like. All I ask is that you leave
-                    the link back to my site at the bottom of the page. </h2>
-        	<p>&nbsp;</p>
-           	<p>&nbsp;</p>
-       	  <h3>Template Notes</h3>
-       	  <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-              deserunt mollit anim id est laborum.</p>
-        	<p>&nbsp;</p>
-<h3>More information</h3>
-        	<p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore 
-                    eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt 
-                    in culpa qui officia deserunt mollit anim id est laborum.</p>
-       	  <p>&nbsp;</p>
-        	<h3>Template Notes</h3>
-            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in 
-                culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p></p>
-<p>&nbsp;</p>
-        </div>
-        <div id="content_bottom"></div>
+        	
+            
+            <br>
+         <br>
+         <h3>RESUMEN DE ChoFer ESPECIFICO:: </h3>
+         <br>
+         <br>    
+             <form name="choferes" action="MenuChofer.jsp" method="POST">
+
+        <br>
+        <input type="submit" value="ResumenBus" />
+        <br>
+        <br>
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br>    
+        :::RESUMEN Chofer:     <%
+    try {
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	String v=request.getParameter("listaChoferes");
+	int nombre=port.choferLogeado();
+        String result="";
+	// TODO process result here
+        
+          int y=port.imprimirChoferREtorno().size();
+        int y1=port.imprimirChoferREtorno2().size();
+        int count=0;        
+        if(port.imprimirChoferREtorno().isEmpty()){
+         //vacia   
+        }else{//llena
+         
+         for (int i=y-1; i>=0;i--){
+         if(Integer.parseInt(port.getChoferNombre(i).toString())==nombre){
+         result=port.getChofer2(i).toString();    
+         }    
+         }
+        
+         }
+    
+        %>
+        <%= result%>
+    <%    
+        
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %> :::::::::::::::::::::::<br>
+        ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::<br>
+        <br>
+        <br>
+                <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	//String v=request.getParameter("listaChoferes");
+	int nombre=port.choferLogeado();
+	// TODO process result here
+        
+	java.lang.String result = port.resumenChofer(nombre);
+	//out.println("Result = "+result);
+        
+        %>
+        <%= result%>
+    <%    
+        
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
             
             <div id="footer"><h3><a href="http://www.google.com">Autor:CarlosMonterros</a></h3></div>
       </div>

@@ -24,6 +24,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="ApellidoChofer" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="Contraseña" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="ListaDeAsiganaciones" type="{http://Servicio/}asignaciones" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="ListaDia" type="{http://Servicio/}dia" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -38,7 +39,8 @@ import javax.xml.bind.annotation.XmlType;
     "nombreChofer",
     "apellidoChofer",
     "contrase\u00f1a",
-    "listaDeAsiganaciones"
+    "listaDeAsiganaciones",
+    "listaDia"
 })
 public class NodoChofer {
 
@@ -51,6 +53,8 @@ public class NodoChofer {
     protected String contraseña;
     @XmlElement(name = "ListaDeAsiganaciones", nillable = true)
     protected List<Asignaciones> listaDeAsiganaciones;
+    @XmlElement(name = "ListaDia", nillable = true)
+    protected List<Dia> listaDia;
 
     /**
      * Obtiene el valor de la propiedad ingreso.
@@ -167,6 +171,35 @@ public class NodoChofer {
             listaDeAsiganaciones = new ArrayList<Asignaciones>();
         }
         return this.listaDeAsiganaciones;
+    }
+
+    /**
+     * Gets the value of the listaDia property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the listaDia property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getListaDia().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Dia }
+     * 
+     * 
+     */
+    public List<Dia> getListaDia() {
+        if (listaDia == null) {
+            listaDia = new ArrayList<Dia>();
+        }
+        return this.listaDia;
     }
 
 }

@@ -25,7 +25,8 @@ public class ArbolChoferes {
                 
 	boolean Hh;
         public ArrayList <String> LineasGrafico= new ArrayList <> ();
-       
+       public ArrayList <String> LineasGrafico2= new ArrayList <> ();
+        
     //Inserta un elemento en el arbol
 	public void InsercionAutor (int Codau, String Nombre , String Apellido, String Contraseña){
 		if ((!Miembro(Codau,A))){
@@ -504,7 +505,7 @@ public class ArbolChoferes {
         
     } 
            
-          public void GraficarNodos(NodoChofer Nodo) {
+        public void GraficarNodos(NodoChofer Nodo) {
         //TODO write your implementation code here:
         if (Nodo == null)
 			return;
@@ -754,5 +755,140 @@ public NodoChofer balancear1(NodoChofer R){
           
       }
       return act;
-  }   
+  }
+  
+  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!  
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+//-----------------------------GraficarLista De Buses-----------------------------------------
+//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+  
+  
+          public void EscribirArchivoBuses() {
+            FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            //ESCRIBE EL FICHERO EN EL DIRECTORIO
+            fichero = new FileWriter("/home/carlos/Documents/Graphviz/GraficarListaBusesDeChofer.dot");
+            pw = new PrintWriter(fichero);
+            //--------------------------------------------------------------------------------------
+            
+            //Pinta lo Que deseamos en el Fichero---------------------------------------------------
+            
+            pw.println("digraph G {");//cabezera del Graphviz
+            
+            pw.println ("rankdir=LR;");//pone la Direccion de Izquierda a Derecha
+            pw.println ("node [shape=record,width=.1,height=.1];");//pone el cuadro q simula el nodo
+          
+            for (int i=0; i< LineasGrafico2.size(); i++){
+                pw.print(""+LineasGrafico2.get(i).toString());
+                System.out.println(""+LineasGrafico2.get(i));
+            }
+            
+            pw.println("}"); //Fin del GraphViz 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+    
+        
+    }
+
+        public  void GraficarArchivoBuses() {
+        //Limpiar Array
+        LineasGrafico2.clear();
+        try {
+
+//path del dot.exe,por lo general es la misma, pero depende de donde hayas instalado el paquete de Graphviz
+
+String dotPath = "dot";
+
+//path del archivo creado con el codigo del graphviz que queremos
+
+String fileInputPath = "/home/carlos/Documents/Graphviz/GraficarListaBusesDeChofer.dot";
+
+//path de salida del grafo, es decir el path de la imagen que vamos a crear con graphviz
+
+String fileOutputPath = "/home/carlos/NetBeansProjects/Transmetro1.5/web/ListaDeBusesDeUnChofer.jpg";
+
+//tipo de imagen de salida, en este caso es jpg
+
+String tParam = "-Tjpg";
+
+String tOParam = "-o";
+
+//concatenamos nuestras direcciones. Lo que hice es crear un vector, para poder editar las direcciones de entrada y salida, usando las variables antes inicializadas
+
+//recordemos el comando en la consola de windows: C:\Archivos de programa\Graphviz 2.21\bin\dot.exe -Tjpg grafo1.txt -o grafo1.jpg Esto es lo que concatenamos en el vector siguiente:
+
+String[] cmd = new String[5];
+cmd[0] = dotPath;
+cmd[1] = tParam;
+cmd[2] = fileInputPath;
+cmd[3] = tOParam;
+cmd[4] = fileOutputPath;
+
+//Invocamos nuestra clase 
+
+Runtime rt = Runtime.getRuntime();
+
+//Ahora ejecutamos como lo hacemos en consola
+
+rt.exec( cmd );
+
+//Grafica Generada
+
+} catch (Exception ex) {
+ex.printStackTrace();
+}  finally {
+}
+    }
+        
+public void Nodos2 (int id){
+   
+    int tm=BuscarPorDato(A,id).ListaDeAsiganaciones.size();
+    
+    
+    
+    for (int i=tm-1; i>=0;i--){  
+        
+        LineasGrafico2.add("Bus_"+BuscarPorDato(A,id).ListaDeAsiganaciones.get(i).IdBus+";\n");
+        
+    }
+    
+    
+    
+    
+}   
+
+
+public void Enlaces(int id){
+ int tm=BuscarPorDato(A,id).ListaDeAsiganaciones.size();
+ 
+    if(BuscarPorDato(A,id).ListaDeAsiganaciones.isEmpty()==false && tm>1){
+    for (int i=tm-1; i>=0;i--){  
+        
+        if (i!=0){
+         LineasGrafico2.add(""+"Bus_"+BuscarPorDato(A,id).ListaDeAsiganaciones.get(i).IdBus+"->"+"Bus_"+BuscarPorDato(A,id).ListaDeAsiganaciones.get(i-1).IdBus+";\n");
+         //LineasGrafico2.add(""+"Bus_"+BuscarPorDato(A,id).ListaDeAsiganaciones.get(i+1).IdBus+"->"+"Bus_"+BuscarPorDato(A,id).ListaDeAsiganaciones.get(i).IdBus+";\n");
+        }
+    }
+    
+    }else{
+        
+        //deja solo el nodo
+        
+    }
+    
+}
+        
+  
 }

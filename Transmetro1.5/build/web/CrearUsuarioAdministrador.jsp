@@ -85,6 +85,8 @@
                       
                     </form>
                 
+                   
+  
                     <%-- start web service invocation --%><hr/>
     <%
         if (request.getParameter("correo") != null){

@@ -114,7 +114,7 @@ public final class AsignacionDeBuses_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("                </br>\n");
       out.write("                <h4> Seleccione El Bus Que Desea Asignar:</h4>\n");
       out.write("                </br>\n");
-      out.write("\n");
+      out.write("                <form action=\"AsignacionDeBuses.jsp\">\n");
       out.write("                <select name=\"listaBuses\">\n");
       out.write("                     ");
       out.write("<hr/>\n");
@@ -241,7 +241,7 @@ public final class AsignacionDeBuses_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("    </select>\n");
       out.write("                <br>\n");
       out.write("                </br>\n");
-      out.write("                <form action=\"AsignacionDeBuses.jsp\">\n");
+      out.write("               \n");
       out.write("                \n");
       out.write("    <h4> Seleccione Los Horarios y la Fecha: </h4>\n");
       out.write("                </br>\n");
@@ -249,7 +249,7 @@ public final class AsignacionDeBuses_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("        <br>\n");
       out.write("    Hora Fin:     <input type=\"text\" name=\"horafin\" value=\"\" /><br>\n");
       out.write("        <br>\n");
-      out.write("    Fecha:     <input type=\"text\" name=\"horafin\" value=\"\" /><br>\n");
+      out.write("    Fecha:     <input type=\"text\" name=\"fecha\" value=\"\" /><br>\n");
       out.write("        <br>\n");
       out.write("        \n");
       out.write("        <input type=\"submit\" value=\"Asignacion\" />\n");
@@ -265,11 +265,34 @@ public final class AsignacionDeBuses_jsp extends org.apache.jasper.runtime.HttpJ
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
 	
-        //String 
+        if (request.getParameter("listaBuses")!=null && request.getParameter("listaRutas")!=null &&
+            request.getParameter("ListaChoferes")!=null && request.getParameter("horainicio")!="" &&
+            request.getParameter("horafin")!="" && request.getParameter("fecha")!=""
+            ){
+        //String mensaje="<script language='javascript'>alert('Entra xq hay datos');</script>"; 
+        //out.println(mensaje);
+               
+        //Resive La id Del Bus
+        int Bus=Integer.parseInt(request.getParameter("listaBuses"));
+        //Resive Nombre de La Ruta
+        String Ruta=request.getParameter("listaRutas");
+        //resive el Id del Chofer:
+        int Chofer=Integer.parseInt(request.getParameter("ListaChoferes"));
+        //resive la Hora Inicio:
+        String HoraInicio=request.getParameter("horainicio");
+        //resive la Hora Final
+        String HoraFinal=request.getParameter("horafin");
+        //resive la Fecha
+        String Fecha=request.getParameter("fecha");
         
+        String msje =port.asignacionDeBuses(Bus, Ruta, Chofer, HoraInicio, HoraFinal, Fecha);
+        String mensajeExito="<script language='javascript'>alert('"+msje+"');</script>"; 
+        out.println(mensajeExito);
         
-        
-        
+        }else{
+        String mensaje="<script language='javascript'>alert('REquisitos Incompletos');</script>"; 
+        out.println(mensaje);
+        }    
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }

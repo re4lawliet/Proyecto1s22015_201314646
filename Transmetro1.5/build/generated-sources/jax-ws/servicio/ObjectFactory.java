@@ -24,6 +24,7 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _GetEstacionGeneralNodo_QNAME = new QName("http://Servicio/", "getEstacionGeneralNodo");
     private final static QName _ImprimirEstaGeREtorno_QNAME = new QName("http://Servicio/", "ImprimirEstaGeREtorno");
     private final static QName _GetEstacionGeneralNombre_QNAME = new QName("http://Servicio/", "getEstacionGeneralNombre");
     private final static QName _ExisteAdmin_QNAME = new QName("http://Servicio/", "ExisteAdmin");
@@ -47,11 +48,13 @@ public class ObjectFactory {
     private final static QName _ImprimirAdminRetornoResponse_QNAME = new QName("http://Servicio/", "ImprimirAdminRetornoResponse");
     private final static QName _EliminarEstacionClave_QNAME = new QName("http://Servicio/", "EliminarEstacionClave");
     private final static QName _ModificarChofer_QNAME = new QName("http://Servicio/", "ModificarChofer");
+    private final static QName _GetEstacionClaveNodo_QNAME = new QName("http://Servicio/", "getEstacionClaveNodo");
     private final static QName _EliminarEstacionClaveResponse_QNAME = new QName("http://Servicio/", "EliminarEstacionClaveResponse");
     private final static QName _GetAdminResponse_QNAME = new QName("http://Servicio/", "getAdminResponse");
     private final static QName _LogearAdmin_QNAME = new QName("http://Servicio/", "LogearAdmin");
     private final static QName _AgregarAvlAdmin_QNAME = new QName("http://Servicio/", "AgregarAvlAdmin");
     private final static QName _ImprimirAdminRetorno_QNAME = new QName("http://Servicio/", "ImprimirAdminRetorno");
+    private final static QName _GetEstacionGeneralNodoResponse_QNAME = new QName("http://Servicio/", "getEstacionGeneralNodoResponse");
     private final static QName _GetEstacionClave2Response_QNAME = new QName("http://Servicio/", "getEstacionClave2Response");
     private final static QName _ImprimirChoferREtorno2_QNAME = new QName("http://Servicio/", "ImprimirChoferREtorno2");
     private final static QName _GetChofer2Response_QNAME = new QName("http://Servicio/", "getChofer2Response");
@@ -78,6 +81,7 @@ public class ObjectFactory {
     private final static QName _InsertarEstacionGeneralResponse_QNAME = new QName("http://Servicio/", "InsertarEstacionGeneralResponse");
     private final static QName _LogearEstacionesGeneralesResponse_QNAME = new QName("http://Servicio/", "LogearEstacionesGeneralesResponse");
     private final static QName _ImprimirEstaGeneral2_QNAME = new QName("http://Servicio/", "ImprimirEstaGeneral2");
+    private final static QName _GraficarListaDeBusesAunChoferResponse_QNAME = new QName("http://Servicio/", "GraficarListaDeBusesAunChoferResponse");
     private final static QName _GetChofer_QNAME = new QName("http://Servicio/", "getChofer");
     private final static QName _ExisteAdminResponse_QNAME = new QName("http://Servicio/", "ExisteAdminResponse");
     private final static QName _ImprimirChoferResponse_QNAME = new QName("http://Servicio/", "ImprimirChoferResponse");
@@ -85,6 +89,7 @@ public class ObjectFactory {
     private final static QName _GetChoferNombre2Response_QNAME = new QName("http://Servicio/", "getChoferNombre2Response");
     private final static QName _LogearChoferResponse_QNAME = new QName("http://Servicio/", "LogearChoferResponse");
     private final static QName _InsertarChoferResponse_QNAME = new QName("http://Servicio/", "InsertarChoferResponse");
+    private final static QName _ResumenBus_QNAME = new QName("http://Servicio/", "ResumenBus");
     private final static QName _RetornarListaRutas_QNAME = new QName("http://Servicio/", "RetornarListaRutas");
     private final static QName _ImprimirEstacionClaveRetorno2_QNAME = new QName("http://Servicio/", "ImprimirEstacionClaveRetorno2");
     private final static QName _AgregarBus_QNAME = new QName("http://Servicio/", "AgregarBus");
@@ -100,7 +105,11 @@ public class ObjectFactory {
     private final static QName _GetEstacionClaveNombre2_QNAME = new QName("http://Servicio/", "getEstacionClaveNombre2");
     private final static QName _GetChoferNombre2_QNAME = new QName("http://Servicio/", "getChoferNombre2");
     private final static QName _ModificarEstacionGeneral_QNAME = new QName("http://Servicio/", "ModificarEstacionGeneral");
+    private final static QName _ResumenChofer_QNAME = new QName("http://Servicio/", "ResumenChofer");
     private final static QName _RetornarNombresDeRutas_QNAME = new QName("http://Servicio/", "RetornarNombresDeRutas");
+    private final static QName _ChoferLogeadoResponse_QNAME = new QName("http://Servicio/", "ChoferLogeadoResponse");
+    private final static QName _AgregarNumeroExtacion2Response_QNAME = new QName("http://Servicio/", "AgregarNumeroExtacion2Response");
+    private final static QName _ResumenBusResponse_QNAME = new QName("http://Servicio/", "ResumenBusResponse");
     private final static QName _ImprimirAvlAdminResponse_QNAME = new QName("http://Servicio/", "ImprimirAvlAdminResponse");
     private final static QName _LogearEstacionesGenerales_QNAME = new QName("http://Servicio/", "LogearEstacionesGenerales");
     private final static QName _GraficarArbolEstacionClaveResponse_QNAME = new QName("http://Servicio/", "GraficarArbolEstacionClaveResponse");
@@ -111,7 +120,9 @@ public class ObjectFactory {
     private final static QName _ImprimirChoferREtorno2Response_QNAME = new QName("http://Servicio/", "ImprimirChoferREtorno2Response");
     private final static QName _Imprimir_0020RutasResponse_QNAME = new QName("http://Servicio/", "Imprimir RutasResponse");
     private final static QName _EliminarAdmin_QNAME = new QName("http://Servicio/", "EliminarAdmin");
+    private final static QName _AgregarNumeroExtacion2_QNAME = new QName("http://Servicio/", "AgregarNumeroExtacion2");
     private final static QName _ExisteChoferResponse_QNAME = new QName("http://Servicio/", "ExisteChoferResponse");
+    private final static QName _ChoferLogeado_QNAME = new QName("http://Servicio/", "ChoferLogeado");
     private final static QName _ExisteChofer_QNAME = new QName("http://Servicio/", "ExisteChofer");
     private final static QName _ImprimirChoferREtorno_QNAME = new QName("http://Servicio/", "ImprimirChoferREtorno");
     private final static QName _ImprimirAdminsResponse_QNAME = new QName("http://Servicio/", "ImprimirAdminsResponse");
@@ -130,16 +141,21 @@ public class ObjectFactory {
     private final static QName _Volumen_QNAME = new QName("http://Servicio/", "Volumen");
     private final static QName _GetEstacionClave_QNAME = new QName("http://Servicio/", "getEstacionClave");
     private final static QName _InsertarEstacionClaveResponse_QNAME = new QName("http://Servicio/", "InsertarEstacionClaveResponse");
+    private final static QName _Leerhoteles_QNAME = new QName("http://Servicio/", "leerhoteles");
     private final static QName _Imprimir_0020Rutas_QNAME = new QName("http://Servicio/", "Imprimir Rutas");
+    private final static QName _GraficarListaDeBusesAunChofer_QNAME = new QName("http://Servicio/", "GraficarListaDeBusesAunChofer");
     private final static QName _ExisteBusResponse_QNAME = new QName("http://Servicio/", "ExisteBusResponse");
     private final static QName _ImprimirEstaGeneralResponse_QNAME = new QName("http://Servicio/", "ImprimirEstaGeneralResponse");
+    private final static QName _ResumenChoferResponse_QNAME = new QName("http://Servicio/", "ResumenChoferResponse");
     private final static QName _EliminarAdminResponse_QNAME = new QName("http://Servicio/", "EliminarAdminResponse");
     private final static QName _GetEstacionClaveNombre2Response_QNAME = new QName("http://Servicio/", "getEstacionClaveNombre2Response");
     private final static QName _ModificarEstacionClave_QNAME = new QName("http://Servicio/", "ModificarEstacionClave");
     private final static QName _AsignacionDeBuses_QNAME = new QName("http://Servicio/", "AsignacionDeBuses");
+    private final static QName _LeerhotelesResponse_QNAME = new QName("http://Servicio/", "leerhotelesResponse");
     private final static QName _ImprimirChoferREtornoResponse_QNAME = new QName("http://Servicio/", "ImprimirChoferREtornoResponse");
     private final static QName _AgregarNumeroExtacion_QNAME = new QName("http://Servicio/", "AgregarNumeroExtacion");
     private final static QName _ImprimirEstacionesClaveResponse_QNAME = new QName("http://Servicio/", "ImprimirEstacionesClaveResponse");
+    private final static QName _ValidacionesArchivo_QNAME = new QName("http://Servicio/", "ValidacionesArchivo");
     private final static QName _ImprimirAvlAdmin_QNAME = new QName("http://Servicio/", "ImprimirAvlAdmin");
     private final static QName _ModificarEstacionClaveResponse_QNAME = new QName("http://Servicio/", "ModificarEstacionClaveResponse");
     private final static QName _ImprimirListaBuses_QNAME = new QName("http://Servicio/", "ImprimirListaBuses");
@@ -150,12 +166,16 @@ public class ObjectFactory {
     private final static QName _ModificarAdminResponse_QNAME = new QName("http://Servicio/", "ModificarAdminResponse");
     private final static QName _RetornarListaDeNombresDeEstacionesResponse_QNAME = new QName("http://Servicio/", "RetornarListaDeNombresDeEstacionesResponse");
     private final static QName _GetChofer2_QNAME = new QName("http://Servicio/", "getChofer2");
+    private final static QName _ValidacionesArchivoResponse_QNAME = new QName("http://Servicio/", "ValidacionesArchivoResponse");
+    private final static QName _BuscarRutaResponse_QNAME = new QName("http://Servicio/", "BuscarRutaResponse");
     private final static QName _EliminarEstacionGeneral_QNAME = new QName("http://Servicio/", "EliminarEstacionGeneral");
     private final static QName _InsertarAdmin_QNAME = new QName("http://Servicio/", "InsertarAdmin");
     private final static QName _ImprimirEstaGeREtorno2Response_QNAME = new QName("http://Servicio/", "ImprimirEstaGeREtorno2Response");
     private final static QName _GetEstacionClave2_QNAME = new QName("http://Servicio/", "getEstacionClave2");
+    private final static QName _GetEstacionClaveNodoResponse_QNAME = new QName("http://Servicio/", "getEstacionClaveNodoResponse");
     private final static QName _GetEstacionGeneralNombreResponse_QNAME = new QName("http://Servicio/", "getEstacionGeneralNombreResponse");
     private final static QName _BuscarObjetoEnListaBuses_QNAME = new QName("http://Servicio/", "BuscarObjetoEnListaBuses");
+    private final static QName _BuscarRuta_QNAME = new QName("http://Servicio/", "BuscarRuta");
     private final static QName _GraficarArbolEstacionGeneral_QNAME = new QName("http://Servicio/", "GraficarArbolEstacionGeneral");
     private final static QName _LogearAdminResponse_QNAME = new QName("http://Servicio/", "LogearAdminResponse");
     private final static QName _ImprimirEstacionesClave_QNAME = new QName("http://Servicio/", "ImprimirEstacionesClave");
@@ -293,6 +313,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetEstacionClaveNodo }
+     * 
+     */
+    public GetEstacionClaveNodo createGetEstacionClaveNodo() {
+        return new GetEstacionClaveNodo();
+    }
+
+    /**
      * Create an instance of {@link EliminarEstacionClaveResponse }
      * 
      */
@@ -330,6 +358,14 @@ public class ObjectFactory {
      */
     public ImprimirAdminRetorno createImprimirAdminRetorno() {
         return new ImprimirAdminRetorno();
+    }
+
+    /**
+     * Create an instance of {@link GetEstacionGeneralNodoResponse }
+     * 
+     */
+    public GetEstacionGeneralNodoResponse createGetEstacionGeneralNodoResponse() {
+        return new GetEstacionGeneralNodoResponse();
     }
 
     /**
@@ -442,6 +478,14 @@ public class ObjectFactory {
      */
     public GraficarListaBusesResponse createGraficarListaBusesResponse() {
         return new GraficarListaBusesResponse();
+    }
+
+    /**
+     * Create an instance of {@link GetEstacionGeneralNodo }
+     * 
+     */
+    public GetEstacionGeneralNodo createGetEstacionGeneralNodo() {
+        return new GetEstacionGeneralNodo();
     }
 
     /**
@@ -573,6 +617,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ResumenChofer }
+     * 
+     */
+    public ResumenChofer createResumenChofer() {
+        return new ResumenChofer();
+    }
+
+    /**
      * Create an instance of {@link RetornarNombresDeRutas }
      * 
      */
@@ -602,6 +654,14 @@ public class ObjectFactory {
      */
     public InsertarChoferResponse createInsertarChoferResponse() {
         return new InsertarChoferResponse();
+    }
+
+    /**
+     * Create an instance of {@link ResumenBus }
+     * 
+     */
+    public ResumenBus createResumenBus() {
+        return new ResumenBus();
     }
 
     /**
@@ -690,6 +750,14 @@ public class ObjectFactory {
      */
     public ImprimirEstaGeneral2 createImprimirEstaGeneral2() {
         return new ImprimirEstaGeneral2();
+    }
+
+    /**
+     * Create an instance of {@link GraficarListaDeBusesAunChoferResponse }
+     * 
+     */
+    public GraficarListaDeBusesAunChoferResponse createGraficarListaDeBusesAunChoferResponse() {
+        return new GraficarListaDeBusesAunChoferResponse();
     }
 
     /**
@@ -813,11 +881,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Leerhoteles }
+     * 
+     */
+    public Leerhoteles createLeerhoteles() {
+        return new Leerhoteles();
+    }
+
+    /**
      * Create an instance of {@link Imprimir_0020Rutas }
      * 
      */
     public Imprimir_0020Rutas createImprimir_0020Rutas() {
         return new Imprimir_0020Rutas();
+    }
+
+    /**
+     * Create an instance of {@link GraficarListaDeBusesAunChofer }
+     * 
+     */
+    public GraficarListaDeBusesAunChofer createGraficarListaDeBusesAunChofer() {
+        return new GraficarListaDeBusesAunChofer();
     }
 
     /**
@@ -834,6 +918,14 @@ public class ObjectFactory {
      */
     public ImprimirEstaGeneralResponse createImprimirEstaGeneralResponse() {
         return new ImprimirEstaGeneralResponse();
+    }
+
+    /**
+     * Create an instance of {@link ResumenChoferResponse }
+     * 
+     */
+    public ResumenChoferResponse createResumenChoferResponse() {
+        return new ResumenChoferResponse();
     }
 
     /**
@@ -949,11 +1041,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link AgregarNumeroExtacion2 }
+     * 
+     */
+    public AgregarNumeroExtacion2 createAgregarNumeroExtacion2() {
+        return new AgregarNumeroExtacion2();
+    }
+
+    /**
      * Create an instance of {@link ExisteChoferResponse }
      * 
      */
     public ExisteChoferResponse createExisteChoferResponse() {
         return new ExisteChoferResponse();
+    }
+
+    /**
+     * Create an instance of {@link ChoferLogeado }
+     * 
+     */
+    public ChoferLogeado createChoferLogeado() {
+        return new ChoferLogeado();
     }
 
     /**
@@ -1002,6 +1110,30 @@ public class ObjectFactory {
      */
     public Borrar createBorrar() {
         return new Borrar();
+    }
+
+    /**
+     * Create an instance of {@link ChoferLogeadoResponse }
+     * 
+     */
+    public ChoferLogeadoResponse createChoferLogeadoResponse() {
+        return new ChoferLogeadoResponse();
+    }
+
+    /**
+     * Create an instance of {@link AgregarNumeroExtacion2Response }
+     * 
+     */
+    public AgregarNumeroExtacion2Response createAgregarNumeroExtacion2Response() {
+        return new AgregarNumeroExtacion2Response();
+    }
+
+    /**
+     * Create an instance of {@link ResumenBusResponse }
+     * 
+     */
+    public ResumenBusResponse createResumenBusResponse() {
+        return new ResumenBusResponse();
     }
 
     /**
@@ -1173,6 +1305,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BuscarRutaResponse }
+     * 
+     */
+    public BuscarRutaResponse createBuscarRutaResponse() {
+        return new BuscarRutaResponse();
+    }
+
+    /**
      * Create an instance of {@link EliminarEstacionGeneral }
      * 
      */
@@ -1205,6 +1345,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GetEstacionClaveNodoResponse }
+     * 
+     */
+    public GetEstacionClaveNodoResponse createGetEstacionClaveNodoResponse() {
+        return new GetEstacionClaveNodoResponse();
+    }
+
+    /**
      * Create an instance of {@link GetEstacionGeneralNombreResponse }
      * 
      */
@@ -1218,6 +1366,14 @@ public class ObjectFactory {
      */
     public BuscarObjetoEnListaBuses createBuscarObjetoEnListaBuses() {
         return new BuscarObjetoEnListaBuses();
+    }
+
+    /**
+     * Create an instance of {@link BuscarRuta }
+     * 
+     */
+    public BuscarRuta createBuscarRuta() {
+        return new BuscarRuta();
     }
 
     /**
@@ -1309,11 +1465,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ValidacionesArchivoResponse }
+     * 
+     */
+    public ValidacionesArchivoResponse createValidacionesArchivoResponse() {
+        return new ValidacionesArchivoResponse();
+    }
+
+    /**
      * Create an instance of {@link AsignacionDeBuses }
      * 
      */
     public AsignacionDeBuses createAsignacionDeBuses() {
         return new AsignacionDeBuses();
+    }
+
+    /**
+     * Create an instance of {@link LeerhotelesResponse }
+     * 
+     */
+    public LeerhotelesResponse createLeerhotelesResponse() {
+        return new LeerhotelesResponse();
     }
 
     /**
@@ -1341,6 +1513,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ValidacionesArchivo }
+     * 
+     */
+    public ValidacionesArchivo createValidacionesArchivo() {
+        return new ValidacionesArchivo();
+    }
+
+    /**
      * Create an instance of {@link ImprimirAvlAdmin }
      * 
      */
@@ -1362,6 +1542,14 @@ public class ObjectFactory {
      */
     public ImprimirListaBuses createImprimirListaBuses() {
         return new ImprimirListaBuses();
+    }
+
+    /**
+     * Create an instance of {@link Dia }
+     * 
+     */
+    public Dia createDia() {
+        return new Dia();
     }
 
     /**
@@ -1418,6 +1606,15 @@ public class ObjectFactory {
      */
     public NodoEstacionClave createNodoEstacionClave() {
         return new NodoEstacionClave();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEstacionGeneralNodo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "getEstacionGeneralNodo")
+    public JAXBElement<GetEstacionGeneralNodo> createGetEstacionGeneralNodo(GetEstacionGeneralNodo value) {
+        return new JAXBElement<GetEstacionGeneralNodo>(_GetEstacionGeneralNodo_QNAME, GetEstacionGeneralNodo.class, null, value);
     }
 
     /**
@@ -1628,6 +1825,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEstacionClaveNodo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "getEstacionClaveNodo")
+    public JAXBElement<GetEstacionClaveNodo> createGetEstacionClaveNodo(GetEstacionClaveNodo value) {
+        return new JAXBElement<GetEstacionClaveNodo>(_GetEstacionClaveNodo_QNAME, GetEstacionClaveNodo.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EliminarEstacionClaveResponse }{@code >}}
      * 
      */
@@ -1670,6 +1876,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "ImprimirAdminRetorno")
     public JAXBElement<ImprimirAdminRetorno> createImprimirAdminRetorno(ImprimirAdminRetorno value) {
         return new JAXBElement<ImprimirAdminRetorno>(_ImprimirAdminRetorno_QNAME, ImprimirAdminRetorno.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEstacionGeneralNodoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "getEstacionGeneralNodoResponse")
+    public JAXBElement<GetEstacionGeneralNodoResponse> createGetEstacionGeneralNodoResponse(GetEstacionGeneralNodoResponse value) {
+        return new JAXBElement<GetEstacionGeneralNodoResponse>(_GetEstacionGeneralNodoResponse_QNAME, GetEstacionGeneralNodoResponse.class, null, value);
     }
 
     /**
@@ -1907,6 +2122,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarListaDeBusesAunChoferResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "GraficarListaDeBusesAunChoferResponse")
+    public JAXBElement<GraficarListaDeBusesAunChoferResponse> createGraficarListaDeBusesAunChoferResponse(GraficarListaDeBusesAunChoferResponse value) {
+        return new JAXBElement<GraficarListaDeBusesAunChoferResponse>(_GraficarListaDeBusesAunChoferResponse_QNAME, GraficarListaDeBusesAunChoferResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetChofer }{@code >}}
      * 
      */
@@ -1967,6 +2191,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "InsertarChoferResponse")
     public JAXBElement<InsertarChoferResponse> createInsertarChoferResponse(InsertarChoferResponse value) {
         return new JAXBElement<InsertarChoferResponse>(_InsertarChoferResponse_QNAME, InsertarChoferResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResumenBus }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ResumenBus")
+    public JAXBElement<ResumenBus> createResumenBus(ResumenBus value) {
+        return new JAXBElement<ResumenBus>(_ResumenBus_QNAME, ResumenBus.class, null, value);
     }
 
     /**
@@ -2105,12 +2338,48 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResumenChofer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ResumenChofer")
+    public JAXBElement<ResumenChofer> createResumenChofer(ResumenChofer value) {
+        return new JAXBElement<ResumenChofer>(_ResumenChofer_QNAME, ResumenChofer.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link RetornarNombresDeRutas }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://Servicio/", name = "RetornarNombresDeRutas")
     public JAXBElement<RetornarNombresDeRutas> createRetornarNombresDeRutas(RetornarNombresDeRutas value) {
         return new JAXBElement<RetornarNombresDeRutas>(_RetornarNombresDeRutas_QNAME, RetornarNombresDeRutas.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChoferLogeadoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ChoferLogeadoResponse")
+    public JAXBElement<ChoferLogeadoResponse> createChoferLogeadoResponse(ChoferLogeadoResponse value) {
+        return new JAXBElement<ChoferLogeadoResponse>(_ChoferLogeadoResponse_QNAME, ChoferLogeadoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarNumeroExtacion2Response }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "AgregarNumeroExtacion2Response")
+    public JAXBElement<AgregarNumeroExtacion2Response> createAgregarNumeroExtacion2Response(AgregarNumeroExtacion2Response value) {
+        return new JAXBElement<AgregarNumeroExtacion2Response>(_AgregarNumeroExtacion2Response_QNAME, AgregarNumeroExtacion2Response.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResumenBusResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ResumenBusResponse")
+    public JAXBElement<ResumenBusResponse> createResumenBusResponse(ResumenBusResponse value) {
+        return new JAXBElement<ResumenBusResponse>(_ResumenBusResponse_QNAME, ResumenBusResponse.class, null, value);
     }
 
     /**
@@ -2204,12 +2473,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AgregarNumeroExtacion2 }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "AgregarNumeroExtacion2")
+    public JAXBElement<AgregarNumeroExtacion2> createAgregarNumeroExtacion2(AgregarNumeroExtacion2 value) {
+        return new JAXBElement<AgregarNumeroExtacion2>(_AgregarNumeroExtacion2_QNAME, AgregarNumeroExtacion2 .class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ExisteChoferResponse }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://Servicio/", name = "ExisteChoferResponse")
     public JAXBElement<ExisteChoferResponse> createExisteChoferResponse(ExisteChoferResponse value) {
         return new JAXBElement<ExisteChoferResponse>(_ExisteChoferResponse_QNAME, ExisteChoferResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ChoferLogeado }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ChoferLogeado")
+    public JAXBElement<ChoferLogeado> createChoferLogeado(ChoferLogeado value) {
+        return new JAXBElement<ChoferLogeado>(_ChoferLogeado_QNAME, ChoferLogeado.class, null, value);
     }
 
     /**
@@ -2375,12 +2662,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Leerhoteles }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "leerhoteles")
+    public JAXBElement<Leerhoteles> createLeerhoteles(Leerhoteles value) {
+        return new JAXBElement<Leerhoteles>(_Leerhoteles_QNAME, Leerhoteles.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Imprimir_0020Rutas }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://Servicio/", name = "Imprimir Rutas")
     public JAXBElement<Imprimir_0020Rutas> createImprimir_0020Rutas(Imprimir_0020Rutas value) {
         return new JAXBElement<Imprimir_0020Rutas>(_Imprimir_0020Rutas_QNAME, Imprimir_0020Rutas.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficarListaDeBusesAunChofer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "GraficarListaDeBusesAunChofer")
+    public JAXBElement<GraficarListaDeBusesAunChofer> createGraficarListaDeBusesAunChofer(GraficarListaDeBusesAunChofer value) {
+        return new JAXBElement<GraficarListaDeBusesAunChofer>(_GraficarListaDeBusesAunChofer_QNAME, GraficarListaDeBusesAunChofer.class, null, value);
     }
 
     /**
@@ -2399,6 +2704,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "ImprimirEstaGeneralResponse")
     public JAXBElement<ImprimirEstaGeneralResponse> createImprimirEstaGeneralResponse(ImprimirEstaGeneralResponse value) {
         return new JAXBElement<ImprimirEstaGeneralResponse>(_ImprimirEstaGeneralResponse_QNAME, ImprimirEstaGeneralResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ResumenChoferResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ResumenChoferResponse")
+    public JAXBElement<ResumenChoferResponse> createResumenChoferResponse(ResumenChoferResponse value) {
+        return new JAXBElement<ResumenChoferResponse>(_ResumenChoferResponse_QNAME, ResumenChoferResponse.class, null, value);
     }
 
     /**
@@ -2438,6 +2752,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LeerhotelesResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "leerhotelesResponse")
+    public JAXBElement<LeerhotelesResponse> createLeerhotelesResponse(LeerhotelesResponse value) {
+        return new JAXBElement<LeerhotelesResponse>(_LeerhotelesResponse_QNAME, LeerhotelesResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ImprimirChoferREtornoResponse }{@code >}}
      * 
      */
@@ -2462,6 +2785,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "ImprimirEstacionesClaveResponse")
     public JAXBElement<ImprimirEstacionesClaveResponse> createImprimirEstacionesClaveResponse(ImprimirEstacionesClaveResponse value) {
         return new JAXBElement<ImprimirEstacionesClaveResponse>(_ImprimirEstacionesClaveResponse_QNAME, ImprimirEstacionesClaveResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidacionesArchivo }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ValidacionesArchivo")
+    public JAXBElement<ValidacionesArchivo> createValidacionesArchivo(ValidacionesArchivo value) {
+        return new JAXBElement<ValidacionesArchivo>(_ValidacionesArchivo_QNAME, ValidacionesArchivo.class, null, value);
     }
 
     /**
@@ -2555,6 +2887,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidacionesArchivoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "ValidacionesArchivoResponse")
+    public JAXBElement<ValidacionesArchivoResponse> createValidacionesArchivoResponse(ValidacionesArchivoResponse value) {
+        return new JAXBElement<ValidacionesArchivoResponse>(_ValidacionesArchivoResponse_QNAME, ValidacionesArchivoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarRutaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "BuscarRutaResponse")
+    public JAXBElement<BuscarRutaResponse> createBuscarRutaResponse(BuscarRutaResponse value) {
+        return new JAXBElement<BuscarRutaResponse>(_BuscarRutaResponse_QNAME, BuscarRutaResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link EliminarEstacionGeneral }{@code >}}
      * 
      */
@@ -2591,6 +2941,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetEstacionClaveNodoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "getEstacionClaveNodoResponse")
+    public JAXBElement<GetEstacionClaveNodoResponse> createGetEstacionClaveNodoResponse(GetEstacionClaveNodoResponse value) {
+        return new JAXBElement<GetEstacionClaveNodoResponse>(_GetEstacionClaveNodoResponse_QNAME, GetEstacionClaveNodoResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetEstacionGeneralNombreResponse }{@code >}}
      * 
      */
@@ -2606,6 +2965,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://Servicio/", name = "BuscarObjetoEnListaBuses")
     public JAXBElement<BuscarObjetoEnListaBuses> createBuscarObjetoEnListaBuses(BuscarObjetoEnListaBuses value) {
         return new JAXBElement<BuscarObjetoEnListaBuses>(_BuscarObjetoEnListaBuses_QNAME, BuscarObjetoEnListaBuses.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BuscarRuta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://Servicio/", name = "BuscarRuta")
+    public JAXBElement<BuscarRuta> createBuscarRuta(BuscarRuta value) {
+        return new JAXBElement<BuscarRuta>(_BuscarRuta_QNAME, BuscarRuta.class, null, value);
     }
 
     /**

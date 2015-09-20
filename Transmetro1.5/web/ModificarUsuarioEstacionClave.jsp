@@ -66,7 +66,13 @@
                         <br>
                       <h5>Seleccione El Que desea Modificar: </h5> 
                       <br>
+                       <input type="radio" name="radio1" value="1" />Modificar Correo y Contraseña
+                      <br>    
+                      <input type="radio" name="radio1" value="2" />Modificar Solo Contraseña
+                      <br> 
+                      <br> 
                       <select name="Lista">
+                      <option value="...">...</option>
                                                                         <%-- start web service invocation --%><hr/>
     <%
     try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
@@ -105,7 +111,11 @@
                       </select>
                       <br>
                       <br>    
-                     
+                       <h5>ID De La EStacion: </h5>  
+                      <br>
+                      <input type="text" name="id" value="" />
+                      <br>
+                      <br>
                       <h5>Nombre de Estacion: </h5>  
                       <br>
                       <input type="text" name="correo" value="" />
@@ -118,34 +128,62 @@
                       <br>
                       <input type="submit" value="MODIFICAR" />
                       
-                    </form>
+                   
                       
                 <%-- start web service invocation --%><hr/>
     <%
-     if (request.getParameter("correo") != null){ 
+     
     try {
 	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
 	servicio.SerivicioWeb port = service.getSerivicioWebPort();
 	 // TODO initialize WS operation arguments here
+        String list=request.getParameter("Lista");
+        
 	int arg0 = Integer.parseInt(request.getParameter("Lista"));
-	java.lang.String arg1 = request.getParameter("correo");
-	java.lang.String arg2 = request.getParameter("contramod");
+	java.lang.String arg1 = request.getParameter("correo");//nombre de LA estacion
+	java.lang.String arg2 = request.getParameter("contramod"); 
+        //int id=Integer.parseInt(request.getParameter("id"));
+        
+        int vali1 = Integer.parseInt(request.getParameter("radio1"));
 	// TODO process result here
-	java.lang.String result = port.modificarEstacionClave(arg0, arg1, arg2);
+        
+        if (!list.equals("...")){ //ejecutar
+            
+            if(vali1==2){
+        java.lang.String result = port.modificarEstacionClave(arg0, arg1, arg2);
 	out.println("Result = "+result);
         
         String msg=result;
         String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
+        out.println(mensaje);    
+            }else{
+                int id=Integer.parseInt(request.getParameter("id"));
+                boolean result2=port.existeEstacionClave(id);
+        
+        if(result2==true){//existe Ese Usuario
+        String mensaje="<script language='javascript'>alert('Este Admin Ya Existe');</script>"; 
+        out.println(mensaje);    
+        }else{//no existe Tonces Insertar
+        port.eliminarEstacionClave(arg0);//lo Elimina y procede a Incertar Nuevo
+        
+        String msg=port.insertarEstacionClave(id, arg1, arg2);
+        String mensaje="<script language='javascript'>alert('"+msg+"');</script>"; 
         out.println(mensaje);
+                
+        }
+            
+        }      
+        }//Se cierran Los puntos
+        
         
     } catch (Exception ex) {
 	// TODO handle custom exceptions here
     }
-     }
+     
     %>
     <%-- end web service invocation --%><hr/>
           
-                    
+         </form>           
         </div>
         <div id="content_bottom"></div>
             

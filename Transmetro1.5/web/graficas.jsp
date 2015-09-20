@@ -52,7 +52,7 @@
                     <li><a href="MostrarChofer.jsp">Choferes:</a></li>
                     </br>
                     <h3><font color="yellow">Reportes:</font></h3>
-                    <li><a href="#">Resumen</a></li>
+                    <li><a href="Resumen.jsp">Resumen</a></li>
                     <li><a href="graficas.jsp">Graficas</a></li>
                 </ul>
 </div>
@@ -89,7 +89,7 @@
         <h3>Arbol AvL Administradores:</h3>
         <br>
         <br>
-        <IMG src="<%= arbol%>">    
+        <IMG src="Arbol1.jpg">    
         <br>                
         <br>    
         <%
@@ -304,6 +304,104 @@
     <%-- end web service invocation --%><hr/>
          <br>
          <br>  
+        <h3>Lista de buses asignados de un solo chofer: </h3>
+        <br>
+        <br>
+            <form name="buses" action="graficas.jsp" method="POST">
+                
+                <select name="listaChoferes">
+             <option value="...">...</option><br>    
+                                 <%
+    try {servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();	
+        
+        int y=port.imprimirChoferREtorno().size();
+        int y1=port.imprimirChoferREtorno2().size();
+        int count=0;        
+        if(port.imprimirChoferREtorno().isEmpty()){
+         //vacia   
+        }else{//llena
+         
+         for (int i=y-1; i>=0;i--){    
+         //String mensaje="<script language='javascript'>alert('"+port.getAdmin(i).toString()+"');</script>"; 
+         //out.println(mensaje);
+         String mensaje2=port.getChoferNombre(i).toString();
+         String mensaje3=port.getChofer2(i).toString();
+         //AQui SE EScribe Para Q Imprima en la Mierda De TAbla
+         
+        %>  
+        
+        <option value="<%= mensaje2%>"><%= mensaje3%></option>
+               
+         <%
+         count=count+1;
+         }   
+         
+        }
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    </select> 
+        <br>
+        <input type="submit" value="Graficar" />
+        <br>
+        <br>
+            <%-- start web service invocation --%><hr/>
+    <%
+    try {
+	servicio.SerivicioWeb_Service service = new servicio.SerivicioWeb_Service();
+	servicio.SerivicioWeb port = service.getSerivicioWebPort();
+	 // TODO initialize WS operation arguments here
+	int arg0 = Integer.parseInt(request.getParameter("listaChoferes"));
+	// TODO process result here
+	boolean result = port.graficarListaDeBusesAunChofer(arg0);
+	//out.println("Result = "+result);
+        
+        
+        if(result==true){//grafico
+       // String mensaje="<script language='javascript'>alert('Grafico Arbol EstacionClave');</script>"; 
+        //out.println(mensaje);
+        //SEtear Imagen Del Arbol En Pagina
+        String arbol="ListaDeBusesDeUnChofer.jpg";
+        %>
+        
+        <h3>Lista Buses De Un Chofer:</h3>
+        <br>
+        <br>
+        <IMG src="<%=arbol%>">    
+        <br>                
+        <br>    
+        <%
+        }else{//no Grafico
+        //String mensaje="<script language='javascript'>alert('No Se Genero Arbol Admin Falta De Datos');</script>"; 
+        //out.println(mensaje);
+        
+        %>
+        
+        <h3>Vacio: </h3>
+        <br>
+        <br>
+        <h3>Esta VAcio</h3>            
+        <br>
+        <br>    
+            
+        <%
+        
+        }       
+        
+        
+    } catch (Exception ex) {
+	// TODO handle custom exceptions here
+    }
+    %>
+    <%-- end web service invocation --%><hr/>
+    
+                
+        </form>
+             
              
         </div>
         <div id="content_bottom"></div>

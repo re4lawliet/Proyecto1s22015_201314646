@@ -21,6 +21,8 @@ public class ArbolEstacionClave {
 	public NodoEstacionClave A;
         public NodoEstacionClave Busqueda=null;
         public NodoEstacionClave EncontradoParaModificar=null;
+        
+        NodoEstacionClave d=null;
                 
 	boolean Hh;
         public ArrayList <String> LineasGrafico= new ArrayList <> ();
@@ -293,16 +295,16 @@ public class ArbolEstacionClave {
             BuscarPorDato(R.Derecho,dato);
           }
           else{
-              this.Busqueda=R;
+              this.d=R;
            }
       }
     }else{
           System.out.println ("No Existe el Dato");
           NodoEstacionClave sinDato=new NodoEstacionClave (-555,"nada","nada");
-          Busqueda=sinDato; //Retorna Un Objeto Sin Nada :v 
+          d=sinDato; //Retorna Un Objeto Sin Nada :v 
           //return Busqueda;
     }    
-            return Busqueda;
+            return d;
     
     
     }

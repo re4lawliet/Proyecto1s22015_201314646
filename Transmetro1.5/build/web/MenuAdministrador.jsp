@@ -39,7 +39,7 @@
                         
                 <ul>
                     <li><a href="AsignacionDeBuses.jsp">Asignacion de Buses</a></li>
-                    <li><a href="#">Agregar Usuarios de Estaciones</a></li>
+                    <li><a href="MoverBuses.jsp">Agregar Usuarios de Estaciones</a></li>
                     </br>
                     <li><a href="AgregarBus.jsp">Agregar Buses</a></li>
                     <li><a href="AgregarRuta.jsp">Agregar Rutas</a></li>
@@ -52,7 +52,7 @@
                     <li><a href="MostrarChofer.jsp">Choferes:</a></li>
                     </br>
                     <h3><font color="yellow">Reportes:</font></h3>
-                    <li><a href="#">Resumen</a></li>
+                    <li><a href="Resumen.jsp">Resumen</a></li>
                     <li><a href="graficas.jsp">Graficas</a></li>
                 </ul>
 </div>

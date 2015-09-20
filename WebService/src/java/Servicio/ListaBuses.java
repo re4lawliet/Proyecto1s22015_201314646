@@ -162,6 +162,31 @@ public class ListaBuses {
         return auxiliarFinal;
     }
     
+    public NodoBuses BusquedaID (int p){
+        
+        NodoBuses auxiliar=inicio;
+        NodoBuses auxiliarFinal = null;
+        bus retorno = null;
+         if (inicio!=null){ //si no esta vacia porlomenos tiene un nodo
+             //crea nodoDoble auxiliar y apunta al final
+            
+            while (auxiliar!=null){//mientras auxiliar sea diferente de nulo, Mostrara los datos
+           
+                if (auxiliar.dato.id==p){
+                    auxiliarFinal=auxiliar;
+                    retorno=auxiliarFinal.dato;
+                }
+                
+                auxiliar = auxiliar.siguiente; //auxiliar va a recorrer a anterior
+            }
+            
+            
+        }else {
+            JOptionPane.showMessageDialog(null, null,"ESta Vacia Mula",JOptionPane.INFORMATION_MESSAGE);
+        }
+        return auxiliarFinal;
+    }
+    
     //cusqueda REtornando el Objeto
     public bus Busqueda2 (String p){
         
